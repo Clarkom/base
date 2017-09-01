@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :expenses do
     collection do
       get 'insurance_fields'
+      get 'break_fields'
     end
   end
 

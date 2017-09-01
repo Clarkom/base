@@ -25,13 +25,22 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(expense_params)
+    @yep = expense_params.key?('inssurance_attributes')
     respond_to do |format|
       if @expense.save
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
-        format.html { render :insurance_fields }
-        format.json { render json: @expense.errors, status: :unprocessable_entity }
+       
+        if expense_params.key?('inssurance_attributes') == false && expense_params.key?('break_attributes') == false
+          format.html { render :new }
+        end
+        if expense_params.key?('inssurance_attributes')
+          format.html { render :insurance_fields }
+        end
+        if expense_params.key?('break_attributes')
+          format.html { render :break_fields }
+        end
       end
     end
   end
@@ -41,6 +50,11 @@ class ExpensesController < ApplicationController
     @expense.build_inssurance
   end
 
+  def break_fields
+    @expense = Expense.new
+    @expense.build_break
+  end
+  
   # PATCH/PUT /expenses/1
   # PATCH/PUT /expenses/1.json
   def update
@@ -71,6 +85,7 @@ class ExpensesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
       @expense = Expense.find(params[:id])
+      @exp = Expense.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

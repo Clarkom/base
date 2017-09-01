@@ -1,8 +1,13 @@
 
 <div style="margin-bottom: 10px">
-	<%= link_to 'Nothing', :action => :new %>
-	<%= link_to 'Insurance', :action => :insurance_fields, remote: true %>
+	<ul>
+		<li><%= link_to 'Nothing', :action => :new %></li>
+		<li><%= link_to 'Insurance', :action => :insurance_fields, remote: true %></li>
+		<li><%= link_to 'Break', :action => :break_fields, remote: true %></li>
+	</ul>
 </div>
+
+<%= @yep %>
 
 <%= form_for @expense do |form| %>
 
