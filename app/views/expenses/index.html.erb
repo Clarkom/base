@@ -5,19 +5,51 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Amount</th>
-      <th>Attached file</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>Insurance</th>
+      <th>Break</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @expenses.each do |expense| %>
       <tr>
+        <td><%= expense.id %></td>
         <td><%= expense.amount %></td>
-        <td><%= expense.attached_file %></td>
-        <td><%= expense.description %></td>
+        <td>
+					<% if expense.inssurance %>
+							<ul>
+								<li>
+									<b>Start Date</b>
+									<%= expense.inssurance.start_date %>
+								</li>
+								<li>
+									<b>End Date</b>
+									<%= expense.inssurance.end_date %>
+								</li>
+							</ul>
+					<% else %>
+							<div style="text-align: center;padding-top: 10px;color: red"><b>Nothing</b></div>
+					<% end %>
+				</td>
+				<td>
+					<% if expense.break %>
+							<ul>
+								<li>
+									<b>Start Date</b>
+									<%= expense.break.start_date %>
+								</li>
+								<li>
+									<b>End Date</b>
+									<%= expense.break.end_date %>
+								</li>
+							</ul>
+							<% else %>
+								<div style="text-align: center;padding-top: 10px;color: red"><b>Nothing</b></div>
+					<% end %>
+				</td>
         <td><%= link_to 'Show', expense %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>

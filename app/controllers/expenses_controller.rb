@@ -72,8 +72,17 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1
   # DELETE /expenses/1.json
   def destroy
-    Expense.find(params[:id]).inssurance.destroy
+    
+    if Expense.find(params[:id]).inssurance
+      Expense.find(params[:id]).inssurance.destroy
+    end
+
+    if Expense.find(params[:id]).break
+      Expense.find(params[:id]).break.destroy
+    end
+    
     @expense.destroy
+    
     respond_to do |format|
       format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
