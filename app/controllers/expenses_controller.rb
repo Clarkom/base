@@ -15,8 +15,6 @@ class ExpensesController < ApplicationController
   # GET /expenses/new
   def new
     @expense = Expense.new
-    @expense.build_inssurance
-    @expense.build_break
   end
 
   # GET /expenses/1/edit
@@ -27,16 +25,20 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(expense_params)
-
     respond_to do |format|
       if @expense.save
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
-        format.html { render :new }
+        format.html { render :insurance_fields }
         format.json { render json: @expense.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def insurance_fields
+    @expense = Expense.new
+    @expense.build_inssurance
   end
 
   # PATCH/PUT /expenses/1
@@ -64,11 +66,6 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def FAQ_help
-    respond_to do |format|
-      format.js
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,3 +1,9 @@
+
+<div style="margin-bottom: 10px">
+	<%= link_to 'Nothing', :action => :new %>
+	<%= link_to 'Insurance', :action => :insurance_fields, remote: true %>
+</div>
+
 <%= form_for @expense do |form| %>
 
     <% if expense.errors.any? %>
@@ -12,12 +18,6 @@
       </div>
     <% end %>
 
-
-    <div>
-      <h3>Choices</h3>
-      <%= radio_button('expense', 'inssurance', 'insurance') %> Insurance
-      <%= radio_button('expense', 'inssurance', 'break') %> Break
-    </div>
 
     <div class="field">
       <%= form.label :amount %>
@@ -34,20 +34,6 @@
       <%= form.text_area :description, id: :expense_description %>
     </div>
 
-    <div class="field">
-      <h3>Insurance Field</h3>
-      <%= form.fields_for :inssurance do |inssurance_form| %>
-          <%= inssurance_form.label :start_date %>
-          <%= inssurance_form.date_field :start_date %>
-          <%= inssurance_form.label :end_date %>
-          <%= inssurance_form.date_field :end_date %>
-      <% end %>
-    </div>
-
-
-    <div id="content">
-
-    </div>
 
     <div class="actions">
       <%= form.submit %>

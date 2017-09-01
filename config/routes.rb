@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :inssurances
   resources :expenses do
     collection do
-      get 'new_insurance'
+      get 'insurance_fields'
     end
   end
 
