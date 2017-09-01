@@ -4,7 +4,8 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = Expense.group(:created_at)
+    @expenses_sum = Expense.sum(:amount)
   end
 
   # GET /expenses/1
@@ -19,13 +20,13 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/1/edit
   def edit
+
   end
 
   # POST /expenses
   # POST /expenses.json
   def create
     @expense = Expense.new(expense_params)
-    @yep = expense_params.key?('inssurance_attributes')
     respond_to do |format|
       if @expense.save
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }

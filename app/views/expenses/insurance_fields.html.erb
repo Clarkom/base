@@ -1,12 +1,4 @@
 <h1>New Expense</h1>
 
-<div style="margin-bottom: 10px">
-	<ul>
-		<li><%= link_to 'Nothing', :action => :new %></li>
-		<li><%= link_to 'Insurance', :action => :insurance_fields, remote: true %></li>
-		<li><%= link_to 'Break', :action => :break_fields, remote: true %></li>
-	</ul>
-</div>
-
 <%= render 'insurance_fields', expense: @expense %>
 <%= link_to 'Back', expenses_path %>

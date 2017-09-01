@@ -1,14 +1,3 @@
-
-<div style="margin-bottom: 10px">
-	<ul>
-		<li><%= link_to 'Nothing', :action => :new %></li>
-		<li><%= link_to 'Insurance', :action => :insurance_fields, remote: true %></li>
-		<li><%= link_to 'Break', :action => :break_fields, remote: true %></li>
-	</ul>
-</div>
-
-<%= @yep %>
-
 <%= form_for @expense do |form| %>
 
     <% if expense.errors.any? %>
@@ -26,7 +15,7 @@
 
     <div class="field">
       <%= form.label :amount %>
-      <%= form.number_field :amount, id: :expense_amount %>
+      <%= form.number_field :amount, id: :expense_amount %> DH
     </div>
 
     <div class="field">
@@ -38,6 +27,32 @@
       <%= form.label :description %>
       <%= form.text_area :description, id: :expense_description %>
     </div>
+
+    <% if @expense.inssurance %>
+
+        <div class="field">
+          <h3>Break Fields</h3>
+          <%= form.fields_for :inssurance do |inssurance_form| %>
+              <%= inssurance_form.label :start_date %>
+              <%= inssurance_form.date_field :start_date %>
+              <%= inssurance_form.label :end_date %>
+              <%= inssurance_form.date_field :end_date %>
+          <% end %>
+        </div>
+    <% end %>
+
+    <% if @expense.break %>
+
+        <div class="field">
+          <h3>Break Fields</h3>
+          <%= form.fields_for :inssurance do |break_form| %>
+              <%= break_form.label :start_date %>
+              <%= break_form.date_field :start_date %>
+              <%= break_form.label :end_date %>
+              <%= break_form.date_field :end_date %>
+          <% end %>
+        </div>
+    <% end %>
 
 
     <div class="actions">
