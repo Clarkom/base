@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829130422) do
+ActiveRecord::Schema.define(version: 20170901232605) do
 
   create_table "breaks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expense_id"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20170829130422) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["expense_id"], name: "index_breaks_on_expense_id"
+  end
+
+  create_table "drivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birth_date"
+    t.integer "mobile_phone"
+    t.integer "home_phone"
+    t.string "driving_license_number"
+    t.string "home_adress"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
