@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :insurers
   resources :owner_takes
   resources :owners
   resources :damages

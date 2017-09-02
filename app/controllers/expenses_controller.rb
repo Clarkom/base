@@ -131,7 +131,7 @@ class ExpensesController < ApplicationController
           :amount,
           :attached_file,
           :description,
-          :inssurance_attributes => [:id, :start_date, :end_date],
+          :inssurance_attributes => [:id, :start_date, :end_date, :insurer_id],
           :break_attributes => [:id, :start_date, :end_date],
           :damage_attributes => [:id, :damage_type_id, :driver_id, :expense_id, :date],
           :owner_take_attributes => [:id, :owner_id, :expense_id]

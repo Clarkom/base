@@ -35,10 +35,18 @@
 			<div class="field">
 				<h3>Insurance Field</h3>
 				<%= form.fields_for :inssurance do |inssurance_form| %>
+
 						<%= inssurance_form.label :start_date %>
 						<%= inssurance_form.date_field :start_date %>
+
 						<%= inssurance_form.label :end_date %>
 						<%= inssurance_form.date_field :end_date %>
+
+            <%= inssurance_form.collection_select :insurer_id, Insurer.all, :id, :name, {
+              :multiple => false,
+              :include_blank => 'Select an Insurer',
+            } %>
+
 				<% end %>
 			</div>
 			

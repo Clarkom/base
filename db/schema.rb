@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902101245) do
+ActiveRecord::Schema.define(version: 20170902120504) do
 
   create_table "breaks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expense_id"
@@ -61,11 +61,22 @@ ActiveRecord::Schema.define(version: 20170902101245) do
 
   create_table "inssurances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expense_id"
+    t.bigint "insurer_id"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["expense_id"], name: "index_inssurances_on_expense_id"
+    t.index ["insurer_id"], name: "index_inssurances_on_insurer_id"
+  end
+
+  create_table "insurers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "picture"
+    t.string "address"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "owner_takes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -90,7 +101,6 @@ ActiveRecord::Schema.define(version: 20170902101245) do
   add_foreign_key "damages", "damage_types"
   add_foreign_key "damages", "drivers"
   add_foreign_key "damages", "expenses"
-  add_foreign_key "inssurances", "expenses"
   add_foreign_key "owner_takes", "expenses"
   add_foreign_key "owner_takes", "owners"
 end
