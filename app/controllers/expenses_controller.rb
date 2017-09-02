@@ -33,7 +33,10 @@ class ExpensesController < ApplicationController
         format.json { render :show, status: :created, location: @expense }
       else
        
-        if expense_params.key?('inssurance_attributes') == false && expense_params.key?('break_attributes') == false && expense_params.key?('damage_attributes') == false
+        if expense_params.key?('inssurance_attributes') == false &&
+            expense_params.key?('break_attributes') == false &&
+            expense_params.key?('damage_attributes') == false &&
+            expense_params.key?('owner_take_attributes') == false
           format.html { render :new }
         end
         if expense_params.key?('inssurance_attributes')
@@ -44,6 +47,9 @@ class ExpensesController < ApplicationController
         end
         if expense_params.key?('damage_attributes')
           format.html { render :damage_fields }
+        end
+        if expense_params.key?('owner_take_attributes')
+          format.html { render :owner_take_fields }
         end
       end
     end
@@ -62,6 +68,11 @@ class ExpensesController < ApplicationController
   def damage_fields
     @expense = Expense.new
     @expense.build_damage
+  end
+
+  def owner_take_fields
+    @expense = Expense.new
+    @expense.build_owner_take
   end
   
   # PATCH/PUT /expenses/1
@@ -93,6 +104,10 @@ class ExpensesController < ApplicationController
     if Expense.find(params[:id]).damage
       Expense.find(params[:id]).damage.destroy
     end
+
+    if Expense.find(params[:id]).owner_take
+      Expense.find(params[:id]).owner_take.destroy
+    end
     
     @expense.destroy
     
@@ -118,7 +133,8 @@ class ExpensesController < ApplicationController
           :description,
           :inssurance_attributes => [:id, :start_date, :end_date],
           :break_attributes => [:id, :start_date, :end_date],
-          :damage_attributes => [:id, :damage_type_id, :driver_id, :expense_id]
+          :damage_attributes => [:id, :damage_type_id, :driver_id, :expense_id],
+          :owner_take_attributes => [:id, :owner_id, :expense_id]
       )
     end
 end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Owner Takes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Expense</th>
+      <th>Owner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @owner_takes.each do |owner_take| %>
+      <tr>
+        <td><%= owner_take.expense %></td>
+        <td><%= owner_take.owner %></td>
+        <td><%= link_to 'Show', owner_take %></td>
+        <td><%= link_to 'Edit', edit_owner_take_path(owner_take) %></td>
+        <td><%= link_to 'Destroy', owner_take, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Owner Take', new_owner_take_path %>

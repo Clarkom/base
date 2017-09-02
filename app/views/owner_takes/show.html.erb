@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Expense:</strong>
+  <%= @owner_take.expense %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @owner_take.owner %>
+</p>
+
+<%= link_to 'Edit', edit_owner_take_path(@owner_take) %> |
+<%= link_to 'Back', owner_takes_path %>

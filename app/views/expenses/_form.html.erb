@@ -65,6 +65,16 @@
         </div>
     <% end %>
 
+    <% if @expense.owner_take %>
+
+        <div class="field">
+          <h3>Damage Fields</h3>
+          <%= form.fields_for :owner_take do |owner_take_form| %>
+            zzz
+          <% end %>
+        </div>
+    <% end %>
+
 
     <div class="actions">
       <%= form.submit %>

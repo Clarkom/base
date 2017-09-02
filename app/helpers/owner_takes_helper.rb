@@ -1,0 +1,2 @@
+module OwnerTakesHelper
+end

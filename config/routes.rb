@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :owner_takes
+  resources :owners
   resources :damages
   resources :damage_types
   resources :drivers
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
       get 'insurance_fields'
       get 'break_fields'
       get 'damage_fields'
+      get 'owner_take_fields'
     end
   end
 
