@@ -12,8 +12,4 @@ class Expense < ApplicationRecord
 
   validates :amount, presence: true
 
-  def name_with_initial
-    "#{first_name} #{last_name}"
-  end
-
 end
