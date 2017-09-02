@@ -1,6 +1,6 @@
 <h1>New Expense</h1>
 
-<%= render 'nav' %>
+<%= render 'layouts/nav' %>
 
-<%= render 'break_fields', expense: @expense %>
+<%= render 'shared/break_fields', expense: @expense %>
 <%= link_to 'Back', expenses_path %>
