@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  damage_type: one
+  expense: one
+  driver: one
+
+two:
+  damage_type: two
+  expense: two
+  driver: two

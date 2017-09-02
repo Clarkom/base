@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Damage type:</strong>
+  <%= @damage.damage_type %>
+</p>
+
+<p>
+  <strong>Expense:</strong>
+  <%= @damage.expense %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @damage.driver %>
+</p>
+
+<%= link_to 'Edit', edit_damage_path(@damage) %> |
+<%= link_to 'Back', damages_path %>

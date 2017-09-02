@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170901232605) do
+ActiveRecord::Schema.define(version: 20170901234113) do
 
   create_table "breaks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expense_id"
@@ -19,6 +19,23 @@ ActiveRecord::Schema.define(version: 20170901232605) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["expense_id"], name: "index_breaks_on_expense_id"
+  end
+
+  create_table "damage_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "damages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "damage_type_id"
+    t.bigint "expense_id"
+    t.bigint "driver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["damage_type_id"], name: "index_damages_on_damage_type_id"
+    t.index ["driver_id"], name: "index_damages_on_driver_id"
+    t.index ["expense_id"], name: "index_damages_on_expense_id"
   end
 
   create_table "drivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -51,5 +68,8 @@ ActiveRecord::Schema.define(version: 20170901232605) do
   end
 
   add_foreign_key "breaks", "expenses"
+  add_foreign_key "damages", "damage_types"
+  add_foreign_key "damages", "drivers"
+  add_foreign_key "damages", "expenses"
   add_foreign_key "inssurances", "expenses"
 end

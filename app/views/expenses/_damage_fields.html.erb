@@ -1,0 +1,50 @@
+<div class="field">
+	
+	<%= form_for @expense do |form| %>
+			
+			
+			<% if @expense.errors.any? %>
+					<div id="error_explanation">
+						<h2><%= pluralize(expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+						
+						<ul>
+							<% @expense.errors.full_messages.each do |message| %>
+									<li><%= message %></li>
+							<% end %>
+						</ul>
+					</div>
+			<% end %>
+			
+			
+			<div class="field">
+				<%= form.label :amount %>
+				<%= form.number_field :amount, id: :expense_amount %>
+			</div>
+			
+			<div class="field">
+				<%= form.label :attached_file %>
+				<%= form.text_field :attached_file, id: :expense_attached_file %>
+			</div>
+			
+			<div class="field">
+				<%= form.label :description %>
+				<%= form.text_area :description, id: :expense_description %>
+			</div>
+			
+			
+			<div class="field">
+				<h3>Damage Fields</h3>
+				<%= form.fields_for :damage do |damage_form| %>
+          <%= damage_form.collection_select :driver_id, Driver.all, :id, :first_name , {:multiple => false} %>
+          <%= damage_form.collection_select :damage_type_id, DamageType.all, :id, :name, {:multiple => false} %>
+				<% end %>
+			</div>
+			
+			<div class="actions">
+				<%= form.submit %>
+			</div>
+			
+	
+	<% end %>
+
+</div>
