@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170902101245) do
     t.bigint "damage_type_id"
     t.bigint "expense_id"
     t.bigint "driver_id"
+    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["damage_type_id"], name: "index_damages_on_damage_type_id"

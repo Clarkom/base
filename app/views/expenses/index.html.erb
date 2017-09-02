@@ -8,7 +8,8 @@
       <th>Amount</th>
       <th>Insurance</th>
       <th>Break</th>
-      <th colspan="4"></th>
+      <th>Damage</th>
+      <th>Owner Take</th>
     </tr>
   </thead>
 
@@ -48,6 +49,31 @@
 								<div style="text-align: center;padding-top: 10px;color: red"><b>Nothing</b></div>
 					<% end %>
 				</td>
+        <td>
+          <% if expense.damage %>
+              <ul>
+                <li>
+                  <b>Date</b>
+                  <%= expense.damage.date %>
+                </li>
+              </ul>
+          <% else %>
+              <div style="text-align: center;padding-top: 10px;color: red"><b>Nothing</b></div>
+          <% end %>
+        </td>
+        <td>
+          <% if expense.owner_take %>
+              <ul>
+                <li>
+                  <b>Owner</b>
+                  <%= expense.owner_take.owner.first_name %>
+                  <%= expense.owner_take.owner.last_name %>
+                </li>
+              </ul>
+          <% else %>
+              <div style="text-align: center;padding-top: 10px;color: red"><b>Nothing</b></div>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', expense %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>

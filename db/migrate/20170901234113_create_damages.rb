@@ -4,6 +4,7 @@ class CreateDamages < ActiveRecord::Migration[5.1]
       t.references :damage_type, foreign_key: true
       t.references :expense, foreign_key: true
       t.references :driver, foreign_key: true
+      t.date :date
 
       t.timestamps
     end
