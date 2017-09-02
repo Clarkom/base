@@ -35,8 +35,14 @@
 			<div class="field">
 				<h3>Damage Fields</h3>
 				<%= form.fields_for :damage do |damage_form| %>
-          <%= damage_form.collection_select :driver_id, Driver.all, :id, :first_name , {:multiple => false} %>
-          <%= damage_form.collection_select :damage_type_id, DamageType.all, :id, :name, {:multiple => false} %>
+          <%= damage_form.collection_select :driver_id, Driver.all, :id, :first_name , {
+            :multiple => false,
+            :include_blank => 'Driver Name'
+          } %>
+          <%= damage_form.collection_select :damage_type_id, DamageType.all, :id, :name, {
+            :multiple => false,
+            :include_blank => 'Damage Type',
+          } %>
 				<% end %>
 			</div>
 			
