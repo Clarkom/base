@@ -1,47 +1,72 @@
 <%= form_with(model: driver, local: true) do |form| %>
-  <% if driver.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(driver.errors.count, "error") %> prohibited this driver from being saved:</h2>
 
-      <ul>
-      <% driver.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if driver.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(driver.errors.count, "error") %> prohibited this driver from being saved:</h2>
+
+        <ul>
+        <% driver.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :full_name %>
+      <%= form.text_field :full_name, id: :driver_full_name %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :full_name %>
-    <%= form.text_field :full_name, id: :driver_full_name %>
-  </div>
+    <div class="field">
+      <%= form.label :birth_date %>
+      <%= form.date_field :birth_date, id: :driver_birth_date %>
+    </div>
 
-  <div class="field">
-    <%= form.label :birth_date %>
-    <%= form.date_field :birth_date, id: :driver_birth_date %>
-  </div>
+    <div class="field">
+      <%= form.label :mobile_phone %>
+      <%= form.number_field :mobile_phone, id: :driver_mobile_phone %>
+    </div>
 
-  <div class="field">
-    <%= form.label :mobile_phone %>
-    <%= form.number_field :mobile_phone, id: :driver_mobile_phone %>
-  </div>
+    <div class="field">
+      <%= form.label :home_phone %>
+      <%= form.number_field :home_phone, id: :driver_home_phone %>
+    </div>
 
-  <div class="field">
-    <%= form.label :home_phone %>
-    <%= form.number_field :home_phone, id: :driver_home_phone %>
-  </div>
+    <div class="field">
+      <%= form.label :driving_license_number %>
+      <%= form.text_field :driving_license_number, id: :driver_driving_license_number %>
+    </div>
 
-  <div class="field">
-    <%= form.label :driving_license_number %>
-    <%= form.text_field :driving_license_number, id: :driver_driving_license_number %>
-  </div>
+    <div class="field">
+      <%= form.label :home_address %>
+      <%= form.text_area :home_address, id: :home_address %>
+    </div>
 
-  <div class="field">
-    <%= form.label :home_address %>
-    <%= form.text_area :home_address, id: :driver_home_address %>
-  </div>
+    <div class="field">
+      <%= form.label :cin %>
+      <%= form.text_field :cin, id: :cin %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="field">
+      <%= form.label :start_date %>
+      <%= form.date_field :start_date, id: :start_date %>
+    </div>
+
+    <div class="field">
+      <%= form.label :end_date %>
+      <%= form.date_field :end_date, id: :end_date %>
+    </div>
+
+    <div class="field">
+      <%= form.label :cab_id %>
+      <%= form.collection_select :cab_id, Cab.group(:license_plate), :id, :license_plate, {
+            :multiple => false,
+            :include_blank => 'Select a Cab',
+          } %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+
 <% end %>

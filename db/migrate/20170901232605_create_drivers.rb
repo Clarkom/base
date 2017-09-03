@@ -7,6 +7,9 @@ class CreateDrivers < ActiveRecord::Migration[5.1]
       t.integer :home_phone, :limit => 5
       t.string :driving_license_number
       t.string :home_address
+      t.string :cin
+      t.date :start_date
+      t.date :end_date
 
       t.timestamps
     end

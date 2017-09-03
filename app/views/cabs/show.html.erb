@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cab model:</strong>
+  <%= @cab.cab_model %>
+</p>
+
+<p>
+  <strong>License plate:</strong>
+  <%= @cab.license_plate %>
+</p>
+
+<p>
+  <strong>Agreement number:</strong>
+  <%= @cab.agreement_number %>
+</p>
+
+<p>
+  <strong>Total mileage:</strong>
+  <%= @cab.total_mileage %>
+</p>
+
+<%= link_to 'Edit', edit_cab_path(@cab) %> |
+<%= link_to 'Back', cabs_path %>

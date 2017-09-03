@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cabs
   resources :cab_models
   resources :fuel_types
   resources :insurers
