@@ -1,0 +1,55 @@
+<%= form_with(model: cab_model, local: true) do |form| %>
+  <% if cab_model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cab_model.errors.count, "error") %> prohibited this cab_model from being saved:</h2>
+
+      <ul>
+      <% cab_model.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :cab_model_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :cab_model_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :manufacture_year %>
+    <%= form.date_select :manufacture_year, id: :cab_model_manufacture_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fuel_type_id %>
+    <%= form.collection_select :fuel_type_id, FuelType.group(:name), :id, :name, {
+      :multiple => false,
+      :include_blank => 'Select a Fuel Type',
+    } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sheet_metal %>
+    <%= form.text_field :sheet_metal, id: :cab_model_sheet_metal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :power_hp %>
+    <%= form.number_field :power_hp, id: :cab_model_power_hp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_places %>
+    <%= form.number_field :number_places, id: :cab_model_number_places %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

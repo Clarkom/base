@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  manufacture_year: 2017-09-03
+  fuel_type: one
+  sheet_metal: MyString
+  power_hp: 1
+  number_places: 1
+
+two:
+  name: MyString
+  description: MyString
+  manufacture_year: 2017-09-03
+  fuel_type: two
+  sheet_metal: MyString
+  power_hp: 1
+  number_places: 1
