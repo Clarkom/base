@@ -12,15 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :driver_first_name %>
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name, id: :driver_full_name %>
   </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :driver_last_name %>
-  </div>
-
+    
   <div class="field">
     <%= form.label :birth_date %>
     <%= form.date_field :birth_date, id: :driver_birth_date %>

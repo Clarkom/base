@@ -16,8 +16,7 @@
   <tbody>
     <% @owners.each do |owner| %>
       <tr>
-        <td><%= owner.first_name %></td>
-        <td><%= owner.last_name %></td>
+        <td><%= owner.full_name %></td>
         <td><%= owner.home_phone %></td>
         <td><%= owner.mobile_phone %></td>
         <td><%= link_to 'Show', owner %></td>

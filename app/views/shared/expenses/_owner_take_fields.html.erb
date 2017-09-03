@@ -35,7 +35,7 @@
 			<div class="field">
 				<h3>Owner take Fields</h3>
         <%= form.fields_for :owner_take do |owner_take_form| %>
-            <%= owner_take_form.collection_select :owner_id, Owner.all, :id, :first_name , {
+            <%= owner_take_form.collection_select :owner_id, Owner.all, :id, :full_name , {
               :multiple => false,
               :include_blank => 'Select an Owner'
             } %>
