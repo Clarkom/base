@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Expense:</strong>
+  <%= @insurance.expense %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @insurance.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @insurance.end_date %>
+</p>
+
+<%= link_to 'Edit', edit_insurance_path(@insurance) %> |
+<%= link_to 'Back', insurances_path %>

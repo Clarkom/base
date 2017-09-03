@@ -18,15 +18,15 @@
       <tr>
         <td><%= expense.amount %></td>
         <td>
-					<% if expense.inssurance %>
+					<% if expense.insurance %>
 							<ul>
 								<li>
 									<b>Start Date</b>
-									<%= expense.inssurance.start_date %>
+									<%= expense.insurance.start_date %>
 								</li>
 								<li>
 									<b>End Date</b>
-									<%= expense.inssurance.end_date %>
+									<%= expense.insurance.expiration_date %>
 								</li>
 							</ul>
 					<% else %>

@@ -33,13 +33,13 @@ class ExpensesController < ApplicationController
         format.json { render :show, status: :created, location: @expense }
       else
        
-        if expense_params.key?('inssurance_attributes') == false &&
+        if expense_params.key?('insurance_attributes') == false &&
             expense_params.key?('break_attributes') == false &&
             expense_params.key?('damage_attributes') == false &&
             expense_params.key?('owner_take_attributes') == false
           format.html { render :new }
         end
-        if expense_params.key?('inssurance_attributes')
+        if expense_params.key?('insurance_attributes')
           format.html { render :insurance_fields }
         end
         if expense_params.key?('break_attributes')
@@ -57,7 +57,7 @@ class ExpensesController < ApplicationController
   
   def insurance_fields
     @expense = Expense.new
-    @expense.build_inssurance
+    @expense.build_insurance
   end
 
   def break_fields
@@ -93,8 +93,8 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1.json
   def destroy
     
-    if Expense.find(params[:id]).inssurance
-      Expense.find(params[:id]).inssurance.destroy
+    if Expense.find(params[:id]).insurance
+      Expense.find(params[:id]).insurance.destroy
     end
 
     if Expense.find(params[:id]).break
@@ -131,7 +131,7 @@ class ExpensesController < ApplicationController
           :amount,
           :attached_file,
           :description,
-          :inssurance_attributes => [:id, :start_date, :end_date, :insurer_id],
+          :insurance_attributes => [:id, :start_date, :expiration_date, :insurer_id],
           :break_attributes => [:id, :start_date, :end_date],
           :damage_attributes => [:id, :damage_type_id, :driver_id, :expense_id, :date],
           :owner_take_attributes => [:id, :owner_id, :expense_id]

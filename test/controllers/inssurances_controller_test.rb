@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class InssurancesControllerTest < ActionDispatch::IntegrationTest
+class InsurancesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @inssurance = inssurances(:one)
+    @insurance = insurances(:one)
   end
 
   test "should get index" do
-    get inssurances_url
+    get insurances_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_inssurance_url
+    get new_insurance_url
     assert_response :success
   end
 
-  test "should create inssurance" do
-    assert_difference('Inssurance.count') do
-      post inssurances_url, params: { inssurance: { end_date: @inssurance.end_date, expense_id: @inssurance.expense_id, start_date: @inssurance.start_date } }
+  test "should create insurance" do
+    assert_difference('Insurance.count') do
+      post insurances_url, params: { insurance: { end_date: @insurance.end_date, expense_id: @insurance.expense_id, start_date: @insurance.start_date } }
     end
 
-    assert_redirected_to inssurance_url(Inssurance.last)
+    assert_redirected_to insurance_url(Insurance.last)
   end
 
-  test "should show inssurance" do
-    get inssurance_url(@inssurance)
+  test "should show insurance" do
+    get insurance_url(@insurance)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_inssurance_url(@inssurance)
+    get edit_insurance_url(@insurance)
     assert_response :success
   end
 
-  test "should update inssurance" do
-    patch inssurance_url(@inssurance), params: { inssurance: { end_date: @inssurance.end_date, expense_id: @inssurance.expense_id, start_date: @inssurance.start_date } }
-    assert_redirected_to inssurance_url(@inssurance)
+  test "should update insurance" do
+    patch insurance_url(@insurance), params: { insurance: { end_date: @insurance.end_date, expense_id: @insurance.expense_id, start_date: @insurance.start_date } }
+    assert_redirected_to insurance_url(@insurance)
   end
 
-  test "should destroy inssurance" do
-    assert_difference('Inssurance.count', -1) do
-      delete inssurance_url(@inssurance)
+  test "should destroy insurance" do
+    assert_difference('Insurance.count', -1) do
+      delete insurance_url(@insurance)
     end
 
-    assert_redirected_to inssurances_url
+    assert_redirected_to insurances_url
   end
 end

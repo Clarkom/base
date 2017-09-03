@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :damage_types
   resources :drivers
   resources :breaks
-  resources :inssurances
+  resources :insurances
   resources :expenses do
     collection do
       get 'insurance_fields'

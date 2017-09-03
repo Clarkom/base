@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170902120504) do
     t.bigint "expense_id"
     t.bigint "driver_id"
     t.date "date"
+    t.float "kilometers", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["damage_type_id"], name: "index_damages_on_damage_type_id"
@@ -40,13 +41,12 @@ ActiveRecord::Schema.define(version: 20170902120504) do
   end
 
   create_table "drivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "full_name"
     t.date "birth_date"
-    t.integer "mobile_phone"
-    t.integer "home_phone"
+    t.bigint "mobile_phone"
+    t.bigint "home_phone"
     t.string "driving_license_number"
-    t.string "home_adress"
+    t.string "home_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,22 +59,23 @@ ActiveRecord::Schema.define(version: 20170902120504) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "inssurances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "insurances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expense_id"
     t.bigint "insurer_id"
     t.date "start_date"
-    t.date "end_date"
+    t.date "expiration_date"
+    t.string "police_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["expense_id"], name: "index_inssurances_on_expense_id"
-    t.index ["insurer_id"], name: "index_inssurances_on_insurer_id"
+    t.index ["expense_id"], name: "index_insurances_on_expense_id"
+    t.index ["insurer_id"], name: "index_insurances_on_insurer_id"
   end
 
   create_table "insurers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "picture"
     t.string "address"
-    t.string "phone"
+    t.bigint "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -89,10 +90,9 @@ ActiveRecord::Schema.define(version: 20170902120504) do
   end
 
   create_table "owners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "home_phone"
-    t.integer "mobile_phone"
+    t.string "full_name"
+    t.bigint "home_phone"
+    t.bigint "mobile_phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
