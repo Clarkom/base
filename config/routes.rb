@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :managers
   resources :cabs
   resources :cab_models
   resources :fuel_types

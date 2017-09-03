@@ -69,6 +69,11 @@ class CabsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cab_params
-      params.require(:cab).permit(:cab_model_id, :license_plate, :agreement_number, :total_mileage)
+      params.require(:cab).permit(
+          :cab_model_id,
+          :license_plate,
+          :agreement_number,
+          :total_mileage,
+          :manager_id)
     end
 end

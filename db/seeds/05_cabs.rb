@@ -7,7 +7,8 @@ cabs = [
         :cab_model_id => 1,
         :license_plate => '77174-D -05',
         :agreement_number => 'SIAT/68502',
-        :total_mileage => 125636
+        :total_mileage => 125636,
+        :manager_id => 1,
       }
     ]
 
@@ -21,6 +22,7 @@ cabs.count.times do |n|
         license_plate: cab[:license_plate],
         agreement_number: cab[:agreement_number],
         total_mileage: cab[:total_mileage],
+        manager_id: cab[:manager_id],
     )
   end
 
