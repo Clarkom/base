@@ -28,30 +28,31 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     respond_to do |format|
+
       if @expense.save
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
-        format.json { render :show, status: :created, location: @expense }
-      else
-       
-        if expense_params.key?('insurance_attributes') == false &&
-            expense_params.key?('break_attributes') == false &&
-            expense_params.key?('damage_attributes') == false &&
-            expense_params.key?('owner_take_attributes') == false
-          format.html { render :new }
-        end
-        if expense_params.key?('insurance_attributes')
-          format.html { render :insurance_fields }
-        end
-        if expense_params.key?('break_attributes')
-          format.html { render :break_fields }
-        end
-        if expense_params.key?('damage_attributes')
-          format.html { render :damage_fields }
-        end
-        if expense_params.key?('owner_take_attributes')
-          format.html { render :owner_take_fields }
-        end
+        format.html { render :show, status: :created, location: @expense }
       end
+
+      if expense_params.key?('insurance_attributes') == false &&
+          expense_params.key?('break_attributes') == false &&
+          expense_params.key?('damage_attributes') == false &&
+          expense_params.key?('owner_take_attributes') == false
+        format.html { render :new }
+      end
+      if expense_params.key?('insurance_attributes')
+        format.html { render :insurance_fields }
+      end
+      if expense_params.key?('break_attributes')
+        format.html { render :break_fields }
+      end
+      if expense_params.key?('damage_attributes')
+        format.html { render :damage_fields }
+      end
+      if expense_params.key?('owner_take_attributes')
+        format.html { render :owner_take_fields }
+      end
+
     end
   end
   
@@ -80,8 +81,8 @@ class ExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
-        format.json { render :show, status: :ok, location: @expense }
+        format.html { redirect_to edit_expense_path(@expense), notice: 'Expense was successfully updated.' }
+        format.json { render :edit, status: :ok, location: @expense }
       else
         format.html { render :edit }
         format.json { render json: @expense.errors, status: :unprocessable_entity }
@@ -92,23 +93,7 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1
   # DELETE /expenses/1.json
   def destroy
-    
-    if Expense.find(params[:id]).insurance
-      Expense.find(params[:id]).insurance.destroy
-    end
 
-    if Expense.find(params[:id]).break
-      Expense.find(params[:id]).break.destroy
-    end
-
-    if Expense.find(params[:id]).damage
-      Expense.find(params[:id]).damage.destroy
-    end
-
-    if Expense.find(params[:id]).owner_take
-      Expense.find(params[:id]).owner_take.destroy
-    end
-    
     @expense.destroy
     
     respond_to do |format|
@@ -133,7 +118,7 @@ class ExpensesController < ApplicationController
           :description,
           :insurance_attributes => [:id, :start_date, :expiration_date, :insurer_id],
           :break_attributes => [:id, :start_date, :end_date],
-          :damage_attributes => [:id, :damage_type_id, :driver_id, :expense_id, :date],
+          :damage_attributes => [:id, :damage_type_id, :driver_id, :expense_id, :date, :kilometers],
           :owner_take_attributes => [:id, :owner_id, :expense_id]
       )
     end

@@ -36,16 +36,16 @@
 				<h3>Insurance Field</h3>
 				<%= form.fields_for :insurance do |insurance_form| %>
 
+            <%= insurance_form.collection_select :insurer_id, Insurer.all, :id, :name, {
+              :multiple => false,
+              :include_blank => 'Select an Insurer',
+            } %>
+
 						<%= insurance_form.label :start_date %>
 						<%= insurance_form.date_field :start_date %>
 
 						<%= insurance_form.label :expiration_date %>
 						<%= insurance_form.date_field :expiration_date %>
-
-            <%= insurance_form.collection_select :insurer_id, Insurer.all, :id, :name, {
-              :multiple => false,
-              :include_blank => 'Select an Insurer',
-            } %>
 
 				<% end %>
 			</div>
