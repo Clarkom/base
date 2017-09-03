@@ -14,5 +14,9 @@ module MyTaxi
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    # uncomment to use javascript by default in generators
+    config.generators.javascript_engine = :js
+
   end
 end

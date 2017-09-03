@@ -40,11 +40,13 @@
               :include_blank => 'Damage Type',
             } %>
 
-            <%= damage_form.label :driver_id %>
-            <%= damage_form.collection_select :driver_id, Driver.all, :id, :full_name , {
-              :multiple => false,
-              :include_blank => 'Driver Name'
-            } %>
+            <div id="drivers-list">
+              <%= damage_form.label :driver_id %>
+              <%= damage_form.collection_select :driver_id, Driver.all, :id, :full_name , {
+                :multiple => false,
+                :include_blank => 'Driver Name'
+              } %>
+            </div>
 
             <%= damage_form.label :date %>
             <%= damage_form.date_field :date %>
