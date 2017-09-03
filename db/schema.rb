@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902131714) do
+ActiveRecord::Schema.define(version: 20170902120504) do
 
   create_table "breaks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expense_id"
@@ -39,15 +39,6 @@ ActiveRecord::Schema.define(version: 20170902131714) do
     t.index ["expense_id"], name: "index_damages_on_expense_id"
   end
 
-  create_table "driver_takes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "income_id"
-    t.bigint "driver_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["driver_id"], name: "index_driver_takes_on_driver_id"
-    t.index ["income_id"], name: "index_driver_takes_on_income_id"
-  end
-
   create_table "drivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "first_name"
     t.string "last_name"
@@ -68,14 +59,6 @@ ActiveRecord::Schema.define(version: 20170902131714) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "incomes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "amount"
-    t.string "attached_file"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "inssurances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expense_id"
     t.bigint "insurer_id"
@@ -85,15 +68,6 @@ ActiveRecord::Schema.define(version: 20170902131714) do
     t.datetime "updated_at", null: false
     t.index ["expense_id"], name: "index_inssurances_on_expense_id"
     t.index ["insurer_id"], name: "index_inssurances_on_insurer_id"
-  end
-
-  create_table "insurance_take_backs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "income_id"
-    t.bigint "inssurance_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["income_id"], name: "index_insurance_take_backs_on_income_id"
-    t.index ["inssurance_id"], name: "index_insurance_take_backs_on_inssurance_id"
   end
 
   create_table "insurers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -127,10 +101,6 @@ ActiveRecord::Schema.define(version: 20170902131714) do
   add_foreign_key "damages", "damage_types"
   add_foreign_key "damages", "drivers"
   add_foreign_key "damages", "expenses"
-  add_foreign_key "driver_takes", "drivers"
-  add_foreign_key "driver_takes", "incomes"
-  add_foreign_key "insurance_take_backs", "incomes"
-  add_foreign_key "insurance_take_backs", "inssurances"
   add_foreign_key "owner_takes", "expenses"
   add_foreign_key "owner_takes", "owners"
 end
