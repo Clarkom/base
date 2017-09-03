@@ -34,6 +34,9 @@
 				<h3>Damage Fields</h3>
 				<%= form.fields_for :damage do |damage_form| %>
 
+            <%= damage_form.label :date %>
+            <%= damage_form.date_field :date %>
+
             <%= damage_form.label :damage_type_id %>
             <%= damage_form.collection_select :damage_type_id, DamageType.group(:name), :id, :name, {
               :multiple => false,
@@ -48,8 +51,8 @@
               } %>
             </div>
 
-            <%= damage_form.label :date %>
-            <%= damage_form.date_field :date %>
+            <%= damage_form.label :labor, "Main d'oeuvre (add manually the labor amount to the initial amount)" %>
+            <%= damage_form.number_field :labor %>
 
             <%= damage_form.label :kilometers %>
             <%= damage_form.number_field :kilometers %>

@@ -6,6 +6,7 @@ class CreateDamages < ActiveRecord::Migration[5.1]
       t.references :driver, foreign_key: true
       t.date :date
       t.float :kilometers
+      t.integer :labor
 
       t.timestamps
     end

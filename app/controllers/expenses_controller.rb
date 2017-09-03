@@ -107,7 +107,6 @@ class ExpensesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
       @expense = Expense.find(params[:id])
-      @exp = Expense.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -118,7 +117,7 @@ class ExpensesController < ApplicationController
           :description,
           :insurance_attributes => [:id, :start_date, :expiration_date, :insurer_id],
           :break_attributes => [:id, :start_date, :end_date],
-          :damage_attributes => [:id, :damage_type_id, :driver_id, :expense_id, :date, :kilometers],
+          :damage_attributes => [:id, :damage_type_id, :driver_id, :expense_id, :date, :kilometers, :labor],
           :owner_take_attributes => [:id, :owner_id, :expense_id]
       )
     end

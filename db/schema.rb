@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170902120504) do
     t.bigint "driver_id"
     t.date "date"
     t.float "kilometers", limit: 24
+    t.integer "labor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["damage_type_id"], name: "index_damages_on_damage_type_id"
