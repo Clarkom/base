@@ -19,6 +19,10 @@ gem 'jquery-rails'
 gem 'awesome_print'
 gem 'devise'
 
+gem 'sprockets-rails'
+gem 'popper_js'
+gem 'bootstrap', '~> 4.0.0.beta'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
