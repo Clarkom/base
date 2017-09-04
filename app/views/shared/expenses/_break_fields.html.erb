@@ -34,6 +34,7 @@
 
 			<div class="field">
 				<h3>Break Fields</h3>
+
 				<%= form.fields_for :break do |break_form| %>
             
             <%= break_form.label :break_cause_id %>
@@ -42,11 +43,13 @@
                   :include_blank => 'Select a cause of Break',
                 } %>
 
-            <%= break_form.label :damage_id %>
-            <%= break_form.collection_select :damage_id, Damage.group(:date), :id, :damage_type_id, {
-              :multiple => false,
-              :include_blank => 'Select a Damage',
-            } %>
+            <div id="damages-list">
+              <%= break_form.label :damage_id %>
+              <%= break_form.collection_select :damage_id, Damage.group(:date), :id, :damage_type_id, {
+                :multiple => false,
+                :include_blank => 'Select a Damage',
+              } %>
+            </div>
 
 						<%= break_form.label :start_date %>
 						<%= break_form.date_field :start_date %>
