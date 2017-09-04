@@ -10,7 +10,10 @@
       <th>Mobile phone</th>
       <th>Home phone</th>
       <th>Driving license number</th>
-      <th>Home adress</th>
+      <th>Home address</th>
+      <th>CIN</th>
+      <th>Starting Date</th>
+      <th>Ending Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,6 +27,9 @@
         <td><%= driver.home_phone %></td>
         <td><%= driver.driving_license_number %></td>
         <td><%= driver.home_address %></td>
+        <td><%= driver.cin %></td>
+        <td><%= driver.start_date %></td>
+        <td><%= driver.end_date %></td>
         <td><%= link_to 'Show', driver %></td>
         <td><%= link_to 'Edit', edit_driver_path(driver) %></td>
         <td><%= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' } %></td>

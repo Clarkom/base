@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903233952) do
+ActiveRecord::Schema.define(version: 20170904103044) do
+
+  create_table "break_causes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "breaks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expense_id"
@@ -18,6 +24,10 @@ ActiveRecord::Schema.define(version: 20170903233952) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "break_cause_id"
+    t.bigint "damage_id"
+    t.index ["break_cause_id"], name: "index_breaks_on_break_cause_id"
+    t.index ["damage_id"], name: "index_breaks_on_damage_id"
     t.index ["expense_id"], name: "index_breaks_on_expense_id"
   end
 
@@ -145,6 +155,8 @@ ActiveRecord::Schema.define(version: 20170903233952) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "breaks", "break_causes"
+  add_foreign_key "breaks", "damages"
   add_foreign_key "breaks", "expenses"
   add_foreign_key "cab_models", "fuel_types"
   add_foreign_key "cabs", "cab_models"

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :break_causes
   resources :managers
   resources :cabs
   resources :cab_models

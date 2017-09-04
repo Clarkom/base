@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cab_model.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @cab_model.description %>
+</p>
+
+<p>
+  <strong>Manufacture year:</strong>
+  <%= @cab_model.manufacture_year %>
+</p>
+
+<p>
+  <strong>Fuel type:</strong>
+  <%= @cab_model.fuel_type %>
+</p>
+
+<p>
+  <strong>Sheet metal:</strong>
+  <%= @cab_model.sheet_metal %>
+</p>
+
+<p>
+  <strong>Power hp:</strong>
+  <%= @cab_model.power_hp %>
+</p>
+
+<p>
+  <strong>Number places:</strong>
+  <%= @cab_model.number_places %>
+</p>
+
+<%= link_to 'Edit', edit_cab_model_path(@cab_model) %> |
+<%= link_to 'Back', cab_models_path %>

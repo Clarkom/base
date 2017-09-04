@@ -1,10 +1,10 @@
-<%= form_with(model: break, local: true) do |form| %>
-  <% if break.errors.any? %>
+<%= form_for @break do |form| %>
+  <% if @break.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(break.errors.count, "error") %> prohibited this break from being saved:</h2>
+      <h2><%= pluralize(@break.errors.count, "error") %> prohibited this break from being saved:</h2>
 
       <ul>
-      <% break.errors.full_messages.each do |message| %>
+      <% @break.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

@@ -1,0 +1,2 @@
+class BreakCause < ApplicationRecord
+end
