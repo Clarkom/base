@@ -74,7 +74,7 @@ damage_types = [
     ],
     [
         {
-            :name => 'Dégât'
+            :name => 'Accident'
         }
     ]
 

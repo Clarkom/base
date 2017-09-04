@@ -9,7 +9,7 @@ break_causes = [
     ],
     [
       {
-        :name => 'Accident',
+        :name => 'Dégât',
       }
     ]
 

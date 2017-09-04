@@ -35,8 +35,8 @@
     </div>
 
     <div class="field">
-      <%= form.label :manager_id %>
-      <%= form.collection_select :manager_id, Manager.group(:full_name), :id, :full_name, {
+      <%= form.label :user_id %>
+      <%= form.collection_select :user_id, User.group(:email), :id, :email, {
         :multiple => false,
         :include_blank => 'Select a Manager',
       } %>

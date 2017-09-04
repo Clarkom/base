@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :break_causes
-  resources :managers
   resources :cabs
   resources :cab_models
   resources :fuel_types
