@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+  root to: 'home#index'
+
   resources :break_causes
   resources :managers
   resources :cabs
