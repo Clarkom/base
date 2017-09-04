@@ -31,7 +31,7 @@
     <% if @expense.insurance %>
 
         <div class="field">
-          <h3>Break Fields</h3>
+          <h3>Insurance Fields</h3>
           <%= form.fields_for :insurance do |insurance_form| %>
               <%= insurance_form.label :start_date %>
               <%= insurance_form.date_field :start_date %>
@@ -45,11 +45,26 @@
 
         <div class="field">
           <h3>Break Fields</h3>
-          <%= form.fields_for :insurance do |break_form| %>
+          <%= form.fields_for :break do |break_form| %>
+
+              <%= break_form.label :break_cause_id %>
+              <%= break_form.collection_select :break_cause_id, BreakCause.group(:name), :id, :name, {
+                :multiple => false,
+                :include_blank => 'Select a cause of Break',
+              } %>
+
+              <%= break_form.label :damage_id %>
+              <%= break_form.collection_select :damage_id, Damage.group(:date), :id, :damage_type_id, {
+                :multiple => false,
+                :include_blank => 'Select a Damage',
+              } %>
+
               <%= break_form.label :start_date %>
               <%= break_form.date_field :start_date %>
+
               <%= break_form.label :end_date %>
               <%= break_form.date_field :end_date %>
+
           <% end %>
         </div>
     <% end %>

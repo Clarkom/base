@@ -69,6 +69,12 @@ class BreaksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def break_params
-      params.require(:break).permit(:expense_id, :start_date, :end_date)
+      params.require(:break).permit(
+          :expense_id,
+          :start_date,
+          :end_date,
+          :break_cause_id,
+          :damage,
+      )
     end
 end
