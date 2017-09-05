@@ -1,11 +1,7 @@
 
 <div class="devise">
 
-  <div class="text-center">
-    <%= link_to root_path, :class => 'logo' do %>
-        <span>Smart<span>taxi</span></span>
-    <% end %>
-  </div>
+  <%= render 'devise/shared/logo' %>
 
   <div class="card-box">
 
@@ -15,6 +11,10 @@
 
     <div class="panel-body">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+          <%- flash.each do |name, msg| -%>
+            <div id="error_explanation"><%= msg %></div>
+          <%- end -%>
 
           <div class="form-group">
             <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
