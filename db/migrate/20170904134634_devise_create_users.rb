@@ -32,6 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       # Extra fields
       t.string :full_name
+      t.string :picture
       t.integer :home_phone, :limit => 5
       t.integer :mobile_phone, :limit => 5
       t.date :birth_date

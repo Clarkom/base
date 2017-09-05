@@ -1,7 +1,9 @@
 body {
   background-color: #f2f7f8;
 }
-
+ul li {
+  list-style: none;
+}
 .logo {
   font-size: 29px;
   font-family: 'Georgia', cursive;
@@ -16,4 +18,12 @@ body {
     color: #10c469;
   }
 
+}
+.main {
+  margin-top: 104px;
+  padding: 14px;
+  .main-content {
+    background: #fff;
+    padding: 10px;
+  }
 }

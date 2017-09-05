@@ -12,26 +12,33 @@
 
     <div class="container-fluid">
 
-      <!-- # Header -->
-      <%= render 'layouts/header' %>
+      <% if user_signed_in? %>
 
-      <!-- # Content -->
-      <div class="row">
+          <!-- # Header -->
+          <%= render 'layouts/header' %>
 
-        <!-- # Sidebar -->
-        <div class="col-sm-2 col-md-2 d-none d-sm-block sidebar">
-          <%= render 'layouts/sidebar' %>
-        </div>
+          <!-- # Content -->
+          <div class="row">
 
-        <!-- # Main -->
-        <div class="col-sm-10 ml-sm-auto col-md-10 pt-3" role="main">
-          <% if notice %>
-              <div class="alert alert-success" role="alert"><%= notice %></div>
-          <% end %>
-          <%= yield %>
-        </div>
+            <!-- # Sidebar -->
+            <%= render 'layouts/sidebar' %>
 
-      </div>
+            <!-- # Main -->
+            <div class="main col-sm-12 ml-sm-auto col-md-10 pt-3" role="main">
+              <% if notice %>
+                  <div class="alert alert-success" role="alert"><%= notice %></div>
+              <% end %>
+              <%= yield %>
+            </div>
+
+          </div>
+
+          <% else %>
+
+            <%= yield %>
+
+      <% end %>
+
 
     </div>
 

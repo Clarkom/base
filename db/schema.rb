@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 20170904152902) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "full_name"
+    t.string "picture"
     t.bigint "home_phone"
     t.bigint "mobile_phone"
     t.date "birth_date"
