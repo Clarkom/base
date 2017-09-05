@@ -1,56 +1,50 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+<div class="devise">
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
-    <!-- Extra Fields -->
-
-    <div class="field">
-      <%= f.label :full_name%><br />
-      <%= f.text_field :full_name, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :home_phone %><br />
-      <%= f.number_field :home_phone, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :mobile_phone %><br />
-      <%= f.number_field :mobile_phone, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :birth_date %><br />
-      <%= f.date_field :birth_date, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :cin %><br />
-      <%= f.text_field :cin, autofocus: true %>
-    </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="text-center">
+    <%= link_to root_path, :class => 'logo' do %>
+        <span>Smart<span>taxi</span></span>
+    <% end %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="card-box">
+
+    <div class="text-center">
+      <h3>Sign up</h3>
+    </div>
+
+    <div class="panel-body">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+          </div>
+
+          <div class="form-group">
+            <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'password' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: 'password confirmation' %>
+          </div>
+
+          <%= f.submit 'Sign up', class: 'btn btn-primary' %>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+  <div class="sublink">
+    Already have an account?
+    <%= link_to 'Log in', new_session_path(resource_name) %>
+  </div>
+
+</div>

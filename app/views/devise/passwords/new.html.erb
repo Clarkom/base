@@ -1,16 +1,44 @@
-<h2>Forgot your password?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+
+<div class="devise">
+
+  <div class="text-center">
+    <%= link_to root_path, :class => 'logo' do %>
+        <span>Smart<span>taxi</span></span>
+    <% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+  <div class="card-box">
 
-<%= render "devise/shared/links" %>
+    <div class="text-center">
+      <h3>Forgot your password?</h3>
+      <p>
+        Enter your email address and we'll send you
+        an email with instructions to reset your password.
+      </p>
+    </div>
+
+    <div class="panel-body">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+          </div>
+
+          <%= f.submit 'Send me reset instructions', class: 'btn btn-primary' %>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+  <div class="sublink">
+    Already have an account?
+    <%= link_to 'Log in', new_session_path(resource_name) %> |
+    <%= link_to 'Sign up', new_registration_path(resource_name) %>
+  </div>
+
+</div>
