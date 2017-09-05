@@ -1,0 +1,105 @@
+
+<!-- # Logo-->
+<div class="top-logo">
+  <%= link_to root_path, :class => 'logo' do %>
+      <span>My<span>taxi</span></span>
+  <% end %>
+</div>
+
+<!-- # Navigation -->
+<ul class="nav flex-column">
+
+
+  <!-- # Title -->
+  <li class="list-header">
+    <h4>Navigation</h4>
+  </li>
+
+  <!-- # Expenses -->
+  <li class="<%= current_path('expenses') ? 'active-list' : '' %> nav-item">
+    <a data-toggle="collapse"
+       href="#expensesCollapse"
+       aria-expanded="false"
+       aria-controls="expensesCollapse">
+      <%= fa_icon 'bank' %>
+      Expenses
+      <%= fa_icon 'angle-right' %>
+      <%= fa_icon 'angle-down' %>
+    </a>
+
+    <ul class="<%= current_path('expenses') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="expensesCollapse">
+      <li>
+        <%= link_to all_expenses_path, class: "#{ current_path('expenses/all') ? 'active' : '' }" do %>
+            <%= fa_icon 'caret-right' %> All Expenses
+          <% end %>
+      </li>
+      <li>
+        <%= link_to insurances_path, class: "#{ current_path('insurances') ? 'active' : '' }" do %>
+            <%= fa_icon 'caret-right' %> Insurances
+        <% end %>
+      </li>
+      <li>
+        <%= link_to breaks_path, class: "#{ current_path('breaks') ? 'active' : '' }" do %>
+            <%= fa_icon 'caret-right' %> Breaks
+        <% end %>
+      </li>
+      <li>
+        <%= link_to damages_path, class: "#{ current_path('damages') ? 'active' : '' }" do %>
+            <%= fa_icon 'caret-right' %> Damages
+        <% end %>
+      </li>
+      <li>
+        <%= link_to owner_takes_path , class: "#{ current_path('owner_takes') ? 'active' : '' }" do %>
+            <%= fa_icon 'caret-right' %> Owner Takes
+        <% end %>
+      </li>
+    </ul>
+  </li>
+
+  <!-- # Cab -->
+  <li class="<%= current_path('cabs') ? 'active-list' : '' %> nav-item">
+    <a data-toggle="collapse"
+       href="#cabCollapse"
+       aria-expanded="false"
+       aria-controls="cabCollapse">
+      <%= fa_icon 'taxi' %>
+      Cab
+      <%= fa_icon 'angle-right' %>
+      <%= fa_icon 'angle-down' %>
+    </a>
+    <ul class="<%= current_path('cabs') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="cabCollapse">
+
+      <li>
+        <%= link_to all_cabs_path, class: "#{ current_path('cabs/all') ? 'active' : '' }" do %>
+            <%= fa_icon 'caret-right' %> Cabs List
+        <% end %>
+      </li>
+      <li>
+        <%= link_to cab_models_path, class: "#{ current_path('cab_models') ? 'active' : '' }" do %>
+            <%= fa_icon 'caret-right' %> Models
+        <% end %>
+      </li>
+      <li>
+        <%= link_to fuel_types_path, class: "#{ current_path('fuel_types') ? 'active' : '' }" do %>
+            <%= fa_icon 'caret-right' %> Fuel Types
+        <% end %>
+      </li>
+      <li>
+        <%= link_to damage_types_path, class: "#{ current_path('damage_types') ? 'active' : '' }" do %>
+            <%= fa_icon 'caret-right' %> Damage Types
+        <% end %>
+      </li>
+      <li>
+        <%= link_to insurers_path, class: "#{ current_path('insurers') ? 'active' : '' }" do %>
+            <%= fa_icon 'caret-right' %> Insurers
+        <% end %>
+      </li>
+    </ul>
+  </li>
+
+
+  <!-- # Statistics -->
+
+
+</ul>
+

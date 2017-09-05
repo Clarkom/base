@@ -4,19 +4,33 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :break_causes
-  resources :cabs
-  resources :cab_models
-  resources :fuel_types
-  resources :insurers
-  resources :owner_takes
   resources :owners
-  resources :damages
-  resources :damage_types
   resources :drivers
-  resources :breaks
-  resources :insurances
+
+  #
+  #
+  # Cabs
+  resources :cabs do
+    collection do
+      get 'all', to: 'cabs#index'
+      resources :cab_models
+      resources :fuel_types
+      resources :damage_types
+      resources :insurers
+    end
+  end
+
+  #
+  #
+  # Expenses
   resources :expenses do
     collection do
+      resources :insurances
+      resources :breaks
+      resources :damages
+      resources :owner_takes
+
+      get 'all', to: 'expenses#index'
       get 'insurance_fields'
       get 'break_fields'
       get 'damage_fields'

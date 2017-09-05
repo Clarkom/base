@@ -35,8 +35,8 @@
           <%= form.fields_for :insurance do |insurance_form| %>
               <%= insurance_form.label :start_date %>
               <%= insurance_form.date_field :start_date %>
-              <%= insurance_form.label :end_date %>
-              <%= insurance_form.date_field :end_date %>
+              <%= insurance_form.label :expiration_date %>
+              <%= insurance_form.date_field :expiration_date %>
           <% end %>
         </div>
     <% end %>

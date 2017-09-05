@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'awesome_print'
 gem 'devise'
+gem 'font-awesome-rails'
 
 gem 'sprockets-rails'
 gem 'popper_js'
