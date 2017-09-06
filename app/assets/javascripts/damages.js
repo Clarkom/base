@@ -11,7 +11,6 @@ ready = function() {
     var driver_list = $('#drivers-list');
     var damage_types = $('#expense_damage_attributes_damage_type_id');
     var driver_select = $('#expense_damage_attributes_driver_id')
-
     if (damage_types.find('option:selected').text() === 'Accident' || driver_list.find('select option:selected').val() != ''){
         driver_list.show()
     }
@@ -19,7 +18,6 @@ ready = function() {
         driver_list.hide();
         driver_select.val('')
     }
-
     damage_types.on('change', function(){
         var damage_type = $(this).find('option:selected').text()
         if (damage_type === 'Accident'){
@@ -31,5 +29,26 @@ ready = function() {
         }
     })
 
-}
+    /*
+    *
+    * DataTables
+    *
+    * */
+    var table = $('#damage-data').DataTable({
+        "searching": true,
+        "columnDefs": [ {
+            "targets": [6],
+            "orderable": false
+        } ],
+        "order": [[ 2, "desc" ]],
+        "dom": 't'
+    });
+
+    //
+    // Search Input
+    $('#search-damage').on( 'keyup', function () {
+        table.search( this.value ).draw();
+    } );
+
+};
 $(document).on('turbolinks:load', ready);

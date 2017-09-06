@@ -5,6 +5,7 @@ class DamagesController < ApplicationController
   # GET /damages.json
   def index
     @damages = Damage.all
+    @damages_sum = Damage.includes(:expense).pluck(:amount).sum;
   end
 
   # GET /damages/1
@@ -15,6 +16,7 @@ class DamagesController < ApplicationController
   # GET /damages/new
   def new
     @damage = Damage.new
+    @damage.build_expense
   end
 
   # GET /damages/1/edit
@@ -69,6 +71,14 @@ class DamagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def damage_params
-      params.require(:damage).permit(:damage_type_id, :expense_id, :driver_id)
+      params.require(:damage).permit(
+          :damage_type_id,
+          :expense_id,
+          :driver_id,
+          :date,
+          :kilometers,
+          :labor,
+          :expense_attributes => [:id, :amount, :attached_file, :description]
+      )
     end
 end

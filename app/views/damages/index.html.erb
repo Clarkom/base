@@ -1,31 +1,75 @@
-<p id="notice"><%= notice %></p>
+<h4>Damages</h4>
 
-<h1>Damages</h1>
+<!-- # -->
+<div class="actions row">
 
-<table>
+  <div class="col-md-4">
+    <%= link_to new_damage_path, :class => 'btn btn-info btn-sm' do %>
+        <%= fa_icon 'plus' %> Ajouter un nouveau Dégât
+    <% end %>
+  </div>
+
+  <div class="col-md-4 ml-auto">
+    <input type="search"
+           class="form-control"
+           id="search-damage"
+           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+  </div>
+
+</div>
+
+<!-- # -->
+<table id="damage-data" class="table table-bordered">
   <thead>
     <tr>
-      <th>Damage type</th>
-      <th>Expense</th>
-      <th>Driver</th>
-      <th colspan="3"></th>
+      <th>Cause</th>
+      <th>Chauffeur Responsable</th>
+      <th>Date</th>
+      <th>Kilometrage</th>
+      <th>Main d'oeuvre</th>
+      <th>Montant total</th>
+      <th class="td-actions">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @damages.each do |damage| %>
       <tr>
-        <td><%= damage.damage_type %></td>
-        <td><%= damage.expense %></td>
-        <td><%= damage.driver %></td>
-        <td><%= link_to 'Show', damage %></td>
-        <td><%= link_to 'Edit', edit_damage_path(damage) %></td>
-        <td><%= link_to 'Destroy', damage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= damage.damage_type.name %></td>
+        <td>
+          <% if damage.driver_id %>
+            <%= damage.driver.full_name %>
+            <% else %>
+              Sans Résponsable
+          <% end %>
+        </td>
+        <td><%= damage.date %></td>
+        <td><%= damage.kilometers %></td>
+        <td><%= damage.labor %></td>
+        <td><%= damage.expense.amount %></td>
+        <td>
+          <%= link_to damage, :class => 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'eye' %>
+          <% end %>
+          <%= link_to edit_damage_path(damage), :class => 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'pencil' %>
+          <% end %>
+          <%= link_to damage, method: :delete, data: { confirm: 'Êtes vous sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'close' %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
+
+  <tfoot>
+    <tr class="table-sum">
+      <td colspan="5"><b>Total</b></td>
+      <td colspan="2">
+        <b><%= @damages_sum %> DH</b>
+      </td>
+    </tr>
+  </tfoot>
+
+
 </table>
-
-<br>
-
-<%= link_to 'New Damage', new_damage_path %>

@@ -1,32 +1,123 @@
-<%= form_with(model: damage, local: true) do |form| %>
-  <% if damage.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(damage.errors.count, "error") %> prohibited this damage from being saved:</h2>
+<%= form_for @damage do |form| %>
 
-      <ul>
-      <% damage.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group row">
+      <%= form.label 'Type de Dégât', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.collection_select :damage_type_id, DamageType.group(:name), :id, :name, {
+          :multiple => false,
+          :include_blank => 'Selectionner un dégât',
+        },{ class: 'form-control' }
+        %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :damage_type_id %>
-    <%= form.text_field :damage_type_id, id: :damage_damage_type_id %>
-  </div>
+    <div class="form-group row">
+      <%= form.label 'Chauffeur Résponsable', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.collection_select :driver_id, Driver.all, :id, :full_name, {
+          :multiple => false,
+          :include_blank => 'Selectionner un chauffeur',
+        },{ class: 'form-control' }
+        %>
+        <small>Selectionner un chauffeur s'il est responsable du dégât</small>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :expense_id %>
-    <%= form.text_field :expense_id, id: :damage_expense_id %>
-  </div>
+    <%= form.fields_for :expense  do |expense_form| %>
 
-  <div class="field">
-    <%= form.label :driver_id %>
-    <%= form.text_field :driver_id, id: :damage_driver_id %>
-  </div>
+        <div class="form-group row">
+          <%= expense_form.label 'Montant Total', class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-10">
+            <div class="input-group">
+              <%= expense_form.number_field :amount, class: 'form-control' %>
+              <span class="input-group-addon">DH</span>
+            </div>
+            <small>N'oublier pas d'inclure le montant de la main d'oeuvre dans le montant total</small>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+            <% if !@damage.errors.messages[:'expense.amount'].empty?  %>
+                <ul>
+                  <% @damage.errors.messages[:'expense.amount'].each do |message| %>
+                      <li>
+                        <small class="form-text text-muted text-error"><%= message %></small>
+                      </li>
+                  <% end %>
+                </ul>
+            <% end %>
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= form.label 'Main d\'oeuvre', class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-10">
+            <div class="input-group">
+              <%= form.number_field :labor, class: 'form-control' %>
+              <span class="input-group-addon">DH</span>
+            </div>
+
+            <% if !@damage.errors.messages[:'labor'].empty?  %>
+                <ul>
+                  <% @damage.errors.messages[:'labor'].each do |message| %>
+                      <li>
+                        <small class="form-text text-muted text-error"><%= message %></small>
+                      </li>
+                  <% end %>
+                </ul>
+            <% end %>
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= expense_form.label :description, class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-10">
+            <%= expense_form.text_area :description,  cols: 10, rows: 10, class: 'form-control' %>
+          </div>
+        </div>
+
+    <% end %>
+
+    <div class="form-group row">
+      <%= form.label 'Date du dégât', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.date_field :date, class: 'form-control' %>
+
+        <% if !@damage.errors.messages[:'date'].empty?  %>
+            <ul>
+              <% @damage.errors.messages[:'date'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= form.label 'Kilometrage', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <%= form.number_field :kilometers, class: 'form-control' %>
+          <span class="input-group-addon">KM</span>
+        </div>
+
+        <% if !@damage.errors.messages[:'kilometers'].empty?  %>
+            <ul>
+              <% @damage.errors.messages[:'kilometers'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+    </div>
+
 <% end %>
