@@ -1,12 +1,24 @@
 <h4>Assurances</h4>
 
-<div class="actions form-inline">
-  <%= link_to new_insurance_path, :class => 'btn btn-info btn-sm' do %>
+
+<div class="actions row">
+
+  <div class="col-md-4">
+    <%= link_to new_insurance_path, :class => 'btn btn-info btn-sm' do %>
         Ajouter une nouvelle Assurance
     <% end %>
+  </div>
+
+  <div class="col-md-4 ml-auto">
+    <input type="search"
+           class="form-control"
+           id="search-insurance"
+           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+  </div>
+
 </div>
 
-<table class="table table-bordered">
+<table id="insurance-data" class="table table-bordered">
   <thead>
     <tr>
       <th>Assureur</th>
@@ -14,8 +26,8 @@
       <th>Date d'expiration</th>
       <th>Pièce jointe</th>
       <th>Description</th>
-      <th>Actions</th>
       <th>Montant en DH</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -27,27 +39,28 @@
         <td><%= insurance.expiration_date %></td>
         <td><%= insurance.expense.attached_file %></td>
         <td><%= insurance.expense.description %></td>
-        <td>
-          <%= link_to insurance, :class => 'btn btn-outline-primary btn-sm' do %>
-              <%= fa_icon 'eye' %> Consulter
-          <% end %>
-          <%= link_to edit_insurance_path(insurance), :class => 'btn btn-outline-primary btn-sm' do %>
-              <%= fa_icon 'pencil' %> Modifier
-          <% end %>
-          <%= link_to insurance, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary btn-sm' do %>
-              <%= fa_icon 'trash' %> Suprimer
-          <% end %>
-        </td>
         <td><b><%= insurance.expense.amount %></b></td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-outline-dark btn-sm dropdown-toggle"
+                    type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Choisir une Action
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to insurance, :class => 'dropdown-item' do %>
+                  Consulter
+              <% end %>
+              <%= link_to edit_insurance_path(insurance), :class => 'dropdown-item' do %>
+                  Modifier
+              <% end %>
+              <%= link_to insurance, method: :delete, data: { confirm: 'Are you sure?' }, class: 'dropdown-item' do %>
+                  Suprimer
+              <% end %>
+            </div>
+          </div>
+        </td>
       </tr>
     <% end %>
-
-    <tr class="table-active">
-      <td colspan="6"><b>Total</b></td>
-      <td>
-        <b><%= @insurances_sum %> DH</b>
-      </td>
-    </tr>
 
   </tbody>
 

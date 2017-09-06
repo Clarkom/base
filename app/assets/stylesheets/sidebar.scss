@@ -62,7 +62,7 @@
           font-size: 13px;
           padding-left: 20px;
           &:hover {
-            background-color: #3e495f;
+            background-color: #17a2b8;
             transition: background-color 500ms linear;
           }
         }
@@ -74,7 +74,7 @@
     transition: background-color 100ms linear;
     border-bottom: 1px dotted #6b7894;
     .active {
-      background-color: #3e495f;
+      background-color: #17a2b8;
     }
     .fa-angle-right {
       display: none;

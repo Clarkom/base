@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require popper
 //= require bootstrap
+//= require datatables/media/js/jquery.dataTables
 //= require_tree .

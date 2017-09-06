@@ -4,6 +4,12 @@ body {
 ul li {
   list-style: none;
 }
+.btn {
+  &:focus, &:active {
+    outline: none;
+    box-shadow: none;
+  }
+}
 .logo {
   font-size: 29px;
   font-family: 'Georgia', cursive;
@@ -37,10 +43,29 @@ ul li {
     }
     .actions {
       margin: 20px 0;
+      > div {
+        padding-right: 0;
+        padding-left: 0;
+      }
     }
     th {
-      font-size: 13px;
+      font-size: 14px;
+      &:focus {
+        outline: none;
+      }
     }
+  }
+  .dropdown {
+    .btn {
+      font-size: 12px;
+    }
+    .dropdown-item {
+      font-size: 12px;
+      width: auto;
+    }
+  }
+  table {
+    font-size: 14px;
   }
 }
 
