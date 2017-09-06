@@ -12,6 +12,7 @@
 
     <div class="container-fluid">
 
+      <!-- # Authenticated User -->
       <% if user_signed_in? %>
 
           <!-- # Header -->
@@ -25,14 +26,23 @@
 
             <!-- # Main -->
             <div class="main col-sm-12 ml-sm-auto col-md-10 pt-3" role="main">
-              <% if notice %>
-                  <div class="alert alert-success" role="alert"><%= notice %></div>
-              <% end %>
-              <%= yield %>
+
+              <!-- # Notice -->
+              <%= render 'layouts/notices' %>
+
+              <!-- # Title -->
+              <%= render 'layouts/title_header' %>
+
+              <!-- # Content -->
+              <div class="main-content">
+                <%= yield %>
+              </div>
+
             </div>
 
           </div>
 
+          <!-- # Non Authenticated User -->
           <% else %>
 
             <%= yield %>

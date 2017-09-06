@@ -1,12 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Damage Types</h1>
+<h4>Damage Types</h4>
 
-<table>
+<div class="actions form-inline">
+  <%= link_to new_damage_type_path, :class => 'btn btn-info btn-sm' do %>
+      Add a Damage Type
+  <% end %>
+</div>
+
+<table class="table table-bordered table-responsive">
   <thead>
     <tr>
       <th>Name</th>
-      <th colspan="3"></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -21,7 +27,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Damage Type', new_damage_type_path %>

@@ -5,6 +5,7 @@ class InsurancesController < ApplicationController
   # GET /insurances.json
   def index
     @insurances = Insurance.all
+    @insurances_sum = Insurance.includes(:expense).pluck(:amount).sum;
   end
 
   # GET /insurances/1

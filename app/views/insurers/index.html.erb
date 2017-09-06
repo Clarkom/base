@@ -1,15 +1,19 @@
-<p id="notice"><%= notice %></p>
+<h4>Insurers</h4>
 
-<h1>Insurers</h1>
+<div class="actions form-inline">
+  <%= link_to new_insurer_path, :class => 'btn btn-info btn-sm' do %>
+      Add an Insurer
+  <% end %>
+</div>
 
-<table>
+<table class="table table-bordered table-responsive">
   <thead>
     <tr>
       <th>Name</th>
       <th>Picture</th>
       <th>Address</th>
       <th>Phone</th>
-      <th colspan="3"></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -19,10 +23,18 @@
         <td><%= insurer.name %></td>
         <td><%= insurer.picture %></td>
         <td><%= insurer.address %></td>
-        <td><%= insurer.phone %></td>
-        <td><%= link_to 'Show', insurer %></td>
-        <td><%= link_to 'Edit', edit_insurer_path(insurer) %></td>
-        <td><%= link_to 'Destroy', insurer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>0<%= insurer.phone %></td>
+        <td>
+          <%= link_to insurer, :class => 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'eye' %> Show
+          <% end %>
+          <%= link_to edit_insurer_path(insurer), :class => 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'pencil' %> Edit
+          <% end %>
+          <%= link_to insurer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'trash' %> Destroy
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

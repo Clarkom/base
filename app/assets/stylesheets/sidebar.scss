@@ -15,8 +15,10 @@
   font-weight: 100;
   font-size: 14px;
   .top-logo {
-    text-align: center;
-    padding: 10px 0 20px 0;
+    padding: 10px 0 20px 11px;
+    .fa {
+      color: #6b7fa7;
+    }
   }
   h4 {
     color: #8ba0bd;
@@ -60,7 +62,7 @@
           font-size: 13px;
           padding-left: 20px;
           &:hover {
-            background-color: #65b752;
+            background-color: #3e495f;
             transition: background-color 500ms linear;
           }
         }
@@ -72,7 +74,7 @@
     transition: background-color 100ms linear;
     border-bottom: 1px dotted #6b7894;
     .active {
-      background-color: #65b752;
+      background-color: #3e495f;
     }
     .fa-angle-right {
       display: none;
