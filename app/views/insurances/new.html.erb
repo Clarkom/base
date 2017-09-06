@@ -1,5 +1,7 @@
-<h1>New Insurance</h1>
+<h4>Ajouter une nouvelle Assurance</h4>
 
 <%= render 'form', insurance: @insurance %>
 
-<%= link_to 'Back', insurances_path %>
+<%= link_to insurances_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Retour
+<% end %>

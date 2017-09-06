@@ -1,6 +1,6 @@
 <h4>Assurances</h4>
 
-
+<!-- # -->
 <div class="actions row">
 
   <div class="col-md-4">
@@ -18,16 +18,15 @@
 
 </div>
 
+<!-- # -->
 <table id="insurance-data" class="table table-bordered">
   <thead>
     <tr>
       <th>Assureur</th>
       <th>Date de Début</th>
       <th>Date d'expiration</th>
-      <th>Pièce jointe</th>
-      <th>Description</th>
       <th>Montant en DH</th>
-      <th>Actions</th>
+      <th class="td-actions">Actions</th>
     </tr>
   </thead>
 
@@ -37,31 +36,32 @@
         <td><%= insurance.insurer.name %></td>
         <td><%= insurance.start_date %></td>
         <td><%= insurance.expiration_date %></td>
-        <td><%= insurance.expense.attached_file %></td>
-        <td><%= insurance.expense.description %></td>
         <td><b><%= insurance.expense.amount %></b></td>
         <td>
           <div class="dropdown">
-            <button class="btn btn-outline-dark btn-sm dropdown-toggle"
-                    type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Choisir une Action
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <%= link_to insurance, :class => 'dropdown-item' do %>
-                  Consulter
-              <% end %>
-              <%= link_to edit_insurance_path(insurance), :class => 'dropdown-item' do %>
-                  Modifier
-              <% end %>
-              <%= link_to insurance, method: :delete, data: { confirm: 'Are you sure?' }, class: 'dropdown-item' do %>
-                  Suprimer
-              <% end %>
-            </div>
+            <%= link_to insurance, :class => 'btn btn-outline-dark btn-sm' do %>
+                <%= fa_icon 'eye' %>
+            <% end %>
+            <%= link_to edit_insurance_path(insurance), :class => 'btn btn-outline-dark btn-sm' do %>
+                <%= fa_icon 'pencil' %>
+            <% end %>
+            <%= link_to insurance, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-dark btn-sm' do %>
+                <%= fa_icon 'close' %>
+            <% end %>
           </div>
         </td>
       </tr>
     <% end %>
 
   </tbody>
+
+  <tfoot>
+    <tr class="table-sum">
+      <td colspan="3"><b>Total</b></td>
+      <td colspan="2">
+        <b><%= @insurances_sum %> DH</b>
+      </td>
+    </tr>
+  </tfoot>
 
 </table>

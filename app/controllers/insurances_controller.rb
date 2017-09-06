@@ -44,8 +44,8 @@ class InsurancesController < ApplicationController
   def update
     respond_to do |format|
       if @insurance.update(insurance_params)
-        format.html { redirect_to @insurance, notice: 'Insurance was successfully updated.' }
-        format.json { render :show, status: :ok, location: @insurance }
+        format.html { redirect_to action: "index", notice: 'Insurance was successfully updated.' }
+        format.json { render :index, status: :ok, location: @insurance }
       else
         format.html { render :edit }
         format.json { render json: @insurance.errors, status: :unprocessable_entity }

@@ -1,6 +1,6 @@
 class Insurance < ApplicationRecord
   belongs_to :expense, optional: true
-  belongs_to :insurer
+  belongs_to :insurer, optional: true
 
   accepts_nested_attributes_for :expense, :allow_destroy => true
 

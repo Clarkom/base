@@ -1,6 +1,12 @@
-<h1>Editing Insurance</h1>
+<h4>Editer cette Insurance</h4>
 
 <%= render 'form', insurance: @insurance %>
 
-<%= link_to 'Show', @insurance %> |
-<%= link_to 'Back', insurances_path %>
+<%= link_to insurances_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Retour
+<% end %>
+
+<%= link_to @insurance, :class => 'badge badge-light' do %>
+    <%= fa_icon 'eye' %> Consulter Detail
+<% end %>
+

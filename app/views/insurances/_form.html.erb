@@ -1,49 +1,94 @@
 <%= form_with(model: insurance, local: true) do |form| %>
 
-    <% if insurance.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(insurance.errors.count, "error") %> prohibited this insurance from being saved:</h2>
-
-        <ul>
-        <% insurance.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
+    <div class="form-group row">
+      <%= form.label 'Nom de l\'asurreur', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.collection_select :insurer_id, Insurer.all, :id, :name, {
+          :multiple => false,
+          :include_blank => 'Selection un Assureur',
+        },{ class: 'form-control' }
+        %>
       </div>
-    <% end %>
-
-    <div class="field">
-      <%= form.label :start_date %>
-      <%= form.date_select :start_date, id: :insurance_start_date %>
-    </div>
-
-    <div class="field">
-      <%= form.label :expiration_date %>
-      <%= form.date_select :expiration_date, id: :insurance_expiration_date %>
-    </div>
-
-    <div class="field">
-      <%= form.label :insurer_id %>
-      <%= form.collection_select :insurer_id, Insurer.all, :id, :name, {
-        :multiple => false,
-        :include_blank => 'Select an Insurer',
-      } %>
     </div>
 
     <%= form.fields_for :expense  do |expense_form| %>
-        <%= expense_form.label :amount %>
-        <%= expense_form.text_field :amount %>
 
-        <%= expense_form.label :attached_file %>
-        <%= expense_form.text_field :attached_file %>
+        <div class="form-group row">
+          <%= expense_form.label 'Montant', class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-10">
+            <div class="input-group">
+              <%= expense_form.number_field :amount, class: 'form-control' %>
+              <span class="input-group-addon">DH</span>
+            </div>
 
-        <%= expense_form.label :description %>
-        <%= expense_form.text_field :description %>
+            <% if !insurance.errors.messages[:'expense.amount'].empty?  %>
+                <ul>
+                  <% insurance.errors.messages[:'expense.amount'].each do |message| %>
+                    <li>
+                      <small class="form-text text-muted text-error"><%= message %></small>
+                    </li>
+                  <% end %>
+                </ul>
+            <% end %>
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= expense_form.label 'Pièce jointe', class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-10">
+            <%= expense_form.file_field :attached_file, class: 'form-control ' %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= expense_form.label :description, class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-10">
+            <%= expense_form.text_area :description,  cols: 10, rows: 10, class: 'form-control' %>
+          </div>
+        </div>
 
     <% end %>
 
+    <div class="form-group row">
+      <%= form.label 'Date de début', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.date_field :start_date, class: 'form-control' %>
+
+        <% if !insurance.errors.messages[:'start_date'].empty?  %>
+            <ul>
+              <% insurance.errors.messages[:'start_date'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= form.label 'Date d\'expiration', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.date_field :expiration_date, class: 'form-control' %>
+
+
+        <% if !insurance.errors.messages[:'expiration_date'].empty?  %>
+            <ul>
+              <% insurance.errors.messages[:'expiration_date'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+
+      </div>
+    </div>
+
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
     </div>
 
 <% end %>

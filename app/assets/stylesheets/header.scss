@@ -1,8 +1,7 @@
 header {
 
   background: #6b7fa7;
-  padding: 0 15px 135px 20px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+  padding: 0 15px 25px 20px;
   color: #fff;
 
   a {
@@ -10,7 +9,7 @@ header {
   }
 
   &.fixed-top {
-    z-index: 0;
+    z-index: 9 !important;
   }
 
   .navbar {
@@ -72,6 +71,7 @@ header {
 }
 
 .title-header {
+  position: relative;
   h3 {
     padding: 0 0 20px 14px  ;
     color: #fff;

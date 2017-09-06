@@ -12,7 +12,7 @@ ready = function() {
     var table = $('#insurance-data').DataTable({
         "searching": true,
         "columnDefs": [ {
-            "targets": [3, 6],
+            "targets": [4],
             "orderable": false
         } ],
         "order": [[ 1, "desc" ]],
