@@ -1,29 +1,63 @@
-<p id="notice"><%= notice %></p>
+<h4>Recettes Propriétaires</h4>
 
-<h1>Owner Takes</h1>
+<!-- # -->
+<div class="actions row">
 
-<table>
+  <div class="col-md-4">
+    <%= link_to new_owner_take_path, :class => 'btn btn-info btn-sm' do %>
+        Ajouter une nouvelle Recette
+    <% end %>
+  </div>
+
+  <div class="col-md-4 ml-auto">
+    <input type="search"
+           class="form-control"
+           id="search-owner-take"
+           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+  </div>
+
+</div>
+
+<!-- # -->
+<table id="owner-take-data" class="table table-bordered">
+
   <thead>
     <tr>
-      <th>Expense</th>
-      <th>Owner</th>
-      <th colspan="3"></th>
+      <th>Récepteur</th>
+      <th>Date</th>
+      <th>Montant en DH</th>
+      <th ckass="td-actions">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @owner_takes.each do |owner_take| %>
       <tr>
-        <td><%= owner_take.expense %></td>
-        <td><%= owner_take.owner %></td>
-        <td><%= link_to 'Show', owner_take %></td>
-        <td><%= link_to 'Edit', edit_owner_take_path(owner_take) %></td>
-        <td><%= link_to 'Destroy', owner_take, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= owner_take.owner.full_name %></td>
+        <td><%= owner_take.date %></td>
+        <td><%= owner_take.expense.amount %></td>
+        <td>
+          <%= link_to owner_take, :class => 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'eye' %>
+          <% end %>
+          <%= link_to edit_owner_take_path(owner_take), :class => 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'pencil' %>
+          <% end %>
+          <%= link_to owner_take, method: :delete, data: { confirm: 'Êtes vous sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'close' %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
+
+  <tfoot>
+    <tr class="table-sum">
+      <td colspan="2"><b>Total</b></td>
+      <td colspan="2">
+        <b><%= @owner_takes_sum %> DH</b>
+      </td>
+    </tr>
+  </tfoot>
+
 </table>
-
-<br>
-
-<%= link_to 'New Owner Take', new_owner_take_path %>

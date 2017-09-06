@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20170904152902) do
   create_table "owner_takes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expense_id"
     t.bigint "owner_id"
+    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["expense_id"], name: "index_owner_takes_on_expense_id"

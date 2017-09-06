@@ -5,6 +5,7 @@ class OwnerTakesController < ApplicationController
   # GET /owner_takes.json
   def index
     @owner_takes = OwnerTake.all
+    @owner_takes_sum = OwnerTake.includes(:expense).pluck(:amount).sum;
   end
 
   # GET /owner_takes/1
@@ -15,6 +16,7 @@ class OwnerTakesController < ApplicationController
   # GET /owner_takes/new
   def new
     @owner_take = OwnerTake.new
+    @owner_take.build_expense
   end
 
   # GET /owner_takes/1/edit
@@ -69,6 +71,11 @@ class OwnerTakesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def owner_take_params
-      params.require(:owner_take).permit(:expense_id, :owner_id)
+      params.require(:owner_take).permit(
+          :expense_id,
+          :owner_id,
+          :date,
+          :expense_attributes => [:id, :amount, :attached_file, :description]
+      )
     end
 end
