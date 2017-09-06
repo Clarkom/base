@@ -5,6 +5,7 @@ class BreaksController < ApplicationController
   # GET /breaks.json
   def index
     @breaks = Break.all
+    @breaks_sum = Break.includes(:expense).pluck(:amount).sum;
   end
 
   # GET /breaks/1
@@ -15,6 +16,7 @@ class BreaksController < ApplicationController
   # GET /breaks/new
   def new
     @break = Break.new
+    @break.build_expense
   end
 
   # GET /breaks/1/edit
@@ -75,6 +77,7 @@ class BreaksController < ApplicationController
           :end_date,
           :break_cause_id,
           :damage,
+          :expense_attributes => [:id, :amount, :attached_file, :description]
       )
     end
 end

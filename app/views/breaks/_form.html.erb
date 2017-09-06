@@ -1,32 +1,87 @@
 <%= form_for @break do |form| %>
-  <% if @break.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@break.errors.count, "error") %> prohibited this break from being saved:</h2>
 
-      <ul>
-      <% @break.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+
+    <div class="form-group row">
+      <%= form.label 'Cause de l\'arrêt', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.collection_select :break_cause_id, BreakCause.all, :id, :name, {
+          :multiple => false,
+          :include_blank => 'Selection une cause',
+        },{ class: 'form-control' }
+        %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :expense_id %>
-    <%= form.text_field :expense_id, id: :break_expense_id %>
-  </div>
+    <%= form.fields_for :expense  do |expense_form| %>
 
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.date_select :start_date, id: :break_start_date %>
-  </div>
+        <div class="form-group row">
+          <%= expense_form.label 'Montant', class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-10">
+            <div class="input-group">
+              <%= expense_form.number_field :amount, class: 'form-control' %>
+              <span class="input-group-addon">DH</span>
+            </div>
 
-  <div class="field">
-    <%= form.label :end_date %>
-    <%= form.date_select :end_date, id: :break_end_date %>
-  </div>
+            <% if !@break.errors.messages[:'expense.amount'].empty?  %>
+                <ul>
+                  <% @break.errors.messages[:'expense.amount'].each do |message| %>
+                      <li>
+                        <small class="form-text text-muted text-error"><%= message %></small>
+                      </li>
+                  <% end %>
+                </ul>
+            <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= expense_form.label :description, class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-10">
+            <%= expense_form.text_area :description,  cols: 10, rows: 10, class: 'form-control' %>
+          </div>
+        </div>
+
+    <% end %>
+
+    <div class="form-group row">
+      <%= form.label 'Date de début', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.date_field :start_date, class: 'form-control' %>
+
+        <% if !@break.errors.messages[:'start_date'].empty?  %>
+            <ul>
+              <% @break.errors.messages[:'start_date'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= form.label 'Date fin', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.date_field :end_date, class: 'form-control' %>
+
+        <% if !@break.errors.messages[:'end_date'].empty?  %>
+            <ul>
+              <% @break.errors.messages[:'end_date'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+    </div>
+
 <% end %>
