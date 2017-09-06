@@ -38,11 +38,14 @@
             <!-- # Drop Down -->
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenuDropDown">
               <li class="dropdown-item">
-
                 <%= link_to edit_user_registration_path(current_user) do %>
-                    <%= fa_icon 'user' %> Profile
+                    <%= fa_icon 'user' %> Mon Profile
                 <% end %>
-
+              </li>
+              <li class="dropdown-item">
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                    <%= fa_icon 'close' %> Déconnexion
+                <% end %>
               </li>
             </ul>
           </li>
