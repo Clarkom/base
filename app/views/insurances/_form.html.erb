@@ -1,32 +1,49 @@
 <%= form_with(model: insurance, local: true) do |form| %>
-  <% if insurance.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(insurance.errors.count, "error") %> prohibited this insurance from being saved:</h2>
 
-      <ul>
-      <% insurance.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if insurance.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(insurance.errors.count, "error") %> prohibited this insurance from being saved:</h2>
+
+        <ul>
+        <% insurance.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :start_date %>
+      <%= form.date_select :start_date, id: :insurance_start_date %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :expense_id %>
-    <%= form.text_field :expense_id, id: :insurance_expense_id %>
-  </div>
+    <div class="field">
+      <%= form.label :expiration_date %>
+      <%= form.date_select :expiration_date, id: :insurance_expiration_date %>
+    </div>
 
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.date_select :start_date, id: :insurance_start_date %>
-  </div>
+    <div class="field">
+      <%= form.label :insurer_id %>
+      <%= form.collection_select :insurer_id, Insurer.all, :id, :name, {
+        :multiple => false,
+        :include_blank => 'Select an Insurer',
+      } %>
+    </div>
 
-  <div class="field">
-    <%= form.label :expiration_date %>
-    <%= form.date_select :expiration_date, id: :insurance_end_date %>
-  </div>
+    <%= form.fields_for :expense  do |expense_form| %>
+        <%= expense_form.label :amount %>
+        <%= expense_form.text_field :amount %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+        <%= expense_form.label :attached_file %>
+        <%= expense_form.text_field :attached_file %>
+
+        <%= expense_form.label :description %>
+        <%= expense_form.text_field :description %>
+
+    <% end %>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+
 <% end %>

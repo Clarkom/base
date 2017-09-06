@@ -11,10 +11,15 @@ ready = function() {
     * Bootstrap Collapse
     *
     * */
-    $('.nav-item > ul').on('shown.bs.collapse', function () {
+
+    var selector = $('.nav-item > ul');
+    selector.on('show.bs.collapse', function(){
+        selector.collapse('hide');
+    })
+    selector.on('shown.bs.collapse', function () {
         $(this).parent().addClass('active-list')
     });
-    $('.nav-item > ul').on('hidden.bs.collapse', function () {
+    selector.on('hidden.bs.collapse', function () {
         $(this).parent().removeClass('active-list')
     });
 

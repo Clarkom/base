@@ -16,6 +16,7 @@ class InsurancesController < ApplicationController
   # GET /insurances/new
   def new
     @insurance = Insurance.new
+    @insurance.build_expense
   end
 
   # GET /insurances/1/edit
@@ -70,6 +71,12 @@ class InsurancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def insurance_params
-      params.require(:insurance).permit(:expense_id, :start_date, :end_date)
+      params.require(:insurance).permit(
+          :expense_id,
+          :start_date,
+          :expiration_date,
+          :insurer_id,
+          :expense_attributes => [:id, :amount, :attached_file, :description],
+      )
     end
 end
