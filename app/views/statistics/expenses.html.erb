@@ -1,20 +1,100 @@
 <div class="row">
-  <div class="col-sm-6">
+
+  <!-- All Expenses -->
+  <div class="col-sm-5">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Special title treatment</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h4 class="card-title">
+          Dépenses Générales
+          <b>
+            <%= number_to_currency(@total_expenses, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+          </b>
+        </h4>
+
+        <!-- # Canvas -->
+        <canvas id="allExpensesStats">
+          <!-- # Values-->
+          <div id="expenses-breaks-stats"><%= @breaks_percent %></div>
+          <div id="expenses-assurances-stats"><%= @insurances_percent %></div>
+          <div id="expenses-damages-stats"><%= @damages_percent %></div>
+          <div id="expenses-ownertakes-stats"><%= @owner_takes_percent %></div>
+        </canvas>
+
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Special title treatment</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+  <!-- # Right Column -->
+  <div class="col-md-7 stats-col">
+
+    <!-- # Breaks -->
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">
+            Arrêts
+            <b>
+              <%= number_to_currency(@breaks_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+            </b>
+          </h4>
+
+          <!-- # Canvas -->
+          <canvas id="BreaksExpensesStats"></canvas>
+
+        </div>
       </div>
     </div>
+
+    <!-- # Insurances -->
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">
+            Assurances
+            <b>
+              <%= number_to_currency(@insurances_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+            </b>
+          </h4>
+
+          <!-- # Canvas -->
+          <canvas id="InsurancesExpensesStats">
+
+          </canvas>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- # Damages -->
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+            Dégats
+            <b>
+              <%= number_to_currency(@damages_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+            </b>
+          </h4>
+        </div>
+      </div>
+    </div>
+to
+    <!-- # Owner Takes -->
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+            Recettes
+            <b>
+              <%= number_to_currency(@owner_takes_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+            </b>
+          </h4>
+        </div>
+      </div>
+    </div>
+
   </div>
+
 </div>

@@ -1,3 +1,18 @@
 .stats {
   padding: 0 5px;
+  h4 {
+    border-bottom: 1px solid #dadada;
+    padding-bottom: 14px;
+    b {
+      float: right;
+      font-weight: bold;
+      font-size: 13px;
+      color: #6b7fa7;
+    }
+  }
+}
+.stats-col {
+  > div {
+    margin-bottom: 15px;
+  }
 }

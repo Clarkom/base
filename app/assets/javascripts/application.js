@@ -16,4 +16,5 @@
 //= require popper
 //= require bootstrap
 //= require datatables/media/js/jquery.dataTables
+//= require chart.js/dist/Chart
 //= require_tree .
