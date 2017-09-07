@@ -13,14 +13,14 @@ module ApplicationHelper
   #
   def get_page_title
 
-     if current_path('expenses')
+     if current_path('expenses/')
        render :inline => "#{fa_icon 'bank'} Dépenses"
 
        elsif current_path('cabs')
          render :inline => "#{fa_icon 'taxi'} Véhicule"
 
      elsif current_path('statistics')
-       render :inline => "#{fa_icon 'taxi'} Statistiques"
+       render :inline => "#{fa_icon 'bar-chart'} Statistiques"
 
      elsif current_path('/')
        render :inline => "#{fa_icon 'home'} Accueil"

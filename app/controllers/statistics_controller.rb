@@ -5,5 +5,9 @@ class StatisticsController < ApplicationController
 
   end
 
+  def revenus
+
+  end
+
 
 end
