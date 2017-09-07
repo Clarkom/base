@@ -19,6 +19,9 @@ module ApplicationHelper
        elsif current_path('cabs')
          render :inline => "#{fa_icon 'taxi'} Véhicule"
 
+     elsif current_path('statistics')
+       render :inline => "#{fa_icon 'taxi'} Statistiques"
+
      elsif current_path('/')
        render :inline => "#{fa_icon 'home'} Accueil"
 

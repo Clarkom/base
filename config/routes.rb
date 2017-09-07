@@ -3,10 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
 
-  resources :break_causes
-  resources :owners
-  resources :drivers
-
   #
   #
   # Cabs
@@ -17,6 +13,9 @@ Rails.application.routes.draw do
       resources :fuel_types
       resources :damage_types
       resources :insurers
+      resources :owners
+      resources :drivers
+      resources :break_causes
     end
   end
 
@@ -38,6 +37,12 @@ Rails.application.routes.draw do
     end
   end
 
+  #
+  #
+  # Statistics
+  scope '/statistics' do
+    get 'expenses', to: 'statistics#expenses'
+  end
 
 
 end

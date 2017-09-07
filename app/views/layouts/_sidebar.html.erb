@@ -43,7 +43,6 @@
         <%= fa_icon 'angle-right' %>
         <%= fa_icon 'angle-down' %>
       </a>
-
       <ul class="<%= current_path('expenses') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="expensesCollapse">
         <li>
           <%= link_to all_expenses_path, class: "#{ current_path('expenses/all') ? 'active' : '' }" do %>
@@ -73,7 +72,7 @@
       </ul>
     </li>
 
-    <!-- # Cab -->
+    <!-- # Cabs -->
     <li class="<%= current_path('cabs') ? 'active-list' : '' %> nav-item">
       <a data-toggle="collapse"
          href="#cabCollapse"
@@ -111,14 +110,16 @@
               <%= fa_icon 'caret-right' %> Assureurs
           <% end %>
         </li>
+        <li>
+          <%= link_to owners_path, class: "#{ current_path('owners') ? 'active' : '' }" do %>
+              <%= fa_icon 'caret-right' %> Propriétaires
+          <% end %>
+        </li>
       </ul>
     </li>
 
-
-    <!-- # Statistics -->
-
-
   </ul>
+
 
 </div>
 
