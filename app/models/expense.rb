@@ -12,4 +12,8 @@ class Expense < ApplicationRecord
 
   validates :amount, presence: true
 
+  def self.expenses_sum
+    self.pluck(:amount).sum
+  end
+
 end

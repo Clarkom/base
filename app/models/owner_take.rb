@@ -6,4 +6,8 @@ class OwnerTake < ApplicationRecord
 
   validates :date, presence: true
 
+  def self.owner_takes_sum
+    self.includes(:expense).pluck(:amount).sum
+  end
+
 end

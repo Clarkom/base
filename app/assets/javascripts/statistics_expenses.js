@@ -101,6 +101,21 @@ ready = function() {
         }
     });
 
+    $('#insurances_years').on('change', function(){
+
+        var selected_option = $(this).find('option:selected').val();
+
+        $.ajax({
+            url: '/statistics/get_insurance_by_year',
+            type: 'GET',
+            dataType: 'json',
+            data: { insurance_year: selected_option },
+            success: function(data){
+                console.log(data)
+            }
+        });
+
+    })
 
 };
 $(document).on('turbolinks:load', ready);

@@ -7,4 +7,8 @@ class Damage < ApplicationRecord
 
   validates :date, presence: true
 
+  def self.damages_sum
+    self.includes(:expense).pluck(:amount).sum
+  end
+
 end

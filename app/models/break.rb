@@ -7,4 +7,8 @@ class Break < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
 
+  def self.breaks_sum
+    self.includes(:expense).pluck(:amount).sum
+  end
+
 end

@@ -43,6 +43,10 @@ Rails.application.routes.draw do
   scope '/statistics' do
     get 'expenses', to: 'statistics#expenses'
     get 'revenus', to: 'statistics#revenus'
+
+    #
+    # Date Filters
+    get 'get_insurance_by_year', to: 'statistics#get_insurance_by_year'
   end
 
 
