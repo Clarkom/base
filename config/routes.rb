@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   # Statistics
   scope '/statistics' do
     get 'expenses', to: 'statistics#expenses'
+    get 'revenus', to: 'statistics#revenus'
   end
 
 
