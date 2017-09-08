@@ -1,0 +1,12 @@
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">
+        Dégats
+        <b>
+          <%= number_to_currency(Damage.damages_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+        </b>
+      </h4>
+    </div>
+  </div>
+</div>

@@ -36,6 +36,7 @@ ready = function() {
     * */
     var table = $('#damage-data').DataTable({
         "searching": true,
+        "paginate": false,
         "columnDefs": [ {
             "targets": [6],
             "orderable": false

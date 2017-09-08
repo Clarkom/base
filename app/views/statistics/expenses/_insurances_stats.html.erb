@@ -1,0 +1,24 @@
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-body">
+
+      <h4 class="card-title">
+        Assurances
+        <b>
+          <%= number_to_currency(Insurance.insurances_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+        </b>
+      </h4>
+
+      <!-- # Canvas -->
+      <canvas id="InsurancesExpensesStats">
+        <% Insurance.all.each do |insurance| %>
+          <ul>
+            <li id="yep"><%= insurance.start_date.to_s.to_i %>/<%= (insurance.start_date + 1.year).to_s.to_i %></li>
+            <li><%= insurance.expense.amount %></li>
+          </ul>
+        <% end %>
+      </canvas>
+
+    </div>
+  </div>
+</div>

@@ -9,6 +9,7 @@ ready = function() {
     //
     var table = $('#owner-take-data').DataTable({
         "searching": true,
+        "paginate": false,
         "columnDefs": [ {
             "targets": [3],
             "orderable": false

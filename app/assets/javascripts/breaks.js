@@ -34,6 +34,7 @@ ready = function() {
     //
     var table = $('#break-data').DataTable({
         "searching": true,
+        "paging": false,
         "columnDefs": [ {
             "targets": [5],
             "orderable": false

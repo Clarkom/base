@@ -1,0 +1,17 @@
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-body">
+
+      <h4 class="card-title">
+        Arrêts
+        <b>
+          <%= number_to_currency(Break.breaks_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+        </b>
+      </h4>
+
+      <!-- # Canvas -->
+      <canvas id="BreaksExpensesStats"></canvas>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="col-sm-5">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">
+        Dépenses Générales
+        <b>
+          <%= number_to_currency(Expense.expenses_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+        </b>
+      </h4>
+
+      <!-- # Canvas -->
+      <canvas id="allExpensesStats">
+        <!-- # Values-->
+        <div id="expenses-breaks-stats"><%= calculat_percent(Break.breaks_sum, Expense.expenses_sum) %></div>
+        <div id="expenses-assurances-stats"><%= calculat_percent(Insurance.insurances_sum, Expense.expenses_sum) %></div>
+        <div id="expenses-damages-stats"><%= calculat_percent(Damage.damages_sum, Expense.expenses_sum) %></div>
+        <div id="expenses-ownertakes-stats"><%= calculat_percent(OwnerTake.owner_takes_sum, Expense.expenses_sum) %></div>
+      </canvas>
+
+    </div>
+  </div>
+</div>
