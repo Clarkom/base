@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery3
-//= require jquery_ujs
-//= require turbolinks
 //= require popper
 //= require bootstrap
+//= require turbolinks
 //= require datatables/media/js/jquery.dataTables
 //= require chart.js/dist/Chart
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .

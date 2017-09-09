@@ -8,13 +8,13 @@ class StatisticsController < ApplicationController
 
   #
   #
-  # Insurance
-  def get_insurance_by_year
+  # Get Breaks By Year
+  def get_breaks_by_year
 
-    @insurance = Insurance.insurances_by_year(params[:insurance_year])
+    @break = Break.breaks_by_year(params[:break_year])
 
     respond_to do |format|
-      format.json { render :json => @insurance }
+      format.json { render :json => @break }
       format.js
     end
 

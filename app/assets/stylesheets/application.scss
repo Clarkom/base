@@ -14,38 +14,14 @@
 @import 'fonts';
 @import 'font-awesome';
 
-//
-//
 // Bootstrap
-// Default
-@import "bootstrap/functions";
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
-@import "bootstrap/reboot";
-
-// Utilities
-@import "bootstrap/utilities/spacing";
-@import "bootstrap/utilities/display";
-@import "bootstrap/utilities/position";
-
-//
-@import "bootstrap/grid";
-@import "bootstrap/tables";
-@import "bootstrap/forms";
-@import "bootstrap/buttons";
-@import "bootstrap/transitions";
-@import "bootstrap/dropdown";
-@import "bootstrap/popover";
-@import "bootstrap/alert";
-@import "bootstrap/pagination";
-@import "bootstrap/nav";
-@import "bootstrap/navbar";
-@import "bootstrap/badge";
-@import "bootstrap/input-group";
-@import "bootstrap/card";
+@import 'bootstrap';
 
 // Datatables
 @import 'datatables';
+
+// Bootstrap Date
+@import 'bootstrap-datetimepicker';
 
 @import 'login';
 @import 'header';

@@ -16,7 +16,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'faker'
 
+
 gem 'jquery-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'awesome_print'
 gem 'devise'
 gem 'font-awesome-rails'

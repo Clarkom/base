@@ -3,7 +3,7 @@
     <div class="card-body">
       <h4 class="card-title">
         Dépenses Générales
-        <b>
+        <b class="badge badge-info">
           <%= number_to_currency(Expense.expenses_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
         </b>
       </h4>

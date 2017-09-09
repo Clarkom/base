@@ -6,26 +6,11 @@
   <!-- # Right Column -->
   <div class="col-md-7 stats-col">
 
-    <div class="col-sm-12">
-      <div class="card">
-        <div class="card-body">
-
-          <select name="insurances_years" id="insurances_years">
-            <option value="2014">2014</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-          </select>
-
-        </div>
-      </div>
-    </div>
+    <!-- # Insurances -->
+    <%= render 'statistics/expenses/insurances_stats' %>
 
     <!-- # Breaks -->
     <%= render 'statistics/expenses/breaks_stats' %>
-
-    <!-- # Insurances -->
-    <%= render 'statistics/expenses/insurances_stats' %>
 
     <!-- # Damages -->
     <%= render 'statistics/expenses/damages_stats' %>
