@@ -29,7 +29,7 @@ ready = function() {
                     'Septembre',
                     'Octobre',
                     'Novembre',
-                    'Décembre',
+                    'Décembre'
                 ],
                 datasets: [{
                     data: [
@@ -38,6 +38,7 @@ ready = function() {
                         12,
                         17,
                         42,
+                        33
                     ],
                     label: "Assurances",
                     borderColor: "rgba(13, 95, 107, 0.7)",
@@ -75,7 +76,7 @@ ready = function() {
                 dataType: 'json',
                 data: { break_year: selected_year },
                 success: function(data){
-                    console.log(data)
+                    console.log(data["January"])
                 }
             });
         }
