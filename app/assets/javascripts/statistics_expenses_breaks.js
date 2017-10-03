@@ -20,6 +20,11 @@ ready = function() {
   //
   // Draw Chart
   function drawChartByYear(breaks_months, breaks_data){
+
+    // Remove Chart Canvas Before Redrawing It
+    $('#BreaksExpensesStats').remove();
+    $('#filter-by-year').append('<canvas id="BreaksExpensesStats"></canvas>');
+
     var breaks_stats_id = 'BreaksExpensesStats';
     var breaks_stats = document.getElementById(breaks_stats_id);
     var breaks = breaks_stats.getContext('2d');
@@ -27,7 +32,7 @@ ready = function() {
     //
     // Draw Chart
     new Chart(breaks, {
-      type: 'line',
+      type: 'bar',
       data: {
         labels: breaks_months,
         datasets: [{
@@ -35,6 +40,7 @@ ready = function() {
           label: "Arrêts",
           borderColor: "rgba(184, 97, 22, 0.7)",
           backgroundColor: "rgba(184, 97, 22, 0.3)",
+          borderWidth: 2,
           fill: 'origin'
         }]
       },
@@ -119,13 +125,18 @@ ready = function() {
   //
   // Draw Chart
   function drawChartByYearAndMonth(breaks_start_and_end_date, breaks_data){
+
+    // Remove Chart Canvas Before Redrawing It
+    $('#BreaksExpensesStats_2').remove();
+    $('#filter-by-year-and-month').append('<canvas id="BreaksExpensesStats_2"></canvas>');
+
     var breaks_stats_id = 'BreaksExpensesStats_2';
     var breaks_stats = document.getElementById(breaks_stats_id);
     var breaks = breaks_stats.getContext('2d');
 
     //
     // Draw Chart
-    new Chart(breaks, {
+    var chart_year = new Chart(breaks, {
       type: 'bar',
       data: {
         labels: breaks_start_and_end_date,
@@ -133,7 +144,7 @@ ready = function() {
           data: breaks_data,
           label: "Arrêts",
           borderColor: "rgba(184, 97, 22, 0.7)",
-          backgroundColor: "rgba(184, 97, 22, 0.4)",
+          backgroundColor: "rgba(184, 97, 22, 0.3)",
           borderWidth: 2,
           fill: 'origin'
         }]
@@ -185,7 +196,7 @@ ready = function() {
   //
   // Draw a Chart for the Current Year
   var current_year = moment().year();
-  var current_month = moment().month();
+  var current_month = moment().month() + 1;
   drawChartAjaxByYearAndMonth(current_year, current_month);
 
   //
