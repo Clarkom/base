@@ -18,5 +18,7 @@ module MyTaxi
     # uncomment to use javascript by default in generators
     config.generators.javascript_engine = :js
 
+    config.i18n.default_locale = :fr
+
   end
 end

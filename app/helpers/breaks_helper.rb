@@ -12,7 +12,8 @@ module BreaksHelper
     #
     # Merge Dates By Months Instead of the full Date
     query_results.sort().each_with_index do |query_result, index|
-      months_and_amounts[index] = query_result[0].strftime('%B'), query_result[1]
+
+      months_and_amounts[index] = localize(query_result[0], format: '%B'), query_result[1]
     end
 
     #
