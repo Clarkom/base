@@ -32,7 +32,14 @@ class Break < ApplicationRecord
   #
   #
   def self.breaks_by_year_and_month(year, month)
-    breaks_by_year(year)[month]
+    ApplicationController
+        .helpers
+        .similar_expenses_amounts_by_year_and_month(
+            self.includes(:expense)
+                .where('extract(year from start_date) = ? AND extract(month from start_date) = ?', year, month)
+                .select(Break.column_names - ['break_cause_id', 'damage_id', 'created_at', 'updated_at'])
+                .pluck(:start_date.to_s,:end_date.to_s, :amount)
+        )
   end
 
 end

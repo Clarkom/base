@@ -2,6 +2,7 @@
   <div class="card">
     <div class="card-body">
 
+      <!-- # Title -->
       <h4 class="card-title">
         Arrêts
         <b class="badge badge-info">
@@ -9,27 +10,82 @@
         </b>
       </h4>
 
-      <div class="row justify-content-md-center date-filter">
+      <!-- # Tabs -->
+      <ul class="nav nav-tabs justify-content-center" id="breaksTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link"
+             id="filter-by-year-tab"
+             data-toggle="tab"
+             href="#filter-by-year"
+             role="tab" aria-controls="filter-by-year" aria-expanded="true">Year</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"
+             id="filter-by-year-and-month-tab"
+             data-toggle="tab"
+             href="#filter-by-year-and-month"
+             role="tab"
+             aria-controls="filter-by-year-and-month">Month</a>
+        </li>
+      </ul>
 
-        <div class="col col-lg-6 form-inline">
+      <!-- # Tabs Content -->
+      <div class="tab-content" id="breaksTabContent">
 
-          <div class="input-group date mr-sm-1" id="years-only">
-            <input type="text" class="form-control" placeholder="ex: 2017"/>
-            <div class="input-group-addon">
-              <span class="fa fa-calendar"></span>
+        <!-- # Filter By Year -->
+        <div class="tab-pane fade" id="filter-by-year" role="tabpanel" aria-labelledby="filter-by-year-tab">
+          <!-- # Filter -->
+          <div class="row justify-content-md-center date-filter">
+
+            <div class="col col-lg-6 form-inline">
+
+              <div class="input-group date mr-sm-1" id="years-only">
+                <input type="text" class="form-control" placeholder="ex: 2017"/>
+                <div class="input-group-addon">
+                  <span class="fa fa-calendar"></span>
+                </div>
+              </div>
+
+              <a href="#" id="get_breaks_by_year" class="btn btn-dark">
+                <%= fa_icon 'search' %>
+              </a>
+
             </div>
+
           </div>
 
-          <a href="#" id="get_breaks_by_year" class="btn btn-dark">
-            <%= fa_icon 'search' %>
-          </a>
-
+          <!-- # Canvas -->
+          <canvas id="BreaksExpensesStats"></canvas>
         </div>
 
-      </div>
+        <!-- # Filter By Year and Month -->
+        <div class="tab-pane fade show active" id="filter-by-year-and-month" role="tabpanel" aria-labelledby="filter-by-year-and-month-tab">
 
-      <!-- # Canvas -->
-      <canvas id="BreaksExpensesStats"></canvas>
+          <!-- # Filter -->
+          <div class="row justify-content-md-center date-filter">
+
+            <div class="col col-lg-6 form-inline">
+
+              <div class="input-group date mr-sm-1" id="years-and-months-only">
+                <input type="text" class="form-control" placeholder="ex: 04/2018"/>
+                <div class="input-group-addon">
+                  <span class="fa fa-calendar"></span>
+                </div>
+              </div>
+
+              <a href="#" id="get_breaks_by_year_and_month" class="btn btn-dark">
+                <%= fa_icon 'search' %>
+              </a>
+
+            </div>
+
+          </div>
+
+          <!-- # Canvas -->
+          <canvas id="BreaksExpensesStats_2"></canvas>
+
+        </div>
+      </div>
 
     </div>
   </div>

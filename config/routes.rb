@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     #
     # Date Filters
     get 'get_breaks_by_year', to: 'statistics#get_breaks_by_year'
+    get 'get_breaks_by_year_and_month', to: 'statistics#get_breaks_by_year_and_month'
   end
 
 
