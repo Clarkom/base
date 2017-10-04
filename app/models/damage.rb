@@ -32,7 +32,7 @@ class Damage < ApplicationRecord
   def self.damages_by_year_and_month(year, month)
     ApplicationController
         .helpers
-        .similar_expenses_amounts_by_year_and_month_damages(
+        .similar_expenses_amounts_by_year_and_month_v2(
             self.includes(:expense)
                 .where('extract(year from date) = ? AND extract(month from date) = ?', year, month)
                 .pluck(:date.to_s, :amount)

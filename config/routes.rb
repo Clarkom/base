@@ -54,6 +54,11 @@ Rails.application.routes.draw do
     get 'get_damages_by_year', to: 'statistics#get_damages_by_year'
     get 'get_damages_by_year_and_month', to: 'statistics#get_damages_by_year_and_month'
 
+    #
+    # Owner Takes Filters
+    get 'get_owner_takes_by_year', to: 'statistics#get_owner_takes_by_year'
+    get 'get_owner_takes_by_year_and_month', to: 'statistics#get_owner_takes_by_year_and_month'
+
   end
 
 

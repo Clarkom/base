@@ -1,12 +1,92 @@
 <div class="col-sm-12">
   <div class="card">
     <div class="card-body">
+
+      <!-- # Title -->
       <h4 class="card-title">
         Recettes
         <b class="badge badge-info">
           <%= number_to_currency(OwnerTake.owner_takes_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
         </b>
       </h4>
+
+      <!-- # Tabs -->
+      <ul class="nav nav-tabs justify-content-center" id="owner_takesTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active"
+             id="owner_take-stats-year-tab"
+             data-toggle="tab"
+             href="#owner_take-stat-year"
+             role="tab" aria-controls="owner_take-stat-year" aria-expanded="true">Year</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             id="owner_take-stat-year-and-month-tab"
+             data-toggle="tab"
+             href="#owner_take-stat-year-and-month"
+             role="tab"
+             aria-controls="owner_take-stat-year-and-month">Month</a>
+        </li>
+      </ul>
+
+      <!-- # Tabs Content -->
+      <div class="tab-content" id="owner_takesTabContent">
+
+        <!-- # Filter By Year -->
+        <div class="tab-pane fade show active" id="owner_take-stat-year" role="tabpanel" aria-labelledby="owner_take-stats-year-tab">
+          <!-- # Filter -->
+          <div class="row justify-content-md-center date-filter">
+
+            <div class="col col-lg-6 form-inline">
+
+              <div class="input-group date mr-sm-1" id="owner_takes-years-date">
+                <input type="text" class="form-control" placeholder="ex: 2017"/>
+                <div class="input-group-addon">
+                  <span class="fa fa-calendar"></span>
+                </div>
+              </div>
+
+              <a href="#" id="get_owner_takes_by_year" class="btn btn-dark">
+                <%= fa_icon 'search' %>
+              </a>
+
+            </div>
+
+          </div>
+
+          <!-- # Canvas -->
+          <canvas id="OwnerTakesExpensesStats"></canvas>
+        </div>
+
+        <!-- # Filter By Year and Month -->
+        <div class="tab-pane fade" id="owner_take-stat-year-and-month" role="tabpanel" aria-labelledby="owner_take-stat-year-and-month-tab">
+
+          <!-- # Filter -->
+          <div class="row justify-content-md-center date-filter">
+
+            <div class="col col-lg-6 form-inline">
+
+              <div class="input-group date mr-sm-1" id="owner_takes-years-and-months-date">
+                <input type="text" class="form-control" placeholder="ex: 04/2018"/>
+                <div class="input-group-addon">
+                  <span class="fa fa-calendar"></span>
+                </div>
+              </div>
+
+              <a href="#" id="get_owner_takes_by_year_and_month" class="btn btn-dark">
+                <%= fa_icon 'search' %>
+              </a>
+
+            </div>
+
+          </div>
+
+          <!-- # Canvas -->
+          <canvas id="OwnerTakesExpensesStats_2"></canvas>
+
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
