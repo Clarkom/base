@@ -34,8 +34,8 @@ ready = function() {
         datasets: [{
           data: owner_takes_data,
           label: "Dégats",
-          borderColor: "rgba(107, 41, 13, 0.7)",
-          backgroundColor: "rgba(107, 41, 13, 0.3)",
+          borderColor: "rgba(71, 71, 71, 0.7)",
+          backgroundColor: "rgba(71, 71, 71, 0.3)",
           borderWidth: 2,
           fill: 'origin'
         }]
@@ -135,8 +135,8 @@ ready = function() {
         datasets: [{
           data: owner_takes_data,
           label: "Arrêts",
-          borderColor: "rgba(107, 41, 13, 0.7)",
-          backgroundColor: "rgba(107, 41, 13, 0.3)",
+          borderColor: "rgba(71, 71, 71, 0.7)",
+          backgroundColor: "rgba(71, 71, 71, 0.3)",
           borderWidth: 2,
           fill: 'origin'
         }]
