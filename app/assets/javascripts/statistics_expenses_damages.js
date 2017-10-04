@@ -21,10 +21,6 @@ ready = function() {
   // Draw Chart
   function drawChartByYear(damages_months, damages_data){
 
-    // Remove Chart Canvas Before Redrawing It
-    $('#DamagesExpensesStats').remove();
-    $('#damage-stat-year').append('<canvas id="DamagesExpensesStats"></canvas>');
-
     var damages_stats_id = 'DamagesExpensesStats';
     var damages_stats = document.getElementById(damages_stats_id);
     var damages = damages_stats.getContext('2d');
@@ -126,10 +122,6 @@ ready = function() {
   // Draw Chart
   function drawChartByYearAndMonth(damages_start_and_end_date, damages_data){
 
-    // Remove Chart Canvas Before Redrawing It
-    $('#DamagesExpensesStats_2').remove();
-    $('#damage-stat-year-and-month').append('<canvas id="DamagesExpensesStats_2"></canvas>');
-
     var damages_stats_id = 'DamagesExpensesStats_2';
     var damages_stats = document.getElementById(damages_stats_id);
     var damages = damages_stats.getContext('2d');
@@ -205,8 +197,9 @@ ready = function() {
   $('#get_damages_by_year_and_month').on('click', function(){
 
     var selected_date = $(this).parent().find('input[type="text"]').val().split("/");
-    var month = selected_date[0];
+    var month = parseInt(selected_date[0], 10); // remove leading zero
     var year = selected_date[1];
+
 
     if (selected_date !== ''){
       drawChartAjaxByYearAndMonth(year, month);
