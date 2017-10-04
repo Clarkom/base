@@ -9,7 +9,7 @@ ready = function() {
     *
     *
     * */
-    $('#years-and-months-only').datetimepicker({
+    $('#breaks-years-and-months-date, #damages-years-and-months-date').datetimepicker({
         viewMode: 'years',
         format: 'MM/YYYY',
         allowInputToggle: true,
@@ -18,7 +18,7 @@ ready = function() {
             next: 'fa fa-chevron-right'
         }
     });
-    $('#years-only').datetimepicker({
+    $('#breaks-years-date, #damages-years-date').datetimepicker({
         viewMode: 'years',
         format: 'YYYY',
         allowInputToggle: true,

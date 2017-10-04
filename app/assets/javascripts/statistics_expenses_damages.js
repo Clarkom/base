@@ -1,6 +1,6 @@
 //
 //
-// Expenses - Breaks
+// Expenses - Damages
 var ready;
 ready = function() {
 
@@ -9,7 +9,7 @@ ready = function() {
   *
   *
   *
-  * Filter Breaks By Year
+  * Filter Damages By Year
   *
   *
   *
@@ -19,27 +19,27 @@ ready = function() {
   //
   //
   // Draw Chart
-  function drawChartByYear(breaks_months, breaks_data){
+  function drawChartByYear(damages_months, damages_data){
 
     // Remove Chart Canvas Before Redrawing It
-    $('#BreaksExpensesStats').remove();
-    $('#filter-by-year').append('<canvas id="BreaksExpensesStats"></canvas>');
+    $('#DamagesExpensesStats').remove();
+    $('#damage-stat-year').append('<canvas id="DamagesExpensesStats"></canvas>');
 
-    var breaks_stats_id = 'BreaksExpensesStats';
-    var breaks_stats = document.getElementById(breaks_stats_id);
-    var breaks = breaks_stats.getContext('2d');
+    var damages_stats_id = 'DamagesExpensesStats';
+    var damages_stats = document.getElementById(damages_stats_id);
+    var damages = damages_stats.getContext('2d');
 
     //
     // Draw Chart
-    new Chart(breaks, {
+    new Chart(damages, {
       type: 'bar',
       data: {
-        labels: breaks_months,
+        labels: damages_months,
         datasets: [{
-          data: breaks_data,
-          label: "Arrêts",
-          borderColor: "rgba(184, 97, 22, 0.7)",
-          backgroundColor: "rgba(184, 97, 22, 0.3)",
+          data: damages_data,
+          label: "Dégats",
+          borderColor: "rgba(107, 41, 13, 0.7)",
+          backgroundColor: "rgba(107, 41, 13, 0.3)",
           borderWidth: 2,
           fill: 'origin'
         }]
@@ -64,10 +64,10 @@ ready = function() {
   // Getting Data with Ajax and Draw the Chart
   function drawChartAjaxByYear(selected_year){
     $.ajax({
-      url: '/statistics/get_breaks_by_year',
+      url: '/statistics/get_damages_by_year',
       type: 'GET',
       dataType: 'json',
-      data: { break_year: selected_year },
+      data: { damage_year: selected_year },
       success: function(data){
 
         var chart_months = [];
@@ -93,8 +93,8 @@ ready = function() {
 
   //
   //
-  // Get Breaks By Year
-  $('#get_breaks_by_year').on('click', function(){
+  // Get Damages By Year
+  $('#get_damages_by_year').on('click', function(){
 
     var selected_year = $(this).parent().find('input[type="text"]').val();
 
@@ -114,7 +114,7 @@ ready = function() {
   *
   *
   *
-  * Filter Breaks By Year and Month
+  * Filter Damages By Year and Month
   *
   *
   *
@@ -124,27 +124,27 @@ ready = function() {
   //
   //
   // Draw Chart
-  function drawChartByYearAndMonth(breaks_start_and_end_date, breaks_data){
+  function drawChartByYearAndMonth(damages_start_and_end_date, damages_data){
 
     // Remove Chart Canvas Before Redrawing It
-    $('#BreaksExpensesStats_2').remove();
-    $('#filter-by-year-and-month').append('<canvas id="BreaksExpensesStats_2"></canvas>');
+    $('#DamagesExpensesStats_2').remove();
+    $('#damage-stat-year-and-month').append('<canvas id="DamagesExpensesStats_2"></canvas>');
 
-    var breaks_stats_id = 'BreaksExpensesStats_2';
-    var breaks_stats = document.getElementById(breaks_stats_id);
-    var breaks = breaks_stats.getContext('2d');
+    var damages_stats_id = 'DamagesExpensesStats_2';
+    var damages_stats = document.getElementById(damages_stats_id);
+    var damages = damages_stats.getContext('2d');
 
     //
     // Draw Chart
-    new Chart(breaks, {
+    new Chart(damages, {
       type: 'bar',
       data: {
-        labels: breaks_start_and_end_date,
+        labels: damages_start_and_end_date,
         datasets: [{
-          data: breaks_data,
+          data: damages_data,
           label: "Arrêts",
-          borderColor: "rgba(184, 97, 22, 0.7)",
-          backgroundColor: "rgba(184, 97, 22, 0.3)",
+          borderColor: "rgba(107, 41, 13, 0.7)",
+          backgroundColor: "rgba(107, 41, 13, 0.3)",
           borderWidth: 2,
           fill: 'origin'
         }]
@@ -169,12 +169,12 @@ ready = function() {
   // Getting Data with Ajax and Draw the Chart
   function drawChartAjaxByYearAndMonth(selected_year, selected_month){
     $.ajax({
-      url: '/statistics/get_breaks_by_year_and_month',
+      url: '/statistics/get_damages_by_year_and_month',
       type: 'GET',
       dataType: 'json',
       data: {
-        break_year: selected_year,
-        break_month: selected_month
+        damage_year: selected_year,
+        damage_month: selected_month
       },
       success: function(data){
         var chart_days = [];
@@ -201,8 +201,8 @@ ready = function() {
 
   //
   //
-  // Get Breaks By Year and Month
-  $('#get_breaks_by_year_and_month').on('click', function(){
+  // Get Damages By Year and Month
+  $('#get_damages_by_year_and_month').on('click', function(){
 
     var selected_date = $(this).parent().find('input[type="text"]').val().split("/");
     var month = selected_date[0];

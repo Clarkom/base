@@ -45,9 +45,15 @@ Rails.application.routes.draw do
     get 'revenus', to: 'statistics#revenus'
 
     #
-    # Date Filters
+    # Breaks Filters
     get 'get_breaks_by_year', to: 'statistics#get_breaks_by_year'
     get 'get_breaks_by_year_and_month', to: 'statistics#get_breaks_by_year_and_month'
+
+    #
+    # Damages Filters
+    get 'get_damages_by_year', to: 'statistics#get_damages_by_year'
+    get 'get_damages_by_year_and_month', to: 'statistics#get_damages_by_year_and_month'
+
   end
 
 

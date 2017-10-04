@@ -39,6 +39,37 @@ class StatisticsController < ApplicationController
 
   #
   #
+  # Get Damages By Year
+  def get_damages_by_year
+
+    @damage = Damage.damages_by_year(params[:damage_year])
+
+    respond_to do |format|
+      format.json { render :json => @damage }
+      format.js
+    end
+
+  end
+
+  #
+  #
+  # Get Damages By Year and Month
+  def get_damages_by_year_and_month
+
+    @damage = Damage.damages_by_year_and_month(
+        params[:damage_year],
+        params[:damage_month]
+    )
+
+    respond_to do |format|
+      format.json { render :json => @damage }
+      format.js
+    end
+
+  end
+
+  #
+  #
   # Revenus
   def revenus
   end
