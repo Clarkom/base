@@ -70,6 +70,38 @@ class StatisticsController < ApplicationController
 
   #
   #
+  # Get Owner Takes By Year
+  def get_owner_takes_by_year
+
+    @owner_take = OwnerTake.owner_takes_by_year(params[:owner_take_year])
+
+    respond_to do |format|
+      format.json { render :json => @owner_take }
+      format.js
+    end
+
+  end
+
+  #
+  #
+  # Get Owner Takes By Year and Month
+  def get_owner_takes_by_year_and_month
+
+    @owner_take = OwnerTake.owner_takes_by_year_and_month(
+        params[:owner_take_year],
+        params[:owner_take_month]
+    )
+
+    respond_to do |format|
+      format.json { render :json => @owner_take }
+      format.js
+    end
+
+  end
+
+
+  #
+  #
   # Revenus
   def revenus
   end

@@ -99,7 +99,7 @@ module ApplicationHelper
   #
   #
   # Convert Full Date to Days
-  def similar_expenses_amounts_by_year_and_month_damages(query_results)
+  def similar_expenses_amounts_by_year_and_month_v2(query_results)
 
     days_and_amounts = []
     result = {}
