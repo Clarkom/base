@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904152902) do
+ActiveRecord::Schema.define(version: 20171005162139) do
 
   create_table "break_causes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -106,6 +106,19 @@ ActiveRecord::Schema.define(version: 20170904152902) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "incomes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.float "amount", limit: 24
+    t.string "attached_file"
+    t.string "description"
+  end
+
+  create_table "insurance_take_backs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "income_id"
+    t.bigint "insurance_id"
+    t.index ["income_id"], name: "index_insurance_take_backs_on_income_id"
+    t.index ["insurance_id"], name: "index_insurance_take_backs_on_insurance_id"
+  end
+
   create_table "insurances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "expense_id"
     t.bigint "insurer_id"
@@ -125,6 +138,14 @@ ActiveRecord::Schema.define(version: 20170904152902) do
     t.bigint "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "manager_takes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "income_id"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["income_id"], name: "index_manager_takes_on_income_id"
   end
 
   create_table "owner_takes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -179,6 +200,9 @@ ActiveRecord::Schema.define(version: 20170904152902) do
   add_foreign_key "damages", "drivers"
   add_foreign_key "damages", "expenses"
   add_foreign_key "drivers", "cabs"
+  add_foreign_key "insurance_take_backs", "incomes"
+  add_foreign_key "insurance_take_backs", "insurances"
+  add_foreign_key "manager_takes", "incomes"
   add_foreign_key "owner_takes", "expenses"
   add_foreign_key "owner_takes", "owners"
 end
