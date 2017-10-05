@@ -144,10 +144,12 @@ ActiveRecord::Schema.define(version: 20171005162139) do
 
   create_table "manager_takes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "income_id"
+    t.bigint "manager_id"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["income_id"], name: "index_manager_takes_on_income_id"
+    t.index ["manager_id"], name: "index_manager_takes_on_manager_id"
   end
 
   create_table "managers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -205,6 +207,7 @@ ActiveRecord::Schema.define(version: 20171005162139) do
   add_foreign_key "insurance_take_backs", "incomes"
   add_foreign_key "insurance_take_backs", "insurances"
   add_foreign_key "manager_takes", "incomes"
+  add_foreign_key "manager_takes", "managers"
   add_foreign_key "owner_takes", "expenses"
   add_foreign_key "owner_takes", "owners"
 end

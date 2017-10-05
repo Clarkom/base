@@ -1,5 +1,7 @@
 class ManagerTake < ApplicationRecord
   belongs_to :income
+  belongs_to :manager
+
 
   accepts_nested_attributes_for :income, :allow_destroy => true
 
