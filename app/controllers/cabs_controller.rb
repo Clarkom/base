@@ -74,6 +74,6 @@ class CabsController < ApplicationController
           :license_plate,
           :agreement_number,
           :total_mileage,
-          :user_id)
+          :manager_id)
     end
 end

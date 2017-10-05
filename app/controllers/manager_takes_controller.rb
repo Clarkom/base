@@ -73,6 +73,7 @@ class ManagerTakesController < ApplicationController
     def manager_take_params
       params.require(:manager_take).permit(
           :income_id,
+          :manager_id,
           :date,
           :income_attributes => [:id, :amount, :attached_file, :description]
       )

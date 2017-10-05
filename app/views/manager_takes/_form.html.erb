@@ -1,6 +1,26 @@
 <%= form_for @manager_take do |form| %>
 
     <div class="form-group row">
+      <%= form.label 'Manager', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.collection_select :manager_id, Manager.all, :id, :full_name, {
+          :multiple => false,
+          :include_blank => 'Selectionner un propriétaire',
+        },{ class: 'form-control' }
+        %>
+        <% if !@manager_take.errors.messages[:'manager'].empty?  %>
+            <ul>
+              <% @manager_take.errors.messages[:'manager'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group row">
       <%= form.label 'Date', class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.date_field :date, class: 'form-control' %>

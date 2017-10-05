@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 20171005162139) do
     t.decimal "total_mileage", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.bigint "manager_id"
     t.index ["cab_model_id"], name: "index_cabs_on_cab_model_id"
-    t.index ["user_id"], name: "index_cabs_on_user_id"
+    t.index ["manager_id"], name: "index_cabs_on_manager_id"
   end
 
   create_table "damage_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -144,10 +144,35 @@ ActiveRecord::Schema.define(version: 20171005162139) do
 
   create_table "manager_takes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "income_id"
+    t.bigint "manager_id"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["income_id"], name: "index_manager_takes_on_income_id"
+    t.index ["manager_id"], name: "index_manager_takes_on_manager_id"
+  end
+
+  create_table "managers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "full_name"
+    t.string "picture"
+    t.bigint "home_phone"
+    t.bigint "mobile_phone"
+    t.date "birth_date"
+    t.string "cin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_managers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
   end
 
   create_table "owner_takes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -169,35 +194,12 @@ ActiveRecord::Schema.define(version: 20171005162139) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.string "full_name"
-    t.string "picture"
-    t.bigint "home_phone"
-    t.bigint "mobile_phone"
-    t.date "birth_date"
-    t.string "cin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
   add_foreign_key "breaks", "break_causes"
   add_foreign_key "breaks", "damages"
   add_foreign_key "breaks", "expenses"
   add_foreign_key "cab_models", "fuel_types"
   add_foreign_key "cabs", "cab_models"
-  add_foreign_key "cabs", "users"
+  add_foreign_key "cabs", "managers"
   add_foreign_key "damages", "damage_types"
   add_foreign_key "damages", "drivers"
   add_foreign_key "damages", "expenses"
@@ -205,6 +207,7 @@ ActiveRecord::Schema.define(version: 20171005162139) do
   add_foreign_key "insurance_take_backs", "incomes"
   add_foreign_key "insurance_take_backs", "insurances"
   add_foreign_key "manager_takes", "incomes"
+  add_foreign_key "manager_takes", "managers"
   add_foreign_key "owner_takes", "expenses"
   add_foreign_key "owner_takes", "owners"
 end
