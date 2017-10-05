@@ -23,36 +23,41 @@ ready = function() {
 
     var damages_stats_id = 'DamagesExpensesStats';
     var damages_stats = document.getElementById(damages_stats_id);
-    var damages = damages_stats.getContext('2d');
 
-    //
-    // Draw Chart
-    new Chart(damages, {
-      type: 'bar',
-      data: {
-        labels: damages_months,
-        datasets: [{
-          data: damages_data,
-          label: "Dégats",
-          borderColor: "rgba(107, 41, 13, 0.7)",
-          backgroundColor: "rgba(107, 41, 13, 0.3)",
-          borderWidth: 2,
-          fill: 'origin'
-        }]
-      },
-      options: {
-        elements: {
-          line: {
-            tension: 0.000001
-          }
+    if (damages_stats){
+
+      var damages = damages_stats.getContext('2d');
+
+      //
+      // Draw Chart
+      new Chart(damages, {
+        type: 'bar',
+        data: {
+          labels: damages_months,
+          datasets: [{
+            data: damages_data,
+            label: "Dégats",
+            borderColor: "rgba(107, 41, 13, 0.7)",
+            backgroundColor: "rgba(107, 41, 13, 0.3)",
+            borderWidth: 2,
+            fill: 'origin'
+          }]
         },
-        plugins: {
-          filler: {
-            propagate: true
+        options: {
+          elements: {
+            line: {
+              tension: 0.000001
+            }
+          },
+          plugins: {
+            filler: {
+              propagate: true
+            }
           }
         }
-      }
-    });
+      });
+    }
+
   }
 
   //
@@ -124,36 +129,41 @@ ready = function() {
 
     var damages_stats_id = 'DamagesExpensesStats_2';
     var damages_stats = document.getElementById(damages_stats_id);
-    var damages = damages_stats.getContext('2d');
 
-    //
-    // Draw Chart
-    new Chart(damages, {
-      type: 'bar',
-      data: {
-        labels: damages_start_and_end_date,
-        datasets: [{
-          data: damages_data,
-          label: "Arrêts",
-          borderColor: "rgba(107, 41, 13, 0.7)",
-          backgroundColor: "rgba(107, 41, 13, 0.3)",
-          borderWidth: 2,
-          fill: 'origin'
-        }]
-      },
-      options: {
-        elements: {
-          line: {
-            tension: 0.000001
-          }
+    if (damages_stats) {
+
+      var damages = damages_stats.getContext('2d');
+
+      //
+      // Draw Chart
+      new Chart(damages, {
+        type: 'bar',
+        data: {
+          labels: damages_start_and_end_date,
+          datasets: [{
+            data: damages_data,
+            label: "Arrêts",
+            borderColor: "rgba(107, 41, 13, 0.7)",
+            backgroundColor: "rgba(107, 41, 13, 0.3)",
+            borderWidth: 2,
+            fill: 'origin'
+          }]
         },
-        plugins: {
-          filler: {
-            propagate: true
+        options: {
+          elements: {
+            line: {
+              tension: 0.000001
+            }
+          },
+          plugins: {
+            filler: {
+              propagate: true
+            }
           }
         }
-      }
-    });
+      });
+    }
+
   }
 
   //

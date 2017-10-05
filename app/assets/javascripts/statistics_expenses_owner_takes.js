@@ -23,36 +23,41 @@ ready = function() {
 
     var owner_takes_stats_id = 'OwnerTakesExpensesStats';
     var owner_takes_stats = document.getElementById(owner_takes_stats_id);
-    var owner_takes = owner_takes_stats.getContext('2d');
 
-    //
-    // Draw Chart
-    new Chart(owner_takes, {
-      type: 'bar',
-      data: {
-        labels: owner_takes_months,
-        datasets: [{
-          data: owner_takes_data,
-          label: "Dégats",
-          borderColor: "rgba(71, 71, 71, 0.7)",
-          backgroundColor: "rgba(71, 71, 71, 0.3)",
-          borderWidth: 2,
-          fill: 'origin'
-        }]
-      },
-      options: {
-        elements: {
-          line: {
-            tension: 0.000001
-          }
+    if (owner_takes_stats){
+
+      var owner_takes = owner_takes_stats.getContext('2d');
+
+      //
+      // Draw Chart
+      new Chart(owner_takes, {
+        type: 'bar',
+        data: {
+          labels: owner_takes_months,
+          datasets: [{
+            data: owner_takes_data,
+            label: "Dégats",
+            borderColor: "rgba(71, 71, 71, 0.7)",
+            backgroundColor: "rgba(71, 71, 71, 0.3)",
+            borderWidth: 2,
+            fill: 'origin'
+          }]
         },
-        plugins: {
-          filler: {
-            propagate: true
+        options: {
+          elements: {
+            line: {
+              tension: 0.000001
+            }
+          },
+          plugins: {
+            filler: {
+              propagate: true
+            }
           }
         }
-      }
-    });
+      });
+    }
+
   }
 
   //
@@ -124,36 +129,41 @@ ready = function() {
 
     var owner_takes_stats_id = 'OwnerTakesExpensesStats_2';
     var owner_takes_stats = document.getElementById(owner_takes_stats_id);
-    var owner_takes = owner_takes_stats.getContext('2d');
 
-    //
-    // Draw Chart
-    new Chart(owner_takes, {
-      type: 'bar',
-      data: {
-        labels: owner_takes_start_and_end_date,
-        datasets: [{
-          data: owner_takes_data,
-          label: "Arrêts",
-          borderColor: "rgba(71, 71, 71, 0.7)",
-          backgroundColor: "rgba(71, 71, 71, 0.3)",
-          borderWidth: 2,
-          fill: 'origin'
-        }]
-      },
-      options: {
-        elements: {
-          line: {
-            tension: 0.000001
-          }
+    if (owner_takes_stats){
+
+      var owner_takes = owner_takes_stats.getContext('2d');
+
+      //
+      // Draw Chart
+      new Chart(owner_takes, {
+        type: 'bar',
+        data: {
+          labels: owner_takes_start_and_end_date,
+          datasets: [{
+            data: owner_takes_data,
+            label: "Arrêts",
+            borderColor: "rgba(71, 71, 71, 0.7)",
+            backgroundColor: "rgba(71, 71, 71, 0.3)",
+            borderWidth: 2,
+            fill: 'origin'
+          }]
         },
-        plugins: {
-          filler: {
-            propagate: true
+        options: {
+          elements: {
+            line: {
+              tension: 0.000001
+            }
+          },
+          plugins: {
+            filler: {
+              propagate: true
+            }
           }
         }
-      }
-    });
+      });
+    }
+
   }
 
   //
