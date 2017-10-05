@@ -54,8 +54,12 @@ Rails.application.routes.draw do
   #
   # Statistics
   scope '/statistics' do
+
+    #
+    #
+    #
+    # Expenses
     get 'expenses', to: 'statistics#expenses'
-    get 'incomes', to: 'statistics#incomes'
 
     #
     # Breaks Filters
@@ -71,6 +75,17 @@ Rails.application.routes.draw do
     # Owner Takes Filters
     get 'get_owner_takes_by_year', to: 'statistics#get_owner_takes_by_year'
     get 'get_owner_takes_by_year_and_month', to: 'statistics#get_owner_takes_by_year_and_month'
+
+    #
+    #
+    #
+    # Incomes
+    get 'incomes', to: 'statistics#incomes'
+
+    #
+    # Manager Takes Filters
+    get 'get_manager_takes_by_year', to: 'statistics#get_manager_takes_by_year'
+    get 'get_manager_takes_by_year_and_month', to: 'statistics#get_manager_takes_by_year_and_month'
 
   end
 

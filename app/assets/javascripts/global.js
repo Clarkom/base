@@ -9,7 +9,7 @@ ready = function() {
     *
     *
     * */
-    $('#breaks-years-and-months-date, #damages-years-and-months-date, #owner_takes-years-and-months-date').datetimepicker({
+    $('#breaks-years-and-months-date, #damages-years-and-months-date, #owner_takes-years-and-months-date, #manager_takes-years-and-months-date').datetimepicker({
         viewMode: 'years',
         format: 'MM/YYYY',
         allowInputToggle: true,
@@ -18,7 +18,7 @@ ready = function() {
             next: 'fa fa-chevron-right'
         }
     });
-    $('#breaks-years-date, #damages-years-date, #owner_takes-years-date').datetimepicker({
+    $('#breaks-years-date, #damages-years-date, #owner_takes-years-date, #manager_takes-years-date').datetimepicker({
         viewMode: 'years',
         format: 'YYYY',
         allowInputToggle: true,

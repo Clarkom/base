@@ -110,4 +110,35 @@ class StatisticsController < ApplicationController
   def incomes
   end
 
+  #
+  #
+  # Get Owner Takes By Year
+  def get_manager_takes_by_year
+
+    @manager_take = ManagerTake.manager_takes_by_year(params[:manager_take_year])
+
+    respond_to do |format|
+      format.json { render :json => @manager_take }
+      format.js
+    end
+
+  end
+
+  #
+  #
+  # Get Manager Takes By Year and Month
+  def get_manager_takes_by_year_and_month
+
+    @manager_take = ManagerTake.manager_takes_by_year_and_month(
+        params[:manager_take_year],
+        params[:manager_take_month]
+    )
+
+    respond_to do |format|
+      format.json { render :json => @manager_take }
+      format.js
+    end
+
+  end
+
 end
