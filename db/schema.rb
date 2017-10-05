@@ -107,9 +107,11 @@ ActiveRecord::Schema.define(version: 20171005162139) do
   end
 
   create_table "incomes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.float "amount", limit: 24
+    t.integer "amount"
     t.string "attached_file"
     t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "insurance_take_backs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

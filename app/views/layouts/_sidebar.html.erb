@@ -72,6 +72,31 @@
       </ul>
     </li>
 
+    <!-- # Incomes -->
+    <li class="<%= current_path('incomes/') ? 'active-list' : '' %> nav-item">
+      <a data-toggle="collapse"
+         href="#incomesCollapse"
+         aria-expanded="false"
+         aria-controls="incomesCollapse">
+        <%= fa_icon 'money' %>
+        Revenus
+        <%= fa_icon 'angle-right' %>
+        <%= fa_icon 'angle-down' %>
+      </a>
+      <ul class="<%= current_path('incomes/') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="incomesCollapse">
+        <li>
+          <%= link_to all_incomes_path, class: "#{ current_path('incomes/all') ? 'active' : '' }" do %>
+              <%= fa_icon 'caret-right' %> Tous les Revenus
+          <% end %>
+        </li>
+        <li>
+          <%= link_to manager_takes_path, class: "#{ current_path('manager_takes') ? 'active' : '' }" do %>
+              <%= fa_icon 'caret-right' %> Manager Take
+          <% end %>
+        </li>
+      </ul>
+    </li>
+
     <!-- # Cabs -->
     <li class="<%= current_path('cabs') ? 'active-list' : '' %> nav-item">
       <a data-toggle="collapse"
@@ -136,9 +161,9 @@
                       class: "#{ current_path('expenses') ? 'active' : '' }" %>
         </li>
         <li>
-          <%= link_to "#{fa_icon 'caret-right'} Revenus".html_safe,
-                      {controller: 'statistics', action: 'revenus'},
-                      class: "#{ current_path('revenus') ? 'active' : '' }" %>
+          <%= link_to "#{fa_icon 'caret-right'} Incomes".html_safe,
+                      {controller: 'statistics', action: 'incomes'},
+                      class: "#{ current_path('incomes') ? 'active' : '' }" %>
         </li>
       </ul>
     </li>

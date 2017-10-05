@@ -39,10 +39,23 @@ Rails.application.routes.draw do
 
   #
   #
+  # Incomes
+  resources :incomes do
+    collection do
+      resources :manager_takes
+
+      get 'all', to: 'incomes#index'
+      get 'income_fields'
+      get 'manager_take_fields'
+    end
+  end
+
+  #
+  #
   # Statistics
   scope '/statistics' do
     get 'expenses', to: 'statistics#expenses'
-    get 'revenus', to: 'statistics#revenus'
+    get 'incomes', to: 'statistics#incomes'
 
     #
     # Breaks Filters
