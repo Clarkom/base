@@ -23,36 +23,40 @@ ready = function() {
 
     var breaks_stats_id = 'BreaksExpensesStats';
     var breaks_stats = document.getElementById(breaks_stats_id);
-    var breaks = breaks_stats.getContext('2d');
 
-    //
-    // Draw Chart
-    new Chart(breaks, {
-      type: 'bar',
-      data: {
-        labels: breaks_months,
-        datasets: [{
-          data: breaks_data,
-          label: "Arrêts",
-          borderColor: "rgba(184, 97, 22, 0.7)",
-          backgroundColor: "rgba(184, 97, 22, 0.3)",
-          borderWidth: 2,
-          fill: 'origin'
-        }]
-      },
-      options: {
-        elements: {
-          line: {
-            tension: 0.000001
-          }
+    if (breaks_stats){
+      var breaks = breaks_stats.getContext('2d');
+
+      //
+      // Draw Chart
+      new Chart(breaks, {
+        type: 'bar',
+        data: {
+          labels: breaks_months,
+          datasets: [{
+            data: breaks_data,
+            label: "Arrêts",
+            borderColor: "rgba(184, 97, 22, 0.7)",
+            backgroundColor: "rgba(184, 97, 22, 0.3)",
+            borderWidth: 2,
+            fill: 'origin'
+          }]
         },
-        plugins: {
-          filler: {
-            propagate: true
+        options: {
+          elements: {
+            line: {
+              tension: 0.000001
+            }
+          },
+          plugins: {
+            filler: {
+              propagate: true
+            }
           }
         }
-      }
-    });
+      });
+    }
+
   }
 
   //
@@ -124,36 +128,41 @@ ready = function() {
 
     var breaks_stats_id = 'BreaksExpensesStats_2';
     var breaks_stats = document.getElementById(breaks_stats_id);
-    var breaks = breaks_stats.getContext('2d');
 
-    //
-    // Draw Chart
-    new Chart(breaks, {
-      type: 'bar',
-      data: {
-        labels: breaks_start_and_end_date,
-        datasets: [{
-          data: breaks_data,
-          label: "Arrêts",
-          borderColor: "rgba(184, 97, 22, 0.7)",
-          backgroundColor: "rgba(184, 97, 22, 0.3)",
-          borderWidth: 2,
-          fill: 'origin'
-        }]
-      },
-      options: {
-        elements: {
-          line: {
-            tension: 0.000001
-          }
+    if (breaks_stats){
+
+      var breaks = breaks_stats.getContext('2d');
+
+      //
+      // Draw Chart
+      new Chart(breaks, {
+        type: 'bar',
+        data: {
+          labels: breaks_start_and_end_date,
+          datasets: [{
+            data: breaks_data,
+            label: "Arrêts",
+            borderColor: "rgba(184, 97, 22, 0.7)",
+            backgroundColor: "rgba(184, 97, 22, 0.3)",
+            borderWidth: 2,
+            fill: 'origin'
+          }]
         },
-        plugins: {
-          filler: {
-            propagate: true
+        options: {
+          elements: {
+            line: {
+              tension: 0.000001
+            }
+          },
+          plugins: {
+            filler: {
+              propagate: true
+            }
           }
         }
-      }
-    });
+      });
+    }
+
   }
 
   //
