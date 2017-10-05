@@ -102,8 +102,8 @@ class StatisticsController < ApplicationController
 
   #
   #
-  # Revenus
-  def revenus
+  # Incomes
+  def incomes
   end
 
 end
