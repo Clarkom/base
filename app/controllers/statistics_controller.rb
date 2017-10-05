@@ -1,8 +1,10 @@
 class StatisticsController < ApplicationController
 
-  #
-  #
-  # Expenses
+  # ##################
+  #                  #
+  #     Expenses     #
+  #                  #
+  # ##################
   def expenses
   end
 
@@ -100,9 +102,11 @@ class StatisticsController < ApplicationController
   end
 
 
-  #
-  #
-  # Incomes
+  # #################
+  #                 #
+  #     Incomes     #
+  #                 #
+  # #################
   def incomes
   end
 
