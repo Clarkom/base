@@ -7,5 +7,7 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-let name = 'Hello World';
-console.log(`${message}`);
+import 'bootstrap'
+import 'chart.js'
+import 'datatables'
+import 'eonasdan-bootstrap-datetimepicker'
