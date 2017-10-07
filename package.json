@@ -2,7 +2,12 @@
   "name": "my-taxi",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "^3.0.2",
     "chart.js": "^2.6.0",
+    "coffeescript": "1.12.7",
     "datatables": "^1.10.13"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.9.1"
   }
 }
