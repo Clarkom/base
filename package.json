@@ -3,9 +3,14 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
-    "chart.js": "^2.6.0",
+    "bootstrap": "4.0.0-beta",
+    "chart.js": "^2.7.0",
     "coffeescript": "1.12.7",
-    "datatables": "^1.10.13"
+    "datatables": "^1.10.13",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "momentjs": "^2.0.0",
+    "popper.js": "^1.11.0",
+    "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.9.1"

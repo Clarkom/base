@@ -18,15 +18,15 @@ gem 'faker'
 gem 'webpacker', '~> 3.0'
 
 
-gem 'jquery-rails'
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+#gem 'jquery-rails'
+#gem 'momentjs-rails', '>= 2.9.0'
+#gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'devise'
 gem 'font-awesome-rails'
 
 gem 'sprockets-rails'
-gem 'popper_js'
-gem 'bootstrap', '~> 4.0.0.beta'
+#gem 'popper_js'
+#gem 'bootstrap', '~> 4.0.0.beta'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
