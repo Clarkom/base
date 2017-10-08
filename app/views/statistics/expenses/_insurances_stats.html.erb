@@ -10,7 +10,7 @@
       </h4>
 
       <!-- # Canvas -->
-      <canvas id="InsurancesExpensesStats">
+      <canvas id="InsurancesExpenses">
         <% Insurance.all.each do |insurance| %>
           <ul>
             <li id="yep"><%= insurance.start_date.to_s.to_i %>/<%= (insurance.start_date + 1.year).to_s.to_i %></li>
