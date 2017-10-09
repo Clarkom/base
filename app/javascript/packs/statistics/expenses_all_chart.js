@@ -1,4 +1,4 @@
-import { chart } from './chart'
+import { chart, BORDER_COLORS } from './chart'
 
 $(document).ready(function(){
 
@@ -14,11 +14,11 @@ $(document).ready(function(){
     $('#expenses-ownertakes-stats').text()
   ];
 
-  const BG_COLORS = [
-    'rgba(13, 95, 107, 0.7)',
-    'rgba(184, 97, 22, 0.7)',
-    'rgba(107, 41, 13, 0.7)',
-    'rgba(71, 71, 71, 0.7)'
+  const BACKGROUND_COLORS = [
+    BORDER_COLORS.insurance,
+    BORDER_COLORS.breaks,
+    BORDER_COLORS.damages,
+    BORDER_COLORS.owner_takes
   ];
 
   const LABEL = '# of Votes';
@@ -30,7 +30,7 @@ $(document).ready(function(){
     'Recettes'
   ];
 
-  chart.drawDoughnutChart('AllExpenses', DATA_SETS, LABEL, LABELS, BG_COLORS);
+  chart.drawDoughnutChart('AllExpenses', DATA_SETS, LABEL, LABELS, BACKGROUND_COLORS);
 
 
 });

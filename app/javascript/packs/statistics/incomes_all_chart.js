@@ -1,4 +1,4 @@
-import { chart } from './chart'
+import { chart, BORDER_COLORS } from './chart'
 
 $(document).ready(function(){
 
@@ -11,8 +11,8 @@ $(document).ready(function(){
     $('#incomes-managertakes-stats').text()
   ];
 
-  const BG_COLORS = [
-    'rgba(13, 95, 107, 0.7)'
+  const BACKGROUND_COLORS = [
+    BORDER_COLORS.manager_takes
   ];
 
   const LABEL = '# of Votes';
@@ -21,7 +21,7 @@ $(document).ready(function(){
     'Manager Take'
   ];
 
-  chart.drawDoughnutChart('AllIncomes', DATA_SETS, LABEL, LABELS, BG_COLORS);
+  chart.drawDoughnutChart('AllIncomes', DATA_SETS, LABEL, LABELS, BACKGROUND_COLORS);
 
 
 });

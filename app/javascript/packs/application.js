@@ -1,3 +1,6 @@
+//
+//
+// libraries
 import 'bootstrap'
 import 'chart.js'
 import 'datatables'
@@ -20,6 +23,7 @@ import './global/date-picker'
 import './statistics/chart'
 // Expenses
 import './statistics/expenses_all_chart'
+import './statistics/expenses_insurances_chart'
 import './statistics/expenses_breaks_charts'
 import './statistics/expenses_damages_charts'
 import './statistics/expenses_owner_takes_charts'

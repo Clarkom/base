@@ -1,7 +1,4 @@
-import { chart, CURRENT_YEAR, CURRENT_MONTH } from './chart'
-
-const MANAGER_TAKES_BG_COLOR = 'rgba(13, 95, 107, 0.3)';
-const MANAGER_TAKES_BORDER_COLOR = 'rgba(13, 95, 107, 0.7)';
+import { chart, BG_COLORS, BORDER_COLORS, CURRENT_YEAR, CURRENT_MONTH } from './chart'
 
 $(document).ready(function(){
 
@@ -17,8 +14,8 @@ $(document).ready(function(){
     'Recette',
     'get_manager_takes_by_year',
     manager_takes_years_data,
-    MANAGER_TAKES_BG_COLOR,
-    MANAGER_TAKES_BORDER_COLOR
+    BG_COLORS.manager_takes,
+    BORDER_COLORS.manager_takes
   );
 
   //
@@ -30,8 +27,8 @@ $(document).ready(function(){
     'Recette',
     'get_manager_takes_by_year_and_month',
     manager_takes_takes_months_data,
-    MANAGER_TAKES_BG_COLOR,
-    MANAGER_TAKES_BORDER_COLOR
+    BG_COLORS.manager_takes,
+    BORDER_COLORS.manager_takes
   );
 
 });

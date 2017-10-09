@@ -5,6 +5,22 @@
  *
  */
 
+const BG_COLORS = {
+  'insurance': 'rgba(13, 95, 107, 0.3)',
+  'breaks': 'rgba(184, 97, 22, 0.3)',
+  'damages': 'rgba(107, 41, 13, 0.3)',
+  'owner_takes': 'rgba(71, 71, 71, 0.3)',
+  'manager_takes': 'rgba(13, 95, 107, 0.3)'
+};
+
+const BORDER_COLORS = {
+  'insurance': 'rgba(13, 95, 107, 0.7)',
+  'breaks': 'rgba(184, 97, 22, 0.7)',
+  'damages': 'rgba(107, 41, 13, 0.7)',
+  'owner_takes': 'rgba(71, 71, 71, 0.7)',
+  'manager_takes': 'rgba(13, 95, 107, 0.7)'
+};
+
 const CURRENT_YEAR = moment().year();
 const CURRENT_MONTH = moment().month() + 1;
 
@@ -127,7 +143,7 @@ class BarChart {
   }
 
   /**
-   *
+   * Draw Doughnut Chart
    * @param canvas_id
    * @param dataSets
    * @param label
@@ -160,10 +176,63 @@ class BarChart {
     }
   }
 
+  /**
+   * Draw Line Chart
+   * @param canvas_id
+   * @param label
+   * @param bgColor
+   * @param borderColor
+   */
+  drawLineChart(canvas_id, label, bgColor, borderColor){
+    let chart = document.getElementById(canvas_id);
+    if (chart) {
+      let ctx = chart.getContext('2d');
+
+      //
+      // Get Data and Labels
+      let dataSets = [];
+      let data = [];
+      $(`#${canvas_id} ul > li:first-child`).each(function(){
+        dataSets.push($(this).text())
+      });
+      $(`#${canvas_id} ul > li:last-child`).each(function(){
+        data.push($(this).text())
+      });
+
+      //
+      // Draw Chart
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: dataSets,
+          datasets: [{
+            data: data,
+            label: label,
+            borderColor: borderColor,
+            backgroundColor: bgColor,
+            fill: 'origin'
+          }
+          ]},
+        options: {
+          elements: {
+            line: {
+              tension: 0.000001
+            }
+          },
+          plugins: {
+            filler: {
+              propagate: true
+            }
+          }
+        }
+      });
+    }
+  }
+
 }
 
 //
 //
 // Draw All Charts
 let chart = new BarChart;
-export { chart, CURRENT_YEAR, CURRENT_MONTH }
+export { chart, BG_COLORS, BORDER_COLORS, CURRENT_YEAR, CURRENT_MONTH }
