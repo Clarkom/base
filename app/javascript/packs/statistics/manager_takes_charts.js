@@ -1,7 +1,7 @@
 import { chart, CURRENT_YEAR, CURRENT_MONTH } from './bar_chart'
 
-const MANAGER_TAKES_BG_COLOR = 'rgba(71, 71, 71, 0.3)';
-const MANAGER_TAKES_BORDER_COLOR = 'rgba(71, 71, 71, 0.3)';
+const MANAGER_TAKES_BG_COLOR = 'rgba(13, 95, 107, 0.3)';
+const MANAGER_TAKES_BORDER_COLOR = 'rgba(13, 95, 107, 0.7)';
 
 $(document).ready(function(){
 
