@@ -9,6 +9,7 @@
     "coffeescript": "1.12.7",
     "datatables": "^1.10.13",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "font-awesome": "^4.7.0",
     "momentjs": "^2.0.0",
     "popper.js": "^1.11.0",
     "webpack-merge": "^4.1.0"
