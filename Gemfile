@@ -17,10 +17,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'faker'
 gem 'webpacker', '~> 3.0'
 
-
-#gem 'jquery-rails'
-#gem 'momentjs-rails', '>= 2.9.0'
-#gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'devise'
 gem 'font-awesome-rails'
 
