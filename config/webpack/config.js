@@ -14,6 +14,6 @@ environment.plugins.set(
     jquery: 'jquery',
     'window.Tether': 'tether',
     Popper: ['popper.js', 'default'],
-    moment: 'moment',
+    moment: 'moment'
   })
 );
