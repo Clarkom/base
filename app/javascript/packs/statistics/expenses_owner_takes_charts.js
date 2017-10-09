@@ -1,4 +1,4 @@
-import { chart, CURRENT_YEAR, CURRENT_MONTH } from './bar_chart'
+import { chart, CURRENT_YEAR, CURRENT_MONTH } from './chart'
 
 const OWNER_TAKES_BG_COLOR = 'rgba(71, 71, 71, 0.3)';
 const OWNER_TAKES_BORDER_COLOR = 'rgba(71, 71, 71, 0.7)';

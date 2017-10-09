@@ -17,12 +17,12 @@ import './global/date-picker'
 //
 //
 // Statistics
-import './statistics/bar_chart'
+import './statistics/chart'
 // Expenses
-import './statistics/all_expenses_chart'
-import './statistics/breaks_charts'
-import './statistics/damages_charts'
-import './statistics/owner_takes_charts'
+import './statistics/expenses_all_chart'
+import './statistics/expenses_breaks_charts'
+import './statistics/expenses_damages_charts'
+import './statistics/expenses_owner_takes_charts'
 // Incomes
-import './statistics/all_incomes_chart'
-import './statistics/manager_takes_charts'
+import './statistics/incomes_all_chart'
+import './statistics/incomes_manager_takes_charts'

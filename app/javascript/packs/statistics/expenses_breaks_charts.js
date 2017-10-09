@@ -1,4 +1,4 @@
-import { chart, CURRENT_YEAR, CURRENT_MONTH } from './bar_chart'
+import { chart, CURRENT_YEAR, CURRENT_MONTH } from './chart'
 
 const BREAKS_BG_COLOR = 'rgba(184, 97, 22, 0.3)';
 const BREAKS_BORDER_COLOR = 'rgba(184, 97, 22, 0.7)';

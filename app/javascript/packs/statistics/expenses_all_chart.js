@@ -1,4 +1,4 @@
-import { chart } from './bar_chart'
+import { chart } from './chart'
 
 $(document).ready(function(){
 
