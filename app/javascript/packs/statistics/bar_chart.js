@@ -62,7 +62,6 @@ class BarChart {
         type: 'bar',
         options: this.chartOptions('bar')
       });
-
     }
 
   }
@@ -71,9 +70,10 @@ class BarChart {
    * Draw Chart Ajax
    * @param canvas_id
    * @param label_name
-   * @param filter
    * @param ajax_query_url
    * @param ajax_query_data
+   * @param bg_color
+   * @param border_color
    */
   drawChartAjax(canvas_id, label_name, ajax_query_url, ajax_query_data, bg_color, border_color){
 
@@ -124,6 +124,40 @@ class BarChart {
       }
     });
 
+  }
+
+  /**
+   *
+   * @param canvas_id
+   * @param dataSets
+   * @param label
+   * @param bgColors
+   * @param labels
+   */
+  drawDoughnutChart(canvas_id, dataSets, label, labels, bgColors){
+    let chart = document.getElementById(canvas_id);
+    if (chart) {
+      let ctx = chart.getContext('2d');
+      let data = {
+        datasets: [{
+          label: label,
+          data: dataSets,
+          backgroundColor: bgColors
+        }],
+        labels: labels,
+        borderWidth: 1
+      };
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: {
+          legend: {
+            display: true,
+            position: 'top'
+          }
+        }
+      });
+    }
   }
 
 }
