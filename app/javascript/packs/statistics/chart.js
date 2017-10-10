@@ -4,7 +4,6 @@
  * Constants
  *
  */
-
 const BG_COLORS = {
   'insurance': 'rgba(13, 95, 107, 0.3)',
   'breaks': 'rgba(184, 97, 22, 0.3)',
@@ -140,6 +139,39 @@ class BarChart {
       }
     });
 
+  }
+
+  /**
+   * Get Data By Click
+   * @param type
+   * @param chart_id
+   * @param button_id
+   * @param label_name
+   * @param ajax_query_url
+   * @param bgColor
+   * @param borderColor
+   */
+  getDataByClick(type, chart_id, button_id, label_name, ajax_query_url, bgColor, borderColor){
+
+    $(`#${button_id}`).on('click', function(){
+
+      let selected_year = $(this).parent().find('input[type="text"]').val();
+
+      if (selected_year !== ''){
+        let ajax_query_data = { [`${type}_year`]: selected_year };
+        chart.drawChartAjax(
+          chart_id,
+          label_name,
+          ajax_query_url,
+          ajax_query_data,
+          bgColor,
+          borderColor
+        );
+      }
+
+      return false;
+
+    });
   }
 
   /**
