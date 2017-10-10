@@ -27,7 +27,7 @@ class DataTable {
         "targets": targets ? targets : [],
         "orderable": orderable
       } ],
-      "order": [[ order ? order : 1, "desc" ]],
+      "order": [[ order, "desc" ]],
       "dom": 't'
     }
   }
@@ -35,6 +35,7 @@ class DataTable {
   /**
    * Set Table
    * @param table_id
+   * @param search_id
    */
   setTable(table_id, search_id) {
     let table = $(`#${table_id}`).DataTable(this.options);

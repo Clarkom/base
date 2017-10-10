@@ -55,10 +55,22 @@ import './layout/sidebar'
 import './global/date-picker'
 import './global/data-table'
 
-//
-//
-// Pages
-import './pages/breaks'
+/**
+ *
+ *
+ *
+ * Pages
+ *
+ *
+ *
+ */
+// Expenses
+import './pages/expenses/insurances'
+import './pages/expenses/breaks'
+import './pages/expenses/damages'
+import './pages/expenses/owner_takes'
+// Incomes
+import './pages/incomes/manager_takes'
 
 //
 //

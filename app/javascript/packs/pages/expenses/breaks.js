@@ -5,7 +5,7 @@
  *
  *
  */
-import {dataTable} from "../global/data-table";
+import {dataTable} from "../../global/data-table";
 
 $(document).ready(function(){
 

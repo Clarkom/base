@@ -12,7 +12,7 @@
   <div class="col-md-4 ml-auto">
     <input type="search"
            class="form-control"
-           id="search-owner-take"
+           id="search-manager-take"
            placeholder="Votre Recherche..." aria-label="Votre Recherche...">
   </div>
 
@@ -20,7 +20,7 @@
 
 
 <!-- # -->
-<table id="owner-take-data" class="table table-bordered">
+<table id="manager-take-data" class="table table-bordered">
 
   <thead>
     <tr>
@@ -32,31 +32,31 @@
 
   <tbody>
   <% @manager_takes.each do |manager_take| %>
-      <tr>
-        <td><%= manager_take.date %></td>
-        <td><%= manager_take.income.amount %></td>
-        <td>
-          <%= link_to manager_take, :class => 'btn btn-outline-dark btn-sm' do %>
-              <%= fa_icon 'eye' %>
-          <% end %>
-          <%= link_to edit_manager_take_path(manager_take), :class => 'btn btn-outline-dark btn-sm' do %>
-              <%= fa_icon 'pencil' %>
-          <% end %>
-          <%= link_to manager_take, method: :delete, data: { confirm: 'Êtes vous sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
-              <%= fa_icon 'close' %>
-          <% end %>
-        </td>
-      </tr>
+    <tr>
+      <td><%= manager_take.date %></td>
+      <td><%= manager_take.income.amount %></td>
+      <td>
+        <%= link_to manager_take, :class => 'btn btn-outline-dark btn-sm' do %>
+            <%= fa_icon 'eye' %>
+        <% end %>
+        <%= link_to edit_manager_take_path(manager_take), :class => 'btn btn-outline-dark btn-sm' do %>
+            <%= fa_icon 'pencil' %>
+        <% end %>
+        <%= link_to manager_take, method: :delete, data: {confirm: 'Êtes vous sur?'}, class: 'btn btn-outline-dark btn-sm' do %>
+            <%= fa_icon 'close' %>
+        <% end %>
+      </td>
+    </tr>
   <% end %>
   </tbody>
 
   <tfoot>
-  <tr class="table-sum">
-    <td colspan="2"><b>Total</b></td>
-    <td colspan="2">
-      <b><%= @manager_takes_sum %> DH</b>
-    </td>
-  </tr>
+    <tr class="table-sum">
+      <td colspan="2"><b>Total</b></td>
+      <td colspan="1">
+        <b><%= @manager_takes_sum %> DH</b>
+      </td>
+    </tr>
   </tfoot>
 
 </table>
