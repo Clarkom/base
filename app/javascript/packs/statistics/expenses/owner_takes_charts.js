@@ -2,46 +2,40 @@ import { chart, BG_COLORS, BORDER_COLORS, CURRENT_YEAR, CURRENT_MONTH } from '..
 
 $(document).ready(function(){
 
-  let ownertakes_years_data = { owner_take_year: CURRENT_YEAR };
-  let owner_takes_months_data = { owner_take_year: CURRENT_YEAR, owner_take_month: CURRENT_MONTH };
-  const label_name            = 'Recette';
-  const year_ajax_url         = 'get_owner_takes_by_year';
-  const year_chart_id         = 'OwnerTakesExpenses_years';
+  const label_name = 'Dégât';
 
-  //
-  //
-  // Breaks Chart By Years
+  /**
+   *
+   *
+   * By Year
+   *
+   *
+   *
+   */
+  const owner_takes_years_data  = { owner_take_year: CURRENT_YEAR };
+  const year_ajax_url      = 'get_owner_takes_by_year';
+  const year_chart_id      = 'OwnerTakesExpenses_years';
+
   chart.drawChart(year_chart_id);
-  chart.drawChartAjax(
-    year_chart_id,
-    label_name,
-    year_ajax_url,
-    ownertakes_years_data,
-    BG_COLORS.owner_takes,
-    BORDER_COLORS.owner_takes
-  );
-  // Get Breaks Data By Year using Ajax
-  chart.getDataByClick(
-    'owner_take',
-    year_chart_id,
-    year_ajax_url,
-    label_name,
-    year_ajax_url,
-    BG_COLORS.owner_takes,
-    BORDER_COLORS.owner_takes
-  );
+  chart.drawChartAjax(year_chart_id, label_name, year_ajax_url, owner_takes_years_data, BG_COLORS.owner_takes, BORDER_COLORS.owner_takes);
+  chart.getDataByClick('owner_take', 'by_year', year_chart_id, year_ajax_url, label_name, year_ajax_url, BG_COLORS.owner_takes, BORDER_COLORS.owner_takes);
 
-  //
-  //
-  // Breaks Chart By Months
-  chart.drawChart('OwnerTakesExpenses_months');
-  chart.drawChartAjax(
-    'OwnerTakesExpenses_months',
-    label_name,
-    'get_owner_takes_by_year_and_month',
-    owner_takes_months_data,
-    BG_COLORS.owner_takes,
-    BORDER_COLORS.owner_takes
-  );
+
+  /**
+   *
+   *
+   * By Year and Month
+   *
+   *
+   *
+   */
+  const owner_takes_months_data = { owner_take_year: CURRENT_YEAR, owner_take_month: CURRENT_MONTH };
+  const year_and_month_ajax_url = 'get_owner_takes_by_year_and_month';
+  const year_and_month_chart_id = 'OwnerTakesExpenses_months';
+
+  chart.drawChart(year_and_month_chart_id);
+  chart.drawChartAjax(year_and_month_chart_id, label_name, year_and_month_ajax_url, owner_takes_months_data, BG_COLORS.owner_takes, BORDER_COLORS.owner_takes);
+  chart.getDataByClick('owner_take', 'by_year_and_month', year_and_month_chart_id, year_and_month_ajax_url, label_name, year_and_month_ajax_url, BG_COLORS.owner_takes, BORDER_COLORS.owner_takes);
+
 
 });

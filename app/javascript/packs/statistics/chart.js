@@ -151,22 +151,52 @@ class BarChart {
    * @param bgColor
    * @param borderColor
    */
-  getDataByClick(type, chart_id, button_id, label_name, ajax_query_url, bgColor, borderColor){
+  getDataByClick(page, type, chart_id, button_id, label_name, ajax_query_url, bgColor, borderColor){
 
     $(`#${button_id}`).on('click', function(){
 
-      let selected_year = $(this).parent().find('input[type="text"]').val();
+      //
+      //
+      // By Year
+      if (type === 'by_year'){
+        let selected_year = $(this).parent().find('input[type="text"]').val();
 
-      if (selected_year !== ''){
-        let ajax_query_data = { [`${type}_year`]: selected_year };
-        chart.drawChartAjax(
-          chart_id,
-          label_name,
-          ajax_query_url,
-          ajax_query_data,
-          bgColor,
-          borderColor
-        );
+        if (selected_year !== ''){
+          let ajax_query_data = { [`${page}_year`]: selected_year };
+          chart.drawChartAjax(
+            chart_id,
+            label_name,
+            ajax_query_url,
+            ajax_query_data,
+            bgColor,
+            borderColor
+          );
+        }
+      }
+
+      //
+      //
+      // By Year and Month
+      if (type === 'by_year_and_month'){
+
+        let selected_date = $(this).parent().find('input[type="text"]').val().split("/");
+        let month = selected_date[0];
+        let year = selected_date[1];
+
+        if (selected_date !== ''){
+          let ajax_query_data = {
+            [`${page}_year`]: year,
+            [`${page}_month`]: month
+          };
+          chart.drawChartAjax(
+            chart_id,
+            label_name,
+            ajax_query_url,
+            ajax_query_data,
+            bgColor,
+            borderColor
+          );
+        }
       }
 
       return false;
