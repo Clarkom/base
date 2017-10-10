@@ -1,4 +1,4 @@
-import { chart, BORDER_COLORS } from './chart'
+import { chart, BORDER_COLORS } from '../../statistics/chart'
 
 $(document).ready(function(){
 

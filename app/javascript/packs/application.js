@@ -72,16 +72,22 @@ import './pages/expenses/owner_takes'
 // Incomes
 import './pages/incomes/manager_takes'
 
-//
-//
-// Statistics
+/**
+ *
+ *
+ *
+ * Statistics
+ *
+ *
+ *
+ */
 import './statistics/chart'
 // Expenses
-import './statistics/expenses_all_chart'
-import './statistics/expenses_insurances_chart'
-import './statistics/expenses_breaks_charts'
-import './statistics/expenses_damages_charts'
-import './statistics/expenses_owner_takes_charts'
+import './statistics/expenses/expenses_all_charts'
+import './statistics/expenses/insurances_chart'
+import './statistics/expenses/breaks_charts'
+import './statistics/expenses/damages_charts'
+import './statistics/expenses/owner_takes_charts'
 // Incomes
-import './statistics/incomes_all_chart'
-import './statistics/incomes_manager_takes_charts'
+import './statistics/incomes/incomes_all_charts'
+import './statistics/incomes/manager_takes_charts'
