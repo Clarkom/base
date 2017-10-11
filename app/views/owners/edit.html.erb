@@ -1,6 +1,11 @@
-<h1>Editing Owner</h1>
+<h4>Editer ce Propriétaire</h4>
 
 <%= render 'form', owner: @owner %>
 
-<%= link_to 'Show', @owner %> |
-<%= link_to 'Back', owners_path %>
+<%= link_to owners_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Retour
+<% end %>
+
+<%= link_to @owner, :class => 'badge badge-light' do %>
+    <%= fa_icon 'eye' %> Consulter Detail
+<% end %>

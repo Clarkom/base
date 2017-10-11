@@ -1,32 +1,46 @@
-<%= form_with(model: owner, local: true) do |form| %>
-  <% if owner.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(owner.errors.count, "error") %> prohibited this owner from being saved:</h2>
+<%= form_for @owner do |form| %>
 
-      <ul>
-      <% owner.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group row">
+      <%= form.label 'Nom Complet', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :full_name, class: 'form-control' %>
+        <% if !@owner.errors.messages[:'full_name'].empty?  %>
+            <ul>
+              <% @owner.errors.messages[:'full_name'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :full_name %>
-    <%= form.text_field :full_name, id: :owner_full_name %>
-  </div>
+    <div class="form-group row">
+      <%= form.label 'Telephone Fixe', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :home_phone, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :home_phone %>
-    <%= form.number_field :home_phone, id: :owner_home_phone %>
-  </div>
+    <div class="form-group row">
+      <%= form.label 'Telephone Mobile', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :mobile_phone, class: 'form-control' %>
+        <% if !@owner.errors.messages[:'mobile_phone'].empty?  %>
+            <ul>
+              <% @owner.errors.messages[:'mobile_phone'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :mobile_phone %>
-    <%= form.number_field :mobile_phone, id: :owner_mobile_phone %>
-  </div>
+    <div class="actions">
+      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
