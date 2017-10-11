@@ -1,39 +1,34 @@
-<p id="notice"><%= notice %></p>
+<h4><%= @cab_model.name %> - Detail</h4>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cab_model.name %>
-</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Nom de La Marque</th>
+    <th>Description</th>
+    <th>Manufacturer Year</th>
+    <th>Fuel Type</th>
+    <th>Sheet Metal</th>
+    <th>Power HP</th>
+    <th>Number Places</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @cab_model.name %></td>
+    <td><%= @cab_model.description %></td>
+    <td><%= @cab_model.manufacture_year %></td>
+    <td><%= FuelType.find(@cab_model.fuel_type.id).name %></td>
+    <td><%= @cab_model.sheet_metal %></td>
+    <td><%= @cab_model.power_hp %></td>
+    <td><%= @cab_model.number_places %></td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Description:</strong>
-  <%= @cab_model.description %>
-</p>
+<%= link_to cab_models_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Retour
+<% end %>
 
-<p>
-  <strong>Manufacture year:</strong>
-  <%= @cab_model.manufacture_year %>
-</p>
-
-<p>
-  <strong>Fuel type:</strong>
-  <%= @cab_model.fuel_type %>
-</p>
-
-<p>
-  <strong>Sheet metal:</strong>
-  <%= @cab_model.sheet_metal %>
-</p>
-
-<p>
-  <strong>Power hp:</strong>
-  <%= @cab_model.power_hp %>
-</p>
-
-<p>
-  <strong>Number places:</strong>
-  <%= @cab_model.number_places %>
-</p>
-
-<%= link_to 'Edit', edit_cab_model_path(@cab_model) %> |
-<%= link_to 'Back', cab_models_path %>
+<%= link_to edit_cab_model_path(@cab_model), :class => 'badge badge-dark' do %>
+    <%= fa_icon 'pencil' %> Edit
+<% end %>

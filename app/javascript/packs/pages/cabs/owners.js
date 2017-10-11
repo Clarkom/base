@@ -1,7 +1,7 @@
 /**
  *
  *
- * Owners - All
+ * Owners
  *
  *
  */

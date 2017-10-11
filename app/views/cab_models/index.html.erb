@@ -1,23 +1,40 @@
-<p id="notice"><%= notice %></p>
+<h4>Marque</h4>
 
-<h1>Cab Models</h1>
+<!-- # -->
+<div class="actions row">
 
-<table>
+  <div class="col-md-4">
+    <%= link_to new_cab_model_path, :class => 'btn btn-info btn-sm' do %>
+        <%= fa_icon 'plus' %> Ajouter une nouvelle Marque
+    <% end %>
+  </div>
+
+  <div class="col-md-4 ml-auto">
+    <input type="search"
+           class="form-control"
+           id="search-cab-model"
+           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+  </div>
+
+</div>
+
+<!-- # -->
+<table id="cab-model-data" class="table table-bordered">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Manufacture year</th>
-      <th>Fuel type</th>
-      <th>Sheet metal</th>
-      <th>Power hp</th>
-      <th>Number places</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Manufacture year</th>
+    <th>Fuel type</th>
+    <th>Sheet metal</th>
+    <th>Power hp</th>
+    <th>Number places</th>
+    <th class="td-actions">Actions</th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @cab_models.each do |cab_model| %>
+  <% @cab_models.each do |cab_model| %>
       <tr>
         <td><%= cab_model.name %></td>
         <td><%= cab_model.description %></td>
@@ -26,14 +43,19 @@
         <td><%= cab_model.sheet_metal %></td>
         <td><%= cab_model.power_hp %></td>
         <td><%= cab_model.number_places %></td>
-        <td><%= link_to 'Show', cab_model %></td>
-        <td><%= link_to 'Edit', edit_cab_model_path(cab_model) %></td>
-        <td><%= link_to 'Destroy', cab_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to cab_model, :class => 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'eye' %>
+          <% end %>
+          <%= link_to edit_cab_model_path(cab_model), :class => 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'pencil' %>
+          <% end %>
+          <%= link_to cab_model, method: :delete, data: {confirm: 'Êtes vous sur?'}, class: 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'close' %>
+          <% end %>
+        </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
+
 </table>
-
-<br>
-
-<%= link_to 'New Cab Model', new_cab_model_path %>

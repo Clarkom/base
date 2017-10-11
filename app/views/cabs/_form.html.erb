@@ -1,11 +1,11 @@
 <%= form_for @cab do |form| %>
 
     <div class="form-group row">
-      <%= form.label 'Model', class: 'col-sm-2 col-form-label' %>
+      <%= form.label 'Marque', class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.collection_select :cab_model_id, CabModel.group(:name), :id, :name, {
           :multiple => false,
-          :include_blank => 'Selectionner un propriétaire',
+          :include_blank => 'Selectionner une marque',
         },{ class: 'form-control' }
         %>
         <% if !@cab.errors.messages[:'cab_model'].empty?  %>
@@ -64,7 +64,7 @@
       <div class="col-sm-10">
         <%= form.collection_select :manager_id, Manager.group(:email), :id, :email, {
           :multiple => false,
-          :include_blank => 'Select a Manager',
+          :include_blank => 'Selectionner un manager',
         }, {class: 'form-control'} %>
         <% if !@cab.errors.messages[:'manager'].empty?  %>
             <ul>
