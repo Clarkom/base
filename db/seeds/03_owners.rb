@@ -9,6 +9,7 @@ full_names = [
 
 3.times do
   Owner.create!(
-      full_name: full_names[rand(0..2)]
+      full_name: full_names[rand(0..2)],
+      mobile_phone: rand(0643232345..0743232345)
   )
 end
