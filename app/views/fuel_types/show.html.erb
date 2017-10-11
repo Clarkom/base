@@ -1,9 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h4><%= @fuel_type.name %> - Detail</h4>
 
-<p>
-  <strong>Name:</strong>
-  <%= @fuel_type.name %>
-</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @fuel_type.name %></td>
+  </tr>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_fuel_type_path(@fuel_type) %> |
-<%= link_to 'Back', fuel_types_path %>
+<%= link_to fuel_types_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Retour
+<% end %>
+
+<%= link_to edit_fuel_type_path(@fuel_type), :class => 'badge badge-dark' do %>
+    <%= fa_icon 'pencil' %> Edit
+<% end %>

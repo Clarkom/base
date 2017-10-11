@@ -1,22 +1,23 @@
-<%= form_with(model: fuel_type, local: true) do |form| %>
-  <% if fuel_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(fuel_type.errors.count, "error") %> prohibited this fuel_type from being saved:</h2>
+<%= form_for @fuel_type do |form| %>
 
-      <ul>
-      <% fuel_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group row">
+      <%= form.label 'Fuel Type', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :name, class: 'form-control' %>
+        <% if !@fuel_type.errors.messages[:'name'].empty?  %>
+            <ul>
+              <% @fuel_type.errors.messages[:'name'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :fuel_type_name %>
-  </div>
+    <div class="actions">
+      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
