@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h4>Owner Take Detail</h4>
 
-<p>
-  <strong>Expense:</strong>
-  <%= @owner_take.expense %>
-</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Owner</th>
+    <th>Date</th>
+    <th>Amount</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= Owner.find(@owner_take.owner_id).full_name %></td>
+    <td><%= @owner_take.date %></td>
+    <td><%= Expense.find(@owner_take.expense_id).amount %> DH</td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @owner_take.owner %>
-</p>
+<%= link_to owner_takes_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Retour
+<% end %>
 
-<%= link_to 'Edit', edit_owner_take_path(@owner_take) %> |
-<%= link_to 'Back', owner_takes_path %>
+<%= link_to edit_owner_take_path(@owner_take), :class => 'badge badge-dark' do %>
+    <%= fa_icon 'pencil' %> Edit
+<% end %>
+

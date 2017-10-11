@@ -23,6 +23,7 @@ class DataTable {
     this.options = {
       "searching": searching,
       "paginate": paginate,
+      "pagingType": "full_numbers",
       "columnDefs": [ {
         "targets": targets ? targets : [],
         "orderable": orderable

@@ -1,6 +1,11 @@
-<h1>Editing Driver</h1>
+<h4>Driver - Edit</h4>
 
 <%= render 'form', driver: @driver %>
 
-<%= link_to 'Show', @driver %> |
-<%= link_to 'Back', drivers_path %>
+<%= link_to drivers_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Go Back
+<% end %>
+
+<%= link_to @driver, :class => 'badge badge-light' do %>
+    <%= fa_icon 'eye' %> Detail
+<% end %>

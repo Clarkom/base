@@ -5,7 +5,7 @@ class InsurancesController < ApplicationController
   # GET /insurances.json
   def index
     @insurances = Insurance.group(:start_date)
-    @insurances_sum = Insurance.includes(:expense).pluck(:amount).sum;
+    @insurances_sum = Insurance.includes(:expense).pluck(:amount).sum
   end
 
   # GET /insurances/1

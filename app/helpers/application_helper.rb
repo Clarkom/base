@@ -13,19 +13,22 @@ module ApplicationHelper
   #
   def get_page_title
 
-     if current_path('expenses/')
-       render :inline => "#{fa_icon 'bank'} Dépenses"
+    if current_path('expenses/')
+      render :inline => "#{fa_icon 'bank'} Expenses"
 
-       elsif current_path('cabs')
-         render :inline => "#{fa_icon 'taxi'} Véhicule"
+    elsif current_path('incomes/')
+      render :inline => "#{fa_icon 'money'} Incomes"
 
-     elsif current_path('statistics')
-       render :inline => "#{fa_icon 'bar-chart'} Statistiques"
+    elsif current_path('cabs')
+      render :inline => "#{fa_icon 'taxi'} Cab"
 
-     elsif current_path('/')
-       render :inline => "#{fa_icon 'home'} Accueil"
+    elsif current_path('statistics')
+      render :inline => "#{fa_icon 'bar-chart'} Statistics"
 
-     end
+    elsif current_path('/')
+      render :inline => "#{fa_icon 'home'} Home"
+
+    end
 
   end
 
@@ -47,9 +50,9 @@ module ApplicationHelper
     #
     # Group Result by Months
     not_filtered = months_and_amounts
-                       .group_by { |a, b| a }
-                       .map { |c, d| [c, d].flatten(2).uniq() }
-                       .group_by{ |e,f| e }
+                       .group_by {|a, b| a}
+                       .map {|c, d| [c, d].flatten(2).uniq()}
+                       .group_by {|e, f| e}
 
     not_filtered.each do |key, array|
       result["#{key}"] = array[0].drop(1).sum()
@@ -81,9 +84,9 @@ module ApplicationHelper
     #
     # Group Result by Months
     not_filtered = days_and_amounts
-                       .group_by { |a, b| "#{a}-#{b}" }
-                       .map { |c, d| [c, d].flatten(1).uniq() }
-                       .group_by{ |f, g| f }
+                       .group_by {|a, b| "#{a}-#{b}"}
+                       .map {|c, d| [c, d].flatten(1).uniq()}
+                       .group_by {|f, g| f}
 
     not_filtered.each do |key, array|
       result["#{key}"] = array[0].drop(1)[0].drop(2).sum()
@@ -115,9 +118,9 @@ module ApplicationHelper
     #
     # Group Result by Months
     not_filtered = days_and_amounts
-                       .group_by { |a, b| "#{a}" }
-                       .map { |c, d| [c, d].flatten(1).uniq() }
-                       .group_by{ |f, g| f }
+                       .group_by {|a, b| "#{a}"}
+                       .map {|c, d| [c, d].flatten(1).uniq()}
+                       .group_by {|f, g| f}
 
     not_filtered.each do |key, array|
       result["#{key}"] = array[0].drop(1)[0].drop(1).sum()

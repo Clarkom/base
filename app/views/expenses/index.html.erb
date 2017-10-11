@@ -1,89 +1,90 @@
-<p id="notice"><%= notice %></p>
+<div class="row" style="padding-top: 30px">
 
-<h1>Dépense</h1>
+  <!-- # Insurances -->
+  <div class="col-sm-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          Insurances
+          <b class="badge badge-dark"><%= @insurances_sum %> DH</b>
+        </h5>
+        <p class="card-text">
+          With supporting text below as a natural lead-in to additional content.
+        </p>
+        <%= link_to new_insurance_path, :class => 'btn btn-info btn-sm' do %>
+            <%= fa_icon 'plus' %> Add one
+        <% end %>
+        <%= link_to insurances_path, :class => 'btn btn-info btn-sm' do %>
+            <%= fa_icon 'list' %> show more
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Amount</th>
-      <th>Insurance</th>
-      <th>Break</th>
-      <th>Damage</th>
-      <th>Owner Take</th>
-    </tr>
-  </thead>
+  <!-- # Breaks -->
+  <div class="col-sm-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          Breaks
+          <b class="badge badge-dark"><%= @breaks_sum %> DH</b>
+        </h5>
+        <p class="card-text">
+          With supporting text below as a natural lead-in to additional content.
+        </p>
+        <%= link_to new_break_path, :class => 'btn btn-info btn-sm' do %>
+            <%= fa_icon 'plus' %> Add one
+        <% end %>
+        <%= link_to breaks_path, :class => 'btn btn-info btn-sm' do %>
+            <%= fa_icon 'list' %> show more
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <tbody>
-    <% @expenses.each do |expense| %>
-      <tr>
-        <td><%= expense.amount %></td>
-        <td>
-					<% if expense.insurance %>
-							<ul>
-								<li>
-									<b>Start Date</b>
-									<%= expense.insurance.start_date %>
-								</li>
-								<li>
-									<b>End Date</b>
-									<%= expense.insurance.expiration_date %>
-								</li>
-							</ul>
-					<% else %>
-							<div style="text-align: center;padding-top: 10px;color: red"><b>Nothing</b></div>
-					<% end %>
-				</td>
-				<td>
-					<% if expense.break %>
-							<ul>
-								<li>
-									<b>Start Date</b>
-									<%= expense.break.start_date %>
-								</li>
-								<li>
-									<b>End Date</b>
-									<%= expense.break.end_date %>
-								</li>
-							</ul>
-							<% else %>
-								<div style="text-align: center;padding-top: 10px;color: red"><b>Nothing</b></div>
-					<% end %>
-				</td>
-        <td>
-          <% if expense.damage %>
-              <ul>
-                <li>
-                  <b>Date</b>
-                  <%= expense.damage.date %>
-                </li>
-              </ul>
-          <% else %>
-              <div style="text-align: center;padding-top: 10px;color: red"><b>Nothing</b></div>
-          <% end %>
-        </td>
-        <td>
-          <% if expense.owner_take %>
-              <ul>
-                <li>
-                  <b>Owner</b>
-                  <%= expense.owner_take.owner.full_name %>
-                </li>
-              </ul>
-          <% else %>
-              <div style="text-align: center;padding-top: 10px;color: red"><b>Nothing</b></div>
-          <% end %>
-        </td>
-        <td><%= link_to 'Show', expense %></td>
-        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-      <tr>
-        <td><b><%= @expenses_sum %></b> DH</td>
-      </tr>
-  </tbody>
-</table>
+  <!-- # Damages -->
+  <div class="col-sm-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          Damages
+          <b class="badge badge-dark"><%= @damages_sum %> DH</b>
+        </h5>
+        <p class="card-text">
+          With supporting text below as a natural lead-in to additional content.
+        </p>
+        <%= link_to new_damage_path, :class => 'btn btn-info btn-sm' do %>
+            <%= fa_icon 'plus' %> Add one
+        <% end %>
+        <%= link_to damages_path, :class => 'btn btn-info btn-sm' do %>
+            <%= fa_icon 'list' %> show more
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<br>
+  <!-- # Owner Takes -->
+  <div class="col-sm-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          Owner takes
+          <b class="badge badge-dark"><%= @owner_takes_sum %> DH</b>
+        </h5>
+        <p class="card-text">
+          With supporting text below as a natural lead-in to additional content.
+        </p>
+        <%= link_to new_owner_take_path, :class => 'btn btn-info btn-sm' do %>
+            <%= fa_icon 'plus' %> Add one
+        <% end %>
+        <%= link_to owner_takes_path, :class => 'btn btn-info btn-sm' do %>
+            <%= fa_icon 'list' %> show more
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'New Expense', new_expense_path %>
+
+</div>
+
+

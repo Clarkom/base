@@ -4,8 +4,12 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.group(:created_at)
+    @expenses = Expense.all
     @expenses_sum = Expense.sum(:amount)
+    @insurances_sum = Insurance.includes(:expense).pluck(:amount).sum
+    @breaks_sum = Break.includes(:expense).pluck(:amount).sum
+    @damages_sum = Damage.includes(:expense).pluck(:amount).sum
+    @owner_takes_sum = OwnerTake.includes(:expense).pluck(:amount).sum
   end
 
   # GET /expenses/1

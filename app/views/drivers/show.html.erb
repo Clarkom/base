@@ -1,34 +1,38 @@
-<p id="notice"><%= notice %></p>
+<h4>Driver Detail</h4>
 
-<p>
-  <strong>Full name:</strong>
-  <%= @driver.full_name %>
-</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Full name</th>
+    <th>Birth date</th>
+    <th>Mobile phone</th>
+    <th>Home phone</th>
+    <th>Driving license number</th>
+    <th>Home address</th>
+    <th>CIN</th>
+    <th>Starting Date</th>
+    <th>Ending Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @driver.full_name %></td>
+    <td><%= @driver.birth_date %></td>
+    <td><%= @driver.mobile_phone %></td>
+    <td><%= @driver.home_phone %></td>
+    <td><%= @driver.driving_license_number %></td>
+    <td><%= @driver.home_address %></td>
+    <td><%= @driver.cin %></td>
+    <td><%= @driver.start_date %></td>
+    <td><%= @driver.end_date %></td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Birth date:</strong>
-  <%= @driver.birth_date %>
-</p>
+<%= link_to drivers_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Go Back
+<% end %>
 
-<p>
-  <strong>Mobile phone:</strong>
-  <%= @driver.mobile_phone %>
-</p>
-
-<p>
-  <strong>Home phone:</strong>
-  <%= @driver.home_phone %>
-</p>
-
-<p>
-  <strong>Driving license number:</strong>
-  <%= @driver.driving_license_number %>
-</p>
-
-<p>
-  <strong>Home adress:</strong>
-  <%= @driver.home_address %>
-</p>
-
-<%= link_to 'Edit', edit_driver_path(@driver) %> |
-<%= link_to 'Back', drivers_path %>
+<%= link_to edit_driver_path(@driver), :class => 'badge badge-dark' do %>
+    <%= fa_icon 'pencil' %> Edit
+<% end %>

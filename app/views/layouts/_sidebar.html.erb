@@ -109,10 +109,14 @@
         <%= fa_icon 'angle-down' %>
       </a>
       <ul class="<%= current_path('cabs') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="cabCollapse">
-
         <li>
           <%= link_to all_cabs_path, class: "#{ current_path('cabs/all') ? 'active' : '' }" do %>
               <%= fa_icon 'caret-right' %> Véhicule
+          <% end %>
+        </li>
+        <li>
+          <%= link_to drivers_path, class: "#{ current_path('drivers') ? 'active' : '' }" do %>
+              <%= fa_icon 'caret-right' %> Drivers
           <% end %>
         </li>
         <li>
@@ -169,7 +173,6 @@
     </li>
 
   </ul>
-
 
 </div>
 

@@ -1,9 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h4>Manager Take Detail</h4>
 
-<p>
-  <strong>Income:</strong>
-  <%= @manager_take.income %>
-</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Manager</th>
+    <th>Date</th>
+    <th>Amount</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= Manager.find(@manager_take.manager_id).full_name %></td>
+    <td><%= @manager_take.date %></td>
+    <td><%= Expense.find(@manager_take.income_id).amount %> DH</td>
+  </tr>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_manager_take_path(@manager_take) %> |
-<%= link_to 'Back', manager_takes_path %>
+<%= link_to manager_takes_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Retour
+<% end %>
+
+<%= link_to edit_manager_take_path(@manager_take), :class => 'badge badge-dark' do %>
+    <%= fa_icon 'pencil' %> Edit
+<% end %>
+

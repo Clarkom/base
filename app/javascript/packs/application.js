@@ -78,6 +78,7 @@ import './pages/cabs/cab_mdels'
 import './pages/cabs/fuel_types'
 import './pages/cabs/damage_types'
 import './pages/cabs/insurers'
+import './pages/cabs/drivers'
 
 /**
  *

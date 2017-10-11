@@ -1,5 +1,7 @@
-<h1>New Driver</h1>
+<h4>New Driver</h4>
 
 <%= render 'form', driver: @driver %>
 
-<%= link_to 'Back', drivers_path %>
+<%= link_to drivers_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Go Back
+<% end %>
