@@ -71,6 +71,8 @@ import './pages/expenses/damages'
 import './pages/expenses/owner_takes'
 // Incomes
 import './pages/incomes/manager_takes'
+// Cabs
+import './pages/cabs/cabs_all'
 
 /**
  *

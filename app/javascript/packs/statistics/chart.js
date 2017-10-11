@@ -136,6 +136,11 @@ class BarChart {
           }
         }
 
+        // If data is empty
+        if (!Object.keys(data).length){
+
+        }
+
       }
     });
 

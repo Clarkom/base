@@ -1,48 +1,85 @@
-<%= form_with(model: cab, local: true) do |form| %>
-    <% if cab.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(cab.errors.count, "error") %> prohibited this cab from being saved:</h2>
+<%= form_for @cab do |form| %>
 
-        <ul>
-        <% cab.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+    <div class="form-group row">
+      <%= form.label 'Model', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.collection_select :cab_model_id, CabModel.group(:name), :id, :name, {
+          :multiple => false,
+          :include_blank => 'Selectionner un propriétaire',
+        },{ class: 'form-control' }
+        %>
+        <% if !@cab.errors.messages[:'cab_model'].empty?  %>
+            <ul>
+              <% @cab.errors.messages[:'cab_model'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
         <% end %>
-        </ul>
       </div>
-    <% end %>
-
-    <div class="field">
-      <%= form.label :cab_model_id %>
-      <%= form.collection_select :cab_model_id, CabModel.group(:name), :id, :name, {
-            :multiple => false,
-            :include_blank => 'Select a Cab Model',
-          } %>
     </div>
 
-    <div class="field">
-      <%= form.label :license_plate %>
-      <%= form.text_field :license_plate, id: :cab_license_plate %>
+    <div class="form-group row">
+      <%= form.label 'License Plate', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :license_plate, class: 'form-control' %>
+        <% if !@cab.errors.messages[:'license_plate'].empty?  %>
+            <ul>
+              <% @cab.errors.messages[:'license_plate'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
     </div>
 
-    <div class="field">
-      <%= form.label :agreement_number %>
-      <%= form.text_field :agreement_number, id: :cab_agreement_number %>
+    <div class="form-group row">
+      <%= form.label 'Agreement Number', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :agreement_number, class: 'form-control' %>
+        <% if !@cab.errors.messages[:'agreement_number'].empty?  %>
+            <ul>
+              <% @cab.errors.messages[:'agreement_number'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
     </div>
 
-    <div class="field">
-      <%= form.label :total_mileage %>
-      <%= form.text_field :total_mileage, id: :cab_total_mileage %>
+    <div class="form-group row">
+      <%= form.label 'Kilometrage', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :total_mileage, class: 'form-control' %>
+      </div>
     </div>
 
-    <div class="field">
-      <%= form.label :manager_id %>
-      <%= form.collection_select :manager_id, Manager.group(:email), :id, :email, {
-        :multiple => false,
-        :include_blank => 'Select a Manager',
-      } %>
+    <div class="form-group row">
+      <%= form.label 'Manager', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.collection_select :manager_id, Manager.group(:email), :id, :email, {
+          :multiple => false,
+          :include_blank => 'Select a Manager',
+        }, {class: 'form-control'} %>
+        <% if !@cab.errors.messages[:'manager'].empty?  %>
+            <ul>
+              <% @cab.errors.messages[:'manager'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
     </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions">
+      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+    </div>
+
 <% end %>

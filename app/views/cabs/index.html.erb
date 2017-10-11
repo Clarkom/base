@@ -1,33 +1,57 @@
-<p id="notice"><%= notice %></p>
+<h4>Taxis</h4>
 
-<h1>Cabs</h1>
+<!-- # -->
+<div class="actions row">
 
-<table>
+  <div class="col-md-4">
+    <%= link_to new_cab_path, :class => 'btn btn-info btn-sm' do %>
+        <%= fa_icon 'plus' %> Ajouter un nouveau Taxi
+    <% end %>
+  </div>
+
+  <div class="col-md-4 ml-auto">
+    <input type="search"
+           class="form-control"
+           id="search-cab"
+           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+  </div>
+
+</div>
+
+<!-- # -->
+<table id="cab-data" class="table table-bordered">
   <thead>
-    <tr>
-      <th>Cab model</th>
-      <th>License plate</th>
-      <th>Agreement number</th>
-      <th>Total mileage</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Cab model</th>
+    <th>License plate</th>
+    <th>Agreement number</th>
+    <th>Total mileage</th>
+    <th class="td-actions">Actions</th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @cabs.each do |cab| %>
-      <tr>
-        <td><%= cab.cab_model.name %></td>
-        <td><%= cab.license_plate %></td>
-        <td><%= cab.agreement_number %></td>
-        <td><%= number_with_delimiter(cab.total_mileage) %> km(s)</td>
-        <td><%= link_to 'Show', cab %></td>
-        <td><%= link_to 'Edit', edit_cab_path(cab) %></td>
-        <td><%= link_to 'Destroy', cab, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @cabs.each do |cab| %>
+    <tr>
+      <td><%= cab.cab_model.name %></td>
+      <td><%= cab.license_plate %></td>
+      <td><%= cab.agreement_number %></td>
+      <td><%= number_with_delimiter(cab.total_mileage) %> km(s)</td>
+      <td>
+        <%= link_to cab, :class => 'btn btn-outline-dark btn-sm' do %>
+            <%= fa_icon 'eye' %>
+        <% end %>
+        <%= link_to edit_cab_path(cab), :class => 'btn btn-outline-dark btn-sm' do %>
+            <%= fa_icon 'pencil' %>
+        <% end %>
+        <%= link_to cab, method: :delete, data: { confirm: 'Êtes vous sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
+            <%= fa_icon 'close' %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
   </tbody>
+
 </table>
 
-<br>
 
-<%= link_to 'New Cab', new_cab_path %>

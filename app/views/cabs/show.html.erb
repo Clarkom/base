@@ -1,24 +1,35 @@
-<p id="notice"><%= notice %></p>
+<h4><%= CabModel.find(@cab.cab_model_id).name %></h4>
 
-<p>
-  <strong>Cab model:</strong>
-  <%= @cab.cab_model %>
-</p>
+<div class="row">
+  <div class="col-md-4">License Plate</div>
+  <div class="col-md-8"><%= @cab.license_plate %></div>
+</div>
 
-<p>
-  <strong>License plate:</strong>
-  <%= @cab.license_plate %>
-</p>
+<div class="row">
+  <div class="col-md-4">License Plate</div>
+  <div class="col-md-8"><%= @cab.license_plate %></div>
+</div>
 
-<p>
-  <strong>Agreement number:</strong>
-  <%= @cab.agreement_number %>
-</p>
+<div class="row">
+  <div class="col-md-4">Agreement Number</div>
+  <div class="col-md-8"><%= @cab.agreement_number %></div>
+</div>
 
-<p>
-  <strong>Total mileage:</strong>
-  <%= @cab.total_mileage %>
-</p>
+<div class="row">
+  <div class="col-md-4">Kilometrage</div>
+  <div class="col-md-8"><%= @cab.total_mileage %></div>
+</div>
 
-<%= link_to 'Edit', edit_cab_path(@cab) %> |
-<%= link_to 'Back', cabs_path %>
+<div class="row">
+  <div class="col-md-4">Total Mileage</div>
+  <div class="col-md-8"><%= Manager.find(@cab.manager_id).email %></div>
+</div>
+
+
+<%= link_to cabs_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Retour
+<% end %>
+
+<%= link_to @cab, :class => 'badge badge-light' do %>
+    <%= fa_icon 'eye' %> Consulter Detail
+<% end %>
