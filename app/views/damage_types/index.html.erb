@@ -1,29 +1,49 @@
-<p id="notice"><%= notice %></p>
+<h4>Damage Type</h4>
 
-<h4>Damage Types</h4>
+<!-- # -->
+<div class="actions row">
 
-<div class="actions form-inline">
-  <%= link_to new_damage_type_path, :class => 'btn btn-info btn-sm' do %>
-      Add a Damage Type
-  <% end %>
+  <div class="col-md-4">
+    <%= link_to new_damage_type_path, :class => 'btn btn-info btn-sm' do %>
+        <%= fa_icon 'plus' %> Ajouter un nouveau Propriétaire
+    <% end %>
+  </div>
+
+  <div class="col-md-4 ml-auto">
+    <input type="search"
+           class="form-control"
+           id="search-damage-type"
+           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+  </div>
+
 </div>
 
-<table class="table table-bordered table-responsive">
+<!-- # -->
+<table id="damage-type-data" class="table table-bordered">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Actions</th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th class="td-actions">Actions</th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @damage_types.each do |damage_type| %>
+  <% @damage_types.each do |damage_type| %>
       <tr>
         <td><%= damage_type.name %></td>
-        <td><%= link_to 'Show', damage_type %></td>
-        <td><%= link_to 'Edit', edit_damage_type_path(damage_type) %></td>
-        <td><%= link_to 'Destroy', damage_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to damage_type, :class => 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'eye' %> Show
+          <% end %>
+          <%= link_to edit_damage_type_path(damage_type), :class => 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'pencil' %> Edit
+          <% end %>
+          <%= link_to damage_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-dark btn-sm' do %>
+              <%= fa_icon 'trash' %> Destroy
+          <% end %>
+        </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
+
 </table>

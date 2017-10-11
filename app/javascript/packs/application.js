@@ -76,6 +76,7 @@ import './pages/cabs/cabs_all'
 import './pages/cabs/owners'
 import './pages/cabs/cab_mdels'
 import './pages/cabs/fuel_types'
+import './pages/cabs/damage_types'
 
 /**
  *

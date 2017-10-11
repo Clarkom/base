@@ -1,9 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h4><%= @damage_type.name %> - Detail</h4>
 
-<p>
-  <strong>Name:</strong>
-  <%= @damage_type.name %>
-</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @damage_type.name %></td>
+  </tr>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_damage_type_path(@damage_type) %> |
-<%= link_to 'Back', damage_types_path %>
+<%= link_to damage_types_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Retour
+<% end %>
+
+<%= link_to edit_damage_type_path(@damage_type), :class => 'badge badge-dark' do %>
+    <%= fa_icon 'pencil' %> Edit
+<% end %>
