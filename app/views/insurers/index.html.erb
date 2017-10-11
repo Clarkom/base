@@ -1,24 +1,37 @@
 <h4>Insurers</h4>
 
-<div class="actions form-inline">
-  <%= link_to new_insurer_path, :class => 'btn btn-info btn-sm' do %>
-      Add an Insurer
-  <% end %>
+<!-- # -->
+<div class="actions row">
+
+  <div class="col-md-4">
+    <%= link_to new_insurer_path, :class => 'btn btn-info btn-sm' do %>
+        <%= fa_icon 'plus' %> Add a new Insurer
+    <% end %>
+  </div>
+
+  <div class="col-md-4 ml-auto">
+    <input type="search"
+           class="form-control"
+           id="search-insurer"
+           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+  </div>
+
 </div>
 
-<table class="table table-bordered table-responsive">
+<!-- # -->
+<table id="insurer-data" class="table table-bordered">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Picture</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>Actions</th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Picture</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th class="td-actions">Actions</th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @insurers.each do |insurer| %>
+  <% @insurers.each do |insurer| %>
       <tr>
         <td><%= insurer.name %></td>
         <td><%= insurer.picture %></td>
@@ -36,10 +49,7 @@
           <% end %>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
+
 </table>
-
-<br>
-
-<%= link_to 'New Insurer', new_insurer_path %>

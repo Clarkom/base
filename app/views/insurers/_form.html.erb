@@ -1,37 +1,71 @@
-<%= form_with(model: insurer, local: true) do |form| %>
-  <% if insurer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(insurer.errors.count, "error") %> prohibited this insurer from being saved:</h2>
+<%= form_for @insurer do |form| %>
 
-      <ul>
-      <% insurer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group row">
+      <%= form.label 'Name', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :name, class: 'form-control' %>
+        <% if !@insurer.errors.messages[:'name'].empty?  %>
+            <ul>
+              <% @insurer.errors.messages[:'name'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :insurer_name %>
-  </div>
+    <div class="form-group row">
+      <%= form.label 'Picture', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :picture, class: 'form-control' %>
+        <% if !@insurer.errors.messages[:'picture'].empty?  %>
+            <ul>
+              <% @insurer.errors.messages[:'picture'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.text_field :picture, id: :insurer_picture %>
-  </div>
+    <div class="form-group row">
+      <%= form.label 'Address', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :address, class: 'form-control' %>
+        <% if !@insurer.errors.messages[:'address'].empty?  %>
+            <ul>
+              <% @insurer.errors.messages[:'address'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :insurer_address %>
-  </div>
+    <div class="form-group row">
+      <%= form.label 'Phone', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :phone, class: 'form-control' %>
+        <% if !@insurer.errors.messages[:'phone'].empty?  %>
+            <ul>
+              <% @insurer.errors.messages[:'phone'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :insurer_phone %>
-  </div>
+    <div class="actions">
+      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

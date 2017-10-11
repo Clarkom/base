@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<h4><%= @insurer.full_name %> - Detail</h4>
 
-<p>
-  <strong>Name:</strong>
-  <%= @insurer.name %>
-</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Picture</th>
+    <th>Address</th>
+    <th>Phone</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @insurer.name %></td>
+    <td><%= @insurer.picture %></td>
+    <td><%= @insurer.address %></td>
+    <td><%= @insurer.phone %></td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Picture:</strong>
-  <%= @insurer.picture %>
-</p>
+<%= link_to insurers_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Retour
+<% end %>
 
-<p>
-  <strong>Address:</strong>
-  <%= @insurer.address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @insurer.phone %>
-</p>
-
-<%= link_to 'Edit', edit_insurer_path(@insurer) %> |
-<%= link_to 'Back', insurers_path %>
+<%= link_to edit_insurer_path(@insurer), :class => 'badge badge-dark' do %>
+    <%= fa_icon 'pencil' %> Edit
+<% end %>
