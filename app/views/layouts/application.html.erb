@@ -35,7 +35,7 @@
               <%= render 'layouts/title_header' %>
 
               <!-- # Content -->
-              <div class="<%= !current_path('statistics') ? 'main-content' : 'stats' %>">
+              <div class="<%= current_path('statistics') || current_path('expenses/all') ? 'stats' : 'main-content' %>">
                 <%= yield %>
               </div>
 

@@ -1,90 +1,19 @@
-<div class="row" style="padding-top: 30px">
+
+<div class="row stats-col">
 
   <!-- # Insurances -->
-  <div class="col-sm-6">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">
-          Insurances
-          <b class="badge badge-dark"><%= @insurances_sum %> DH</b>
-        </h5>
-        <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
-        </p>
-        <%= link_to new_insurance_path, :class => 'btn btn-info btn-sm' do %>
-            <%= fa_icon 'plus' %> Add one
-        <% end %>
-        <%= link_to insurances_path, :class => 'btn btn-info btn-sm' do %>
-            <%= fa_icon 'list' %> show more
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <%= render 'insurances' %>
 
   <!-- # Breaks -->
-  <div class="col-sm-6">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">
-          Breaks
-          <b class="badge badge-dark"><%= @breaks_sum %> DH</b>
-        </h5>
-        <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
-        </p>
-        <%= link_to new_break_path, :class => 'btn btn-info btn-sm' do %>
-            <%= fa_icon 'plus' %> Add one
-        <% end %>
-        <%= link_to breaks_path, :class => 'btn btn-info btn-sm' do %>
-            <%= fa_icon 'list' %> show more
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <%= render 'breaks' %>
 
   <!-- # Damages -->
-  <div class="col-sm-6">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">
-          Damages
-          <b class="badge badge-dark"><%= @damages_sum %> DH</b>
-        </h5>
-        <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
-        </p>
-        <%= link_to new_damage_path, :class => 'btn btn-info btn-sm' do %>
-            <%= fa_icon 'plus' %> Add one
-        <% end %>
-        <%= link_to damages_path, :class => 'btn btn-info btn-sm' do %>
-            <%= fa_icon 'list' %> show more
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <%= render 'damages' %>
 
   <!-- # Owner Takes -->
-  <div class="col-sm-6">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">
-          Owner takes
-          <b class="badge badge-dark"><%= @owner_takes_sum %> DH</b>
-        </h5>
-        <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
-        </p>
-        <%= link_to new_owner_take_path, :class => 'btn btn-info btn-sm' do %>
-            <%= fa_icon 'plus' %> Add one
-        <% end %>
-        <%= link_to owner_takes_path, :class => 'btn btn-info btn-sm' do %>
-            <%= fa_icon 'list' %> show more
-        <% end %>
-      </div>
-    </div>
-  </div>
-
+  <%= render 'owner_takes' %>
 
 </div>
+
 
 
