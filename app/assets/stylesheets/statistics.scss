@@ -6,7 +6,7 @@
     b {
       float: right;
       font-weight: bold;
-      font-size: 13px;
+      font-size: 15px;
     }
   }
   .nav-item a {
@@ -17,7 +17,7 @@
   > div {
     margin-bottom: 15px;
   }
-  .card-body {
+  &.table-card .card-body {
     max-height: 380px;
     overflow-x: scroll;
   }

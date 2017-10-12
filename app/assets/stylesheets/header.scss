@@ -93,5 +93,16 @@ header {
     color: #fff;
     font-size: 25px;
     font-weight: 100;
+    b {
+      float: right;
+      margin-right: 15px;
+      font-weight: bold;
+      &.exp {
+        color: #ffc7d6;
+      }
+      &.inc {
+        color: #a5fb98;
+      }
+    }
   }
 }

@@ -35,7 +35,10 @@
               <%= render 'layouts/title_header' %>
 
               <!-- # Content -->
-              <div class="<%= current_path('statistics') || current_path('expenses/all') || current_path('incomes/all') ? 'stats' : 'main-content' %>">
+              <div class="<%= current_path('statistics') ||
+                                current_path('expenses/all') ||
+                                current_path('incomes/all') ||
+                                controller.controller_name === 'home'? 'stats' : 'main-content' %>">
                 <%= yield %>
               </div>
 

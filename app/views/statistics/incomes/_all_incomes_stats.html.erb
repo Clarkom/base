@@ -1,18 +1,17 @@
-<div class="col-sm-5">
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">
-        Revenu Global
-        <b class="badge badge-info">
-          <%= number_to_currency(Income.incomes_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
-        </b>
-      </h4>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">
+      Revenu Global
+      <b class="badge badge-info">
+        <%= number_to_currency(Income.incomes_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+      </b>
+    </h4>
 
-      <!-- # Canvas -->
-      <canvas id="AllIncomes">
-        <div id="incomes-managertakes-stats"><%= calculat_percent(ManagerTake.manager_takes_sum, Income.incomes_sum) %></div>
-      </canvas>
+    <!-- # Canvas -->
+    <canvas id="AllIncomes">
+      <div id="incomes-managertakes-stats"><%= calculat_percent(ManagerTake.manager_takes_sum, Income.incomes_sum) %></div>
+    </canvas>
 
-    </div>
   </div>
 </div>
+

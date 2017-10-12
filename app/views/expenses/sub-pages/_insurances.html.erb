@@ -1,12 +1,11 @@
-<div class="col-sm-6">
-  <div class="card">
+<div class="card">
     <div class="card-body">
 
       <!-- # -->
       <h4 class="card-title">
         Insurances
         <b class="badge badge-info">
-          <%= number_to_currency(@insurances_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+          <%= number_to_currency(Insurance.includes(:expense).pluck(:amount).sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
         </b>
       </h4>
 
@@ -61,4 +60,3 @@
 
     </div>
   </div>
-</div>

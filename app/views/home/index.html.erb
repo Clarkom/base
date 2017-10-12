@@ -1,0 +1,28 @@
+<div class="row">
+
+  <!-- Expenses -->
+  <div class="col-md-6 home-graph">
+
+    <!-- # -->
+    <div class="stats-col">
+      <%= render 'statistics/expenses/all_expenses_stats' %>
+      <%= render 'expenses/sub-pages/insurances' %>
+      <%= render 'expenses/sub-pages/breaks' %>
+      <%= render 'expenses/sub-pages/damages' %>
+      <%= render 'expenses/sub-pages/owner_takes' %>
+    </div>
+
+  </div>
+
+  <!-- # Incomes -->
+  <div class="col-md-6 home-graph">
+
+    <!-- # -->
+    <div class="stats-col">
+      <%= render 'statistics/incomes/all_incomes_stats' %>
+      <%= render 'incomes/sub-pages/manager_takes' %>
+    </div>
+
+  </div>
+
+</div>

@@ -14,10 +14,10 @@ module ApplicationHelper
   def get_page_title
 
     if current_path('expenses/')
-      render :inline => "#{fa_icon 'bank'} Expenses"
+      render :inline => "#{fa_icon 'bank'} Expenses <b class='exp'>-#{Expense.sum(:amount)} DH</b>"
 
     elsif current_path('incomes/')
-      render :inline => "#{fa_icon 'money'} Incomes"
+      render :inline => "#{fa_icon 'money'} Incomes <b class='inc'>+#{Income.sum(:amount)} DH</b>"
 
     elsif current_path('cabs')
       render :inline => "#{fa_icon 'taxi'} Cab"

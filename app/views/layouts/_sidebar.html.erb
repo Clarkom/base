@@ -39,14 +39,14 @@
          aria-expanded="false"
          aria-controls="expensesCollapse">
         <%= fa_icon 'bank' %>
-        Dépenses
+        Expenses
         <%= fa_icon 'angle-right' %>
         <%= fa_icon 'angle-down' %>
       </a>
       <ul class="<%= current_path('expenses/') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="expensesCollapse">
         <li>
           <%= link_to all_expenses_path, class: "#{ current_path('expenses/all') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> All Incomes
+              <%= fa_icon 'caret-right' %> All Expenses
           <% end %>
         </li>
         <li>
