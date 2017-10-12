@@ -1,22 +1,23 @@
-<%= form_with(model: break_cause, local: true) do |form| %>
-  <% if break_cause.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(break_cause.errors.count, "error") %> prohibited this break_cause from being saved:</h2>
+<%= form_for @break_cause do |form| %>
 
-      <ul>
-      <% break_cause.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group row">
+      <%= form.label 'Break Cause', class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :name, class: 'form-control' %>
+        <% if !@break_cause.errors.messages[:'name'].empty?  %>
+            <ul>
+              <% @break_cause.errors.messages[:'name'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :break_cause_name %>
-  </div>
+    <div class="actions">
+      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

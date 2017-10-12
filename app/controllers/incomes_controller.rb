@@ -6,6 +6,7 @@ class IncomesController < ApplicationController
   def index
     @incomes = Income.group(:created_at)
     @incomes_sum = Income.sum(:amount)
+    @manager_takes_sum = ManagerTake.includes(:income).pluck(:amount).sum
   end
 
   # GET /incomes/1

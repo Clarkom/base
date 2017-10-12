@@ -1,0 +1,61 @@
+<div class="col-sm-6">
+  <div class="card">
+    <div class="card-body">
+
+      <!-- # -->
+      <h4 class="card-title">
+        Manager Takes
+        <b class="badge badge-info">
+          <%= number_to_currency(@manager_takes_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+        </b>
+      </h4>
+
+      <!-- # -->
+      <% if !ManagerTake.all.empty? %>
+          <table class="table table-bordered">
+
+        <thead>
+          <tr>
+            <th>Manager</th>
+            <th>Date</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% ManagerTake.all.limit(3).each do |manager_take| %>
+              <tr>
+                <td>
+                  <%= link_to manager_take do %>
+                      <%= manager_take.manager.full_name %>
+                  <% end %>
+                </td>
+                <td><%= manager_take.date %></td>
+                <td><b><%= manager_take.income.amount %> DH</b></td>
+              </tr>
+          <% end %>
+        </tbody>
+
+      </table>
+
+          <!-- # -->
+          <div class="col-md-12">
+            <%= link_to new_manager_take_path, :class => 'btn btn-sm btn-info' do %>
+                <%= fa_icon 'plus' %> Add an Insurance
+            <% end %>
+            <%= link_to manager_takes_path, :class => 'btn btn-sm btn-info' do %>
+                <%= fa_icon 'list' %> Show More
+            <% end %>
+          </div>
+
+      <% else %>
+          <h5>No Data</h5>
+          <%= link_to new_manager_take_path, :class => 'btn btn-sm btn-info' do %>
+              <%= fa_icon 'plus' %> Add a Manager Take
+          <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

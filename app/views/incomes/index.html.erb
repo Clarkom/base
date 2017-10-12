@@ -1,42 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="row stats-col">
 
-<h1>Income</h1>
+  <!-- # Manager Takes -->
+  <%= render 'incomes/sub-pages/manager_takes' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Amount</th>
-      <th>Manager Take</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @incomes.each do |income| %>
-      <tr>
-        <td><%= income.amount %></td>
-        <td>
-					<% if income.manager_take %>
-							<ul>
-								<li>
-									<b>Start Date</b>
-									<%= income.manager_take.date %>
-								</li>
-							</ul>
-					<% else %>
-							<div style="text-align: center;padding-top: 10px;color: red"><b>Nothing</b></div>
-					<% end %>
-				</td>
-        <td><%= link_to 'Show', income %></td>
-        <td><%= link_to 'Edit', edit_income_path(income) %></td>
-        <td><%= link_to 'Destroy', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-      <tr>
-        <td><b><%= @incomes_sum %></b> DH</td>
-      </tr>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Income', new_income_path %>
+</div>

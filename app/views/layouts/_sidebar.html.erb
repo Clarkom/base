@@ -3,7 +3,7 @@
   <!-- # Logo-->
   <div class="top-logo">
     <%= link_to root_path, :class => 'logo' do %>
-      <%= fa_icon 'cube' %> smarttaxi
+      <%= fa_icon 'cube' %> smartcab
     <% end %>
   </div>
 
@@ -46,27 +46,27 @@
       <ul class="<%= current_path('expenses/') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="expensesCollapse">
         <li>
           <%= link_to all_expenses_path, class: "#{ current_path('expenses/all') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Toutes les Dépenses
+              <%= fa_icon 'caret-right' %> All Incomes
           <% end %>
         </li>
         <li>
           <%= link_to insurances_path, class: "#{ current_path('insurances') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Assurances
+              <%= fa_icon 'caret-right' %> Insurances
           <% end %>
         </li>
         <li>
           <%= link_to breaks_path, class: "#{ current_path('breaks') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Arrêts
+              <%= fa_icon 'caret-right' %> Breaks
           <% end %>
         </li>
         <li>
           <%= link_to damages_path, class: "#{ current_path('damages') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Dégâts
+              <%= fa_icon 'caret-right' %> Damages
           <% end %>
         </li>
         <li>
           <%= link_to owner_takes_path , class: "#{ current_path('owner_takes') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Recettes
+              <%= fa_icon 'caret-right' %> Owner Takes
           <% end %>
         </li>
       </ul>
@@ -79,14 +79,14 @@
          aria-expanded="false"
          aria-controls="incomesCollapse">
         <%= fa_icon 'money' %>
-        Revenus
+        Incomes
         <%= fa_icon 'angle-right' %>
         <%= fa_icon 'angle-down' %>
       </a>
       <ul class="<%= current_path('incomes/') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="incomesCollapse">
         <li>
           <%= link_to all_incomes_path, class: "#{ current_path('incomes/all') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Tous les Revenus
+              <%= fa_icon 'caret-right' %> All Incomes
           <% end %>
         </li>
         <li>
@@ -111,7 +111,7 @@
       <ul class="<%= current_path('cabs') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="cabCollapse">
         <li>
           <%= link_to all_cabs_path, class: "#{ current_path('cabs/all') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Véhicule
+              <%= fa_icon 'caret-right' %> Vehicle
           <% end %>
         </li>
         <li>
@@ -121,27 +121,32 @@
         </li>
         <li>
           <%= link_to cab_models_path, class: "#{ current_path('cab_models') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Liste des Models
+              <%= fa_icon 'caret-right' %> Models
           <% end %>
         </li>
         <li>
           <%= link_to fuel_types_path, class: "#{ current_path('fuel_types') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Types de carburant
+              <%= fa_icon 'caret-right' %> Fuel Types
           <% end %>
         </li>
         <li>
           <%= link_to damage_types_path, class: "#{ current_path('damage_types') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Type de Dégâts
+              <%= fa_icon 'caret-right' %> Damage Types
+          <% end %>
+        </li>
+        <li>
+          <%= link_to break_causes_path, class: "#{ current_path('break_causes') ? 'active' : '' }" do %>
+              <%= fa_icon 'caret-right' %> Break Causes
           <% end %>
         </li>
         <li>
           <%= link_to insurers_path, class: "#{ current_path('insurers') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Assureurs
+              <%= fa_icon 'caret-right' %> Insurers
           <% end %>
         </li>
         <li>
           <%= link_to owners_path, class: "#{ current_path('owners') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> Propriétaires
+              <%= fa_icon 'caret-right' %> Owners
           <% end %>
         </li>
       </ul>

@@ -9,10 +9,21 @@
       font-size: 13px;
     }
   }
+  .nav-item a {
+    color: #b3b3b3;
+  }
 }
 .stats-col {
   > div {
     margin-bottom: 15px;
+  }
+  .card-body {
+    max-height: 380px;
+    overflow-x: scroll;
+  }
+  table a {
+    color: #2b3548;
+    text-decoration: underline;
   }
 }
 .date-filter {

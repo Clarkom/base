@@ -1,0 +1,61 @@
+<div class="col-sm-6">
+  <div class="card">
+    <div class="card-body">
+
+      <!-- # -->
+      <h4 class="card-title">
+        Breaks
+        <b class="badge badge-info">
+          <%= number_to_currency(@breaks_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
+        </b>
+      </h4>
+
+      <!-- # -->
+      <% if !Break.all.empty? %>
+
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th>Cause</th>
+            <th>Delay</th>
+            <th>Amount</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% Break.all.limit(3).each do |b| %>
+              <tr>
+                <td>
+                  <%= link_to b do %>
+                      <%= b.break_cause.name %>
+                  <% end %>
+                </td>
+                <td><%= (b.end_date - b.start_date).to_i %> jours</td>
+                <td><b><%= b.expense.amount %> DH</b></td>
+              </tr>
+          <% end %>
+          </tbody>
+
+        </table>
+
+        <!-- # -->
+        <div class="col-md-12">
+          <%= link_to new_break_path, :class => 'btn btn-sm btn-info' do %>
+              <%= fa_icon 'plus' %> Add an Break
+          <% end %>
+          <%= link_to breaks_path, :class => 'btn btn-sm btn-info' do %>
+              <%= fa_icon 'list' %> Show More
+          <% end %>
+        </div>
+
+        <% else %>
+          <h5>No Data</h5>
+          <%= link_to new_break_path, :class => 'btn btn-sm btn-info' do %>
+              <%= fa_icon 'plus' %> Add a Break
+          <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

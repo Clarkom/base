@@ -1,9 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h4><%= @break_cause.name %> - Detail</h4>
 
-<p>
-  <strong>Name:</strong>
-  <%= @break_cause.name %>
-</p>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Cause</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @break_cause.name %></td>
+  </tr>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_break_cause_path(@break_cause) %> |
-<%= link_to 'Back', break_causes_path %>
+<%= link_to break_causes_path, :class => 'badge badge-light' do %>
+    <%= fa_icon 'arrow-left' %> Previous
+<% end %>
+
+<%= link_to edit_break_cause_path(@break_cause), :class => 'badge badge-dark' do %>
+    <%= fa_icon 'pencil' %> Edit
+<% end %>
