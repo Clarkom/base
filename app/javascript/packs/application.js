@@ -41,7 +41,7 @@ import '../../assets/stylesheets/scaffolds.scss'
 // libraries
 import 'bootstrap'
 import 'chart.js'
-import 'datatables'
+import 'datatables.net'
 import 'eonasdan-bootstrap-datetimepicker'
 
 //

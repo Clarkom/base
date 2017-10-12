@@ -28,8 +28,7 @@ class DataTable {
         "targets": targets ? targets : [],
         "orderable": orderable
       } ],
-      "order": [[ order, "desc" ]],
-      "dom": 't'
+      "order": [[ order, "desc" ]]
     }
   }
 
