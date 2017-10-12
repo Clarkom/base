@@ -1,6 +1,7 @@
 import { chart, BG_COLORS, BORDER_COLORS } from '../../statistics/chart'
 
-$(document).ready(function(){
+let ready;
+ready = function() {
 
   chart.drawLineChart(
     'InsurancesExpenses',
@@ -9,4 +10,5 @@ $(document).ready(function(){
     BORDER_COLORS.insurance
   )
 
-});
+};
+$(document).on('turbolinks:load', ready);

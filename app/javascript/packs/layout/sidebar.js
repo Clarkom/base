@@ -1,4 +1,5 @@
-$(document).ready(function(){
+let ready;
+ready = function() {
 
   /*
   *
@@ -19,5 +20,6 @@ $(document).ready(function(){
     $(this).parent().removeClass('active-list')
   });
 
-});
+}
+$(document).on('turbolinks:load', ready);
 

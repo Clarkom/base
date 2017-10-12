@@ -1,7 +1,8 @@
 import { chart, BG_COLORS, BORDER_COLORS, CURRENT_YEAR, CURRENT_MONTH } from '../../statistics/chart'
 
 
-$(document).ready(function(){
+let ready;
+ready = function() {
 
   const label_name = 'Arrêts';
 
@@ -38,4 +39,5 @@ $(document).ready(function(){
   chart.drawChartAjax(year_and_month_chart_id, label_name, year_and_month_ajax_url, breaks_months_data, BG_COLORS.breaks, BORDER_COLORS.breaks);
   chart.getDataByClick('break', 'by_year_and_month', year_and_month_chart_id, year_and_month_ajax_url, label_name, year_and_month_ajax_url, BG_COLORS.breaks, BORDER_COLORS.breaks);
 
-});
+};
+$(document).on('turbolinks:load', ready);

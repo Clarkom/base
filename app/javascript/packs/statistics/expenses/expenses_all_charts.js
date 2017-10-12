@@ -1,6 +1,7 @@
 import { chart, BORDER_COLORS } from '../../statistics/chart'
 
-$(document).ready(function(){
+let ready;
+ready = function() {
 
   /**
    *
@@ -33,4 +34,6 @@ $(document).ready(function(){
   chart.drawDoughnutChart('AllExpenses', DATA_SETS, LABEL, LABELS, BACKGROUND_COLORS);
 
 
-});
+};
+
+$(document).on('turbolinks:load', ready);

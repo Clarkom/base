@@ -1,6 +1,7 @@
 import { chart, BG_COLORS, BORDER_COLORS, CURRENT_YEAR, CURRENT_MONTH } from '../../statistics/chart'
 
-$(document).ready(function(){
+let ready;
+ready = function() {
 
   const label_name = 'Dégât';
 
@@ -38,4 +39,5 @@ $(document).ready(function(){
   chart.getDataByClick('owner_take', 'by_year_and_month', year_and_month_chart_id, year_and_month_ajax_url, label_name, year_and_month_ajax_url, BG_COLORS.owner_takes, BORDER_COLORS.owner_takes);
 
 
-});
+};
+$(document).on('turbolinks:load', ready);

@@ -51,7 +51,9 @@ class DatePicker {
 
 let date_picker = new DatePicker();
 
-$(document).ready(function(){
+let ready;
+ready = function() {
   date_picker.createCalendar('years_only');
   date_picker.createCalendar('years_and_months');
-});
+}
+$(document).on('turbolinks:load', ready);
