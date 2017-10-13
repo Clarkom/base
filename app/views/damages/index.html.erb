@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-damage"
-           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+           placeholder="Your Text..." aria-label="Your Text...">
   </div>
 
 </div>
@@ -23,11 +23,11 @@
   <thead>
     <tr>
       <th>Cause</th>
-      <th>Chauffeur Responsable</th>
+      <th>Driver Responsible</th>
       <th>Date</th>
       <th>Kilometrage</th>
       <th>Main d'oeuvre</th>
-      <th>Montant total</th>
+      <th>Amount</th>
       <th class="td-actions">Actions</th>
     </tr>
   </thead>
@@ -54,7 +54,7 @@
           <%= link_to edit_damage_path(damage), :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'pencil' %>
           <% end %>
-          <%= link_to damage, method: :delete, data: { confirm: 'Êtes vous sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
+          <%= link_to damage, method: :delete, data: { confirm: 'Are Your Sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'close' %>
           <% end %>
         </td>

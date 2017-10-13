@@ -1,11 +1,11 @@
-<h4>Editer cet Arrêt</h4>
+<h4>Breaks - Edit</h4>
 
 <%= render 'form', break: @break %>
 
 <%= link_to breaks_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Retour
+    <%= fa_icon 'arrow-left' %> Go Back
 <% end %>
 
 <%= link_to @break, :class => 'badge badge-light' do %>
-    <%= fa_icon 'eye' %> Consulter Detail
+    <%= fa_icon 'eye' %> Show Detail
 <% end %>

@@ -50,7 +50,7 @@ fr:
         other: "environ %{count} heures"
       x_days:
         one:   "1 jour"
-        other: "%{count} jours"
+        other: "%{count} days"
       about_x_months:
         one:   "environ un mois"
         other: "environ %{count} mois"

@@ -1,4 +1,4 @@
-<h4>Manager Take</h4>
+<h4>Manager Takes</h4>
 
 <!-- # -->
 <div class="actions row">
@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-manager-take"
-           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+           placeholder="Your Text..." aria-label="Your Text...">
   </div>
 
 </div>
@@ -25,7 +25,7 @@
   <thead>
     <tr>
       <th>Date</th>
-      <th>Montant en DH</th>
+      <th>Amount</th>
       <th class="td-actions">Actions</th>
     </tr>
   </thead>
@@ -42,7 +42,7 @@
         <%= link_to edit_manager_take_path(manager_take), :class => 'btn btn-outline-dark btn-sm' do %>
             <%= fa_icon 'pencil' %>
         <% end %>
-        <%= link_to manager_take, method: :delete, data: {confirm: 'Êtes vous sur?'}, class: 'btn btn-outline-dark btn-sm' do %>
+        <%= link_to manager_take, method: :delete, data: {confirm: 'Are Your Sur?'}, class: 'btn btn-outline-dark btn-sm' do %>
             <%= fa_icon 'close' %>
         <% end %>
       </td>

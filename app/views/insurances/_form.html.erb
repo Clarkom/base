@@ -14,7 +14,7 @@
     <%= form.fields_for :expense  do |expense_form| %>
 
         <div class="form-group row">
-          <%= expense_form.label 'Montant', class: 'col-sm-2 col-form-label' %>
+          <%= expense_form.label 'Amount', class: 'col-sm-2 col-form-label' %>
           <div class="col-sm-10">
             <div class="input-group">
               <%= expense_form.number_field :amount, class: 'form-control' %>

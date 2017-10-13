@@ -1,11 +1,11 @@
-<h4>Editer cette Recette</h4>
+<h4>Edit</h4>
 
 <%= render 'form', manager_take: @manager_take %>
 
 <%= link_to manager_takes_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Retour
+    <%= fa_icon 'arrow-left' %> Go Back
 <% end %>
 
 <%= link_to @manager_take, :class => 'badge badge-light' do %>
-    <%= fa_icon 'eye' %> Consulter Detail
+    <%= fa_icon 'eye' %> Show Detail
 <% end %>
