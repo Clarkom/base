@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-break"
-           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+           placeholder="Your Text..." aria-label="Your Text...">
   </div>
 
 </div>
@@ -23,10 +23,10 @@
   <thead>
     <tr>
       <th>Cause</th>
-      <th>Date début</th>
-      <th>Date fin</th>
-      <th>Retard en Jours</th>
-      <th>Montant en DH</th>
+      <th>Starting Date</th>
+      <th>End Date</th>
+      <th>Delay</th>
+      <th>Amount</th>
       <th class="td-actions">Actions</th>
     </tr>
   </thead>
@@ -37,7 +37,7 @@
         <td><%= b.break_cause.name %></td>
         <td><%= b.start_date %></td>
         <td><%= b.end_date %></td>
-        <td><%= (b.end_date - b.start_date).to_i %> jours</td>
+        <td><%= (b.end_date - b.start_date).to_i %> days</td>
         <td><%= b.expense.amount %></td>
         <td>
           <%= link_to b, :class => 'btn btn-outline-dark btn-sm' do %>
@@ -46,7 +46,7 @@
           <%= link_to edit_break_path(b), :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'pencil' %>
           <% end %>
-          <%= link_to b, method: :delete, data: { confirm: 'Êtes vous sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
+          <%= link_to b, method: :delete, data: { confirm: 'Are Your Sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'close' %>
           <% end %>
         </td>

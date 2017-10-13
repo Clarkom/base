@@ -5,7 +5,7 @@
       <div class="col-sm-10">
         <%= form.collection_select :manager_id, Manager.all, :id, :full_name, {
           :multiple => false,
-          :include_blank => 'Selectionner un propriétaire',
+          :include_blank => 'Selectionner a Manager',
         },{ class: 'form-control' }
         %>
         <% if !@manager_take.errors.messages[:'manager'].empty?  %>
@@ -41,7 +41,7 @@
     <%= form.fields_for :income  do |income_form| %>
 
         <div class="form-group row">
-          <%= income_form.label 'Montant', class: 'col-sm-2 col-form-label' %>
+          <%= income_form.label 'Amount', class: 'col-sm-2 col-form-label' %>
           <div class="col-sm-10">
             <div class="input-group">
               <%= income_form.number_field :amount, class: 'form-control' %>
@@ -80,7 +80,7 @@
     <% end %>
 
     <div class="actions">
-      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+      <%= form.submit 'Save', :class => 'btn btn-info' %>
     </div>
 
 <% end %>

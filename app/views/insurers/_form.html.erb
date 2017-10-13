@@ -17,20 +17,12 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Picture', class: 'col-sm-2 col-form-label' %>
+      <%= form.label 'Logo', class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
-        <%= form.text_field :picture, class: 'form-control' %>
-        <% if !@insurer.errors.messages[:'picture'].empty?  %>
-            <ul>
-              <% @insurer.errors.messages[:'picture'].each do |message| %>
-                  <li>
-                    <small class="form-text text-muted text-error"><%= message %></small>
-                  </li>
-              <% end %>
-            </ul>
-        <% end %>
+        <%= form.file_field :picture %>
       </div>
     </div>
+
 
     <div class="form-group row">
       <%= form.label 'Address', class: 'col-sm-2 col-form-label' %>
@@ -65,7 +57,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+      <%= form.submit 'Save', :class => 'btn btn-info' %>
     </div>
 
 <% end %>

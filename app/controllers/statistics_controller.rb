@@ -1,5 +1,14 @@
 class StatisticsController < ApplicationController
 
+
+  def index
+
+  end
+
+  def delete
+
+  end
+
   # ##################
   #                  #
   #     Expenses     #

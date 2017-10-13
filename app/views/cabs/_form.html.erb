@@ -5,7 +5,7 @@
       <div class="col-sm-10">
         <%= form.collection_select :cab_model_id, CabModel.group(:name), :id, :name, {
           :multiple => false,
-          :include_blank => 'Selectionner une marque',
+          :include_blank => 'Select a Model',
         },{ class: 'form-control' }
         %>
         <% if !@cab.errors.messages[:'cab_model'].empty?  %>
@@ -64,7 +64,7 @@
       <div class="col-sm-10">
         <%= form.collection_select :manager_id, Manager.group(:email), :id, :email, {
           :multiple => false,
-          :include_blank => 'Selectionner un manager',
+          :include_blank => 'Select a Manager',
         }, {class: 'form-control'} %>
         <% if !@cab.errors.messages[:'manager'].empty?  %>
             <ul>
@@ -79,7 +79,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+      <%= form.submit 'Save', :class => 'btn btn-info' %>
     </div>
 
 <% end %>

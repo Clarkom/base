@@ -1,4 +1,4 @@
-<h4><%= CabModel.find(@cab.cab_model_id).name %> - Detail</h4>
+<h4>Cab - Detail</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -21,7 +21,7 @@
 
 
 <%= link_to cabs_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Retour
+    <%= fa_icon 'arrow-left' %> Go Back
 <% end %>
 
 <%= link_to edit_cab_path(@cab), :class => 'badge badge-dark' do %>

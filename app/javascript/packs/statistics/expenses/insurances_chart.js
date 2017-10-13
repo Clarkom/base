@@ -5,7 +5,7 @@ ready = function() {
 
   chart.drawLineChart(
     'InsurancesExpenses',
-    'Assurances',
+    'Insurances',
     BG_COLORS.insurance,
     BORDER_COLORS.insurance
   )

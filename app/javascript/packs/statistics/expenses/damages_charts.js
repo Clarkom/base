@@ -3,7 +3,7 @@ import { chart, BG_COLORS, BORDER_COLORS, CURRENT_YEAR, CURRENT_MONTH } from '..
 let ready;
 ready = function() {
 
-  const label_name = 'Dégât';
+  const label_name = 'Damage';
 
   /**
    *

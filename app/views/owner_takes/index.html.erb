@@ -1,4 +1,4 @@
-<h4>Recettes Propriétaires</h4>
+<h4>Owner Takes</h4>
 
 <!-- # -->
 <div class="actions row">
@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-owner-take"
-           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+           placeholder="Your Text..." aria-label="Your Text...">
   </div>
 
 </div>
@@ -23,9 +23,9 @@
 
   <thead>
     <tr>
-      <th>Récepteur</th>
+      <th>Owner</th>
       <th>Date</th>
-      <th>Montant en DH</th>
+      <th>Amount</th>
       <th class="td-actions">Actions</th>
     </tr>
   </thead>
@@ -43,7 +43,7 @@
           <%= link_to edit_owner_take_path(owner_take), :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'pencil' %>
           <% end %>
-          <%= link_to owner_take, method: :delete, data: { confirm: 'Êtes vous sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
+          <%= link_to owner_take, method: :delete, data: { confirm: 'Are Your Sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'close' %>
           <% end %>
         </td>

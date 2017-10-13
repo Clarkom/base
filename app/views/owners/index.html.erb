@@ -1,4 +1,4 @@
-<h4>Taxis</h4>
+<h4>Owners</h4>
 
 <!-- # -->
 <div class="actions row">
@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-owner"
-           placeholder="Votre Recherche..." aria-label="Votre Recherche...">
+           placeholder="Your Text..." aria-label="Your Text...">
   </div>
 
 </div>
@@ -22,9 +22,9 @@
 <table id="owner-data" class="table table-bordered">
   <thead>
     <tr>
-      <th>Nom Complet</th>
-      <th>Telephone Fixe</th>
-      <th>Telephone Mobile</th>
+      <th>Full Name</th>
+      <th>Home Phone</th>
+      <th>Mobile Phone</th>
       <th class="td-actions">Actions</th>
     </tr>
   </thead>
@@ -42,7 +42,7 @@
           <%= link_to edit_owner_path(owner), :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'pencil' %>
           <% end %>
-          <%= link_to owner, method: :delete, data: {confirm: 'Êtes vous sur?'}, class: 'btn btn-outline-dark btn-sm' do %>
+          <%= link_to owner, method: :delete, data: {confirm: 'Are Your Sur?'}, class: 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'close' %>
           <% end %>
         </td>

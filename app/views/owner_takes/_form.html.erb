@@ -5,7 +5,7 @@
       <div class="col-sm-10">
         <%= form.collection_select :owner_id, Owner.all, :id, :full_name, {
           :multiple => false,
-          :include_blank => 'Selectionner un propriétaire',
+          :include_blank => 'Select an Owner',
         },{ class: 'form-control' }
         %>
         <% if !@owner_take.errors.messages[:'owner'].empty?  %>
@@ -41,7 +41,7 @@
     <%= form.fields_for :expense  do |expense_form| %>
 
         <div class="form-group row">
-          <%= expense_form.label 'Montant', class: 'col-sm-2 col-form-label' %>
+          <%= expense_form.label 'Amount', class: 'col-sm-2 col-form-label' %>
           <div class="col-sm-10">
             <div class="input-group">
               <%= expense_form.number_field :amount, class: 'form-control' %>
@@ -71,7 +71,7 @@
     <% end %>
 
     <div class="actions">
-      <%= form.submit 'Sauvegarder', :class => 'btn btn-info' %>
+      <%= form.submit 'Save', :class => 'btn btn-info' %>
     </div>
 
 <% end %>
