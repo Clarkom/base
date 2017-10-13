@@ -10,10 +10,23 @@ class Expense < ApplicationRecord
   accepts_nested_attributes_for :damage, :allow_destroy => true
   accepts_nested_attributes_for :owner_take, :allow_destroy => true
 
-  validates :amount, presence: true
+  mount_uploader :attached_file, AttachedFileUploader
 
+  validates :amount, presence: true
+  validate  :picture_size
+
+  #
+  #
+  # Expenses Sum
   def self.expenses_sum
     self.pluck(:amount).sum
+  end
+
+  # Validates the size of an uploader picture
+  def picture_size
+    if attached_file.size > 200.kilobytes
+      errors.add(:attached_file, 'should be less than 200 KB')
+    end
   end
 
 end

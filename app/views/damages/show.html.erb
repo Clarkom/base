@@ -4,7 +4,9 @@
   <thead>
   <tr>
     <th>Cause</th>
+    <% if @damage.driver_id %>
     <th>Driver</th>
+    <% end %>
     <th>Date</th>
     <th>Kilometers</th>
     <th>Labor</th>
@@ -14,7 +16,9 @@
   <tbody>
   <tr>
     <td><%= DamageType.find(@damage.damage_type.id).name %></td>
+    <% if @damage.driver_id %>
     <td><%= Driver.find(@damage.driver_id).full_name %></td>
+    <% end %>
     <td><%= @damage.date %></td>
     <td><%= @damage.kilometers %></td>
     <td><%= @damage.labor %></td>

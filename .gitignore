@@ -186,3 +186,4 @@ fabric.properties
 /public/packs-test
 /node_modules
 /bin/
+/public/uploads/
