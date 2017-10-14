@@ -3,15 +3,17 @@
   <head>
     <title>MyTaxi</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_pack_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
 
+    <!-- # Notice -->
+    <%= render 'layouts/notices' %>
+
+    <!-- # Content -->
     <div class="container-fluid">
 
       <!-- # Authenticated User -->
@@ -28,9 +30,6 @@
 
             <!-- # Main -->
             <div class="main col-sm-12 ml-sm-auto col-md-10 pt-3" role="main">
-
-              <!-- # Notice -->
-              <%= render 'layouts/notices' %>
 
               <!-- # Title -->
               <%= render 'layouts/title_header' %>
