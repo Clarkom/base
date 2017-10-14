@@ -1,8 +1,6 @@
-<h4>Mon Profile</h4>
+<h4>Your Profile</h4>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-
-    <%= devise_error_messages! %>
+<%= form_for(resource, as: @manager, url: registration_path(@manager), html: { method: :put }) do |f| %>
 
     <!-- # -->
     <div class="form-group row">
@@ -12,53 +10,91 @@
           <%= f.email_field :email, class: 'form-control' %>
           <span class="input-group-addon"><%= fa_icon 'envelope-o' %></span>
         </div>
+
+        <% if !@manager.errors.messages[:'email'].empty?  %>
+            <ul>
+              <% @manager.errors.messages[:'email'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+
       </div>
     </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% if devise_mapping.confirmable? && @manager.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= @manager.unconfirmed_email %></div>
     <% end %>
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Mot de passe', class: 'col-sm-2 col-form-label'%>
+      <%= f.label 'Password', class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.password_field :password, class: 'form-control', autocomplete: 'off' %>
           <span class="input-group-addon"><%= fa_icon 'key' %></span>
         </div>
-        <% if @minimum_password_length %>
-            <small>laisser vide si vous ne voulez pas le modifier</small><br/>
-            <small><%= @minimum_password_length %> characters minimum</small>
+
+        <% if !@manager.errors.messages[:'password'].empty?  %>
+            <ul>
+              <% @manager.errors.messages[:'password'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
+        <% end %>
+
+      </div>
+    </div>
+
+    <!-- # -->
+    <div class="form-group row">
+      <%= f.label 'Password confirmation', class: 'col-sm-2 col-form-label'%>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off' %>
+          <span class="input-group-addon"><%= fa_icon 'key' %></span>
+        </div>
+        <% if !@manager.errors.messages[:'password_confirmation'].empty?  %>
+            <ul>
+              <% @manager.errors.messages[:'password_confirmation'].each do |message| %>
+                  <li>
+                    <small class="form-text text-muted text-error"><%= message %></small>
+                  </li>
+              <% end %>
+            </ul>
         <% end %>
       </div>
     </div>
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Mot de passe confirmation', class: 'col-sm-2 col-form-label'%>
-      <div class="col-sm-10">
-        <div class="input-group">
-          <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off' %>
-          <span class="input-group-addon"><%= fa_icon 'key' %></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- # -->
-    <div class="form-group row">
-      <%= f.label 'Mot de passe actuel', class: 'col-sm-2 col-form-label'%>
+      <%= f.label 'Current Password', class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.password_field :current_password, class: 'form-control' %>
           <span class="input-group-addon"><%= fa_icon 'key' %></span>
         </div>
+
+        <% if !@manager.errors.messages[:'current_password'].empty?  %>
+          <ul>
+            <% @manager.errors.messages[:'current_password'].each do |message| %>
+                <li>
+                  <small class="form-text text-muted text-error"><%= message %></small>
+                </li>
+            <% end %>
+          </ul>
+        <% end %>
+
       </div>
     </div>
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Nom Complet', class: 'col-sm-2 col-form-label'%>
+      <%= f.label 'Full Name', class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.text_field :full_name, class: 'form-control' %>
@@ -69,7 +105,7 @@
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Téléphone Fixe', class: 'col-sm-2 col-form-label'%>
+      <%= f.label 'Home Phone', class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.text_field :home_phone, class: 'form-control' %>
@@ -80,7 +116,7 @@
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Téléphone Portable', class: 'col-sm-2 col-form-label'%>
+      <%= f.label 'Mobile Phone', class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.text_field :mobile_phone, class: 'form-control' %>
@@ -91,7 +127,7 @@
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Date de Naissance', class: 'col-sm-2 col-form-label'%>
+      <%= f.label 'Birth Date', class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.date_field :birth_date, class: 'form-control' %>
@@ -118,12 +154,11 @@
 
 <% end %>
 
-
 <div class="alert alert-danger">
-  <h3>Suprimer ce compte</h3>
+  <h3>Delete this account</h3>
   <p>
     <%=
-      button_to 'Suprimmer ce compte',
+      button_to 'Delete this account',
                 registration_path(resource_name),
                 data: { confirm: 'Are Your Sur?' },
                 method: :delete ,
@@ -131,7 +166,6 @@
     %>
   </p>
 </div>
-
 
 <%= link_to :back, :class => 'badge badge-light' do %>
     <%= fa_icon 'arrow-left' %> Go Back

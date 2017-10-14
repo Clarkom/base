@@ -102,7 +102,7 @@ ul, li {
     }
   }
   .text-error {
-    color: red;
+    color: red !important;
   }
   .table-sum {
     background-color: #f1f1f1;
@@ -121,7 +121,17 @@ ul, li {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
   }
 }
-
+.notice {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  text-align: center;
+  .alert {
+    border-radius: 0;
+  }
+}
 h4 {
   font-family: Roboto Slab, 'Open Sans', Arial, sans-serif;
 }

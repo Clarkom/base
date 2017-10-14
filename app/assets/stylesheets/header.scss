@@ -16,7 +16,7 @@ header {
     padding: 0;
     > div > ul {
       > li > a {
-        display: block;
+        display: grid;
         padding: 10px;
         &:hover {
           color: #fff;
@@ -25,24 +25,6 @@ header {
           text-decoration: none;
         }
       }
-    }
-  }
-
-  .nasvbar {
-    padding: 0;
-    a {
-      display: block;
-      padding: 10px;
-      &:hover {
-        color: #fff;
-        background-color: #62769e;
-        transition: background-color 300ms linear;
-        text-decoration: none;
-      }
-    }
-    .dropdown-menu {
-      right: 0;
-      left: inherit;
     }
   }
 
@@ -64,8 +46,8 @@ header {
 
     img {
       border-radius: 100%;
-      width: 32px;
-      height: 32px;
+      width: 25px;
+      height: 25px;
     }
     .dropdown-menu {
       padding: 0;
@@ -82,10 +64,41 @@ header {
         }
       }
     }
+    .dropdown-menu-right {
+      right: 0;
+      left: inherit;
+      margin: 10px 10px 0 0;
+      padding-bottom: 5px;
+      box-shadow: 0 3px 12px rgba(27,31,35,0.15);
+      .dropdown-item {
+        padding: 0;
+        a {
+          display: block;
+          padding: 5px 14px;
+          &:hover {
+            background: #41a2b8;
+            color: #fff;
+          }
+        }
+        span {
+          font-size: 12px;
+          display: block;
+          float: left;
+          padding: 10px 16px 10px 11px;
+          border-bottom: 1px solid #dedede;
+        }
+        &:focus, &:hover {
+          background: none;
+        }
+      }
+    }
+    .user-pic {
+      padding: 0;
+      margin: 10px 7px 0 0;
+    }
   }
 
 }
-
 .title-header {
   position: relative;
   h3 {
