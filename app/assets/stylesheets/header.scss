@@ -35,6 +35,7 @@ header {
   .user-dropdown {
     font-size: 13px;
     margin-top: 15px;
+    margin-right: 20px;
     .pull-right {
       margin-top: -7px;
       margin-left: 8px;
@@ -95,6 +96,9 @@ header {
     .user-pic {
       padding: 0;
       margin: 10px 7px 0 0;
+      &:hover {
+        background: none;
+      }
     }
   }
 
