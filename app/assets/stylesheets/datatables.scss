@@ -197,6 +197,9 @@ table.dataTable {
     &.dt-center, &.dataTables_empty {
       text-align: center;
     }
+    &:last-child {
+      text-align: center;
+    }
   }
   th.dt-right, td.dt-right {
     text-align: right;
