@@ -39,13 +39,13 @@
         <td>0<%= insurer.phone %></td>
         <td>
           <%= link_to insurer, :class => 'btn btn-outline-dark btn-sm' do %>
-              <%= fa_icon 'eye' %> Show
+              <%= fa_icon 'eye' %>
           <% end %>
           <%= link_to edit_insurer_path(insurer), :class => 'btn btn-outline-dark btn-sm' do %>
-              <%= fa_icon 'pencil' %> Edit
+              <%= fa_icon 'pencil' %>
           <% end %>
           <%= link_to insurer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-dark btn-sm' do %>
-              <%= fa_icon 'trash' %> Destroy
+              <%= fa_icon 'trash' %>
           <% end %>
         </td>
       </tr>
