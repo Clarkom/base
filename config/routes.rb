@@ -59,7 +59,7 @@ Rails.application.routes.draw do
     #
     #
     # Expenses
-    get 'expenses', to: 'statistics#expenses'
+    get 'expenses', to: 'statistics#expenses', as: :get_stats_expenses
 
     #
     # Breaks Filters
@@ -80,7 +80,7 @@ Rails.application.routes.draw do
     #
     #
     # Incomes
-    get 'incomes', to: 'statistics#incomes'
+    get 'incomes', to: 'statistics#incomes', as: :get_stats_incomes
 
     #
     # Manager Takes Filters

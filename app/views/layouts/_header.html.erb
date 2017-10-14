@@ -39,12 +39,12 @@
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenuDropDown">
               <li class="dropdown-item">
                 <%= link_to edit_manager_registration_path(current_manager) do %>
-                    <%= fa_icon 'user' %> Mon Profile
+                    <%= fa_icon 'user' %> Your profile
                 <% end %>
               </li>
               <li class="dropdown-item">
                 <%= link_to destroy_manager_session_path, method: :delete do %>
-                    <%= fa_icon 'close' %> Déconnexion
+                    <%= fa_icon 'close' %> Sign out
                 <% end %>
               </li>
             </ul>

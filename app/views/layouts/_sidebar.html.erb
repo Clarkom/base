@@ -165,13 +165,11 @@
       </a>
       <ul class="<%= current_path('statistics') ? 'collapse show' : 'collapse' %> multi-collapse" id="cabStatistics">
         <li>
-          <%= link_to "#{fa_icon 'caret-right'} Expenses".html_safe,
-                      {controller: 'statistics', action: 'expenses'},
+          <%= link_to "#{fa_icon 'caret-right'} Expenses".html_safe, :get_stats_expenses,
                       class: "#{ params[:action] === 'expenses' ? 'active' : '' }" %>
         </li>
         <li>
-          <%= link_to "#{fa_icon 'caret-right'} Incomes".html_safe,
-                      {controller: 'statistics', action: 'incomes'},
+          <%= link_to "#{fa_icon 'caret-right'} Incomes".html_safe, :get_stats_incomes,
                       class: "#{ params[:action] === 'incomes' ? 'active' : '' }" %>
         </li>
       </ul>
