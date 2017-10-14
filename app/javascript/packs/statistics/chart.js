@@ -69,7 +69,6 @@ class BarChart {
    * Draw Charts
    */
   drawChart(chart_id){
-
     let canvas_object = document.getElementById(chart_id);
 
     if (canvas_object) {
@@ -96,53 +95,57 @@ class BarChart {
     let chart_labels = [];
     let chart_data = [];
 
-    //
-    //
-    // Ajax Query to Get The New Data
-    $.ajax({
-      url: `/statistics/${ajax_query_url}`,
-      type: 'GET',
-      dataType: 'json',
-      data: ajax_query_data,
-      success: function(data){
+    if (chart) {
 
-        if (data) {
+      //
+      //
+      // Ajax Query to Get The New Data
+      $.ajax({
+        url: `/statistics/${ajax_query_url}`,
+        type: 'GET',
+        dataType: 'json',
+        data: ajax_query_data,
+        success: function(data){
 
-          //
-          //
-          // By Year
-          for (let chart_label in data){
-            chart_labels.push(chart_label);
-            chart_data.push(data[chart_label]);
+          if (data) {
+
+            //
+            //
+            // By Year
+            for (let chart_label in data){
+              chart_labels.push(chart_label);
+              chart_data.push(data[chart_label]);
+            }
+
+            //
+            //
+            // Update Chart with the New Data
+            if(chart){
+              chart.reset();
+              chart.data = {
+                labels: chart_labels,
+                datasets: [{
+                  data: chart_data,
+                  label: label_name,
+                  borderColor: border_color,
+                  backgroundColor: bg_color,
+                  borderWidth: 2,
+                  fill: 'origin'
+                }]
+              };
+              chart.update();
+            }
           }
 
-          //
-          //
-          // Update Chart with the New Data
-          if(chart){
-            chart.reset();
-            chart.data = {
-              labels: chart_labels,
-              datasets: [{
-                data: chart_data,
-                label: label_name,
-                borderColor: border_color,
-                backgroundColor: bg_color,
-                borderWidth: 2,
-                fill: 'origin'
-              }]
-            };
-            chart.update();
+          // If data is empty
+          if (!Object.keys(data).length){
+
           }
-        }
-
-        // If data is empty
-        if (!Object.keys(data).length){
 
         }
+      });
 
-      }
-    });
+    }
 
   }
 

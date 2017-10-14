@@ -24,7 +24,7 @@ import '../../assets/stylesheets/login.scss'
 import '../../assets/stylesheets/header.scss'
 import '../../assets/stylesheets/sidebar.scss'
 import '../../assets/stylesheets/statistics.scss'
-import '../../assets/stylesheets/scaffolds.scss'
+import '../../assets/stylesheets/main.scss'
 
 /**
  *

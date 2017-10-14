@@ -14,14 +14,9 @@ ul, li {
 }
 .logo {
   font-size: 29px;
-  font-family: 'Georgia', cursive;
-  font-style: italic;
   font-weight: 100;
   &:hover {
     text-decoration: none;
-  }
-  span span {
-    color: #10c469;
   }
 }
 .main {
@@ -119,6 +114,10 @@ ul, li {
     left: 0;
     z-index: 0;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+  }
+  .badge-info {
+    background: #b2e4ec;
+    color: #5a8d96;
   }
 }
 .notice {
