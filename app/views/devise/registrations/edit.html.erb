@@ -1,4 +1,4 @@
-<h4>Your Profile</h4>
+<h4><%= t :your_profile %></h4>
 
 <%= form_for(resource, as: @manager, url: registration_path(@manager), html: { method: :put }) do |f| %>
 
@@ -30,7 +30,7 @@
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Password', class: 'col-sm-2 col-form-label'%>
+      <%= f.label "#{t :password}", class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.password_field :password, class: 'form-control', autocomplete: 'off' %>
@@ -52,7 +52,7 @@
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Password confirmation', class: 'col-sm-2 col-form-label'%>
+      <%= f.label "#{t :password_confirmation}", class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off' %>
@@ -72,7 +72,7 @@
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Current Password', class: 'col-sm-2 col-form-label'%>
+      <%= f.label "#{t :current_password}", class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.password_field :current_password, class: 'form-control' %>
@@ -105,7 +105,7 @@
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Home Phone', class: 'col-sm-2 col-form-label'%>
+      <%= f.label "#{t :home_phone}", class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.text_field :home_phone, class: 'form-control' %>
@@ -116,7 +116,7 @@
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Mobile Phone', class: 'col-sm-2 col-form-label'%>
+      <%= f.label "#{t :mobile_phone}", class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.text_field :mobile_phone, class: 'form-control' %>
@@ -127,7 +127,7 @@
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Birth Date', class: 'col-sm-2 col-form-label'%>
+      <%= f.label "#{t :birth_date}", class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.date_field :birth_date, class: 'form-control' %>
@@ -149,16 +149,16 @@
 
 
     <div class="actions">
-      <%= f.submit 'Update', class: 'btn btn-info' %>
+      <%= f.submit "#{t :update}", class: 'btn btn-info' %>
     </div>
 
 <% end %>
 
 <div class="alert alert-danger">
-  <h3>Delete this account</h3>
+  <h3><%= "#{t :delete_this_account}" %></h3>
   <p>
     <%=
-      button_to 'Delete this account',
+      button_to "#{t :delete_this_account}",
                 registration_path(resource_name),
                 data: { confirm: "#{t :are_you_sure}" },
                 method: :delete ,

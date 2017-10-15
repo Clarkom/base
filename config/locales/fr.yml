@@ -292,3 +292,6 @@ fr:
   error: "Erreur"
   month: "Mois"
   year: "Année"
+  update: "Mettre à Jour"
+  delete_this_account: "Supprimer ce compte"
+  current_password: "Mot de Passe Actuel"

@@ -25,6 +25,7 @@ import '../../assets/stylesheets/header.scss'
 import '../../assets/stylesheets/sidebar.scss'
 import '../../assets/stylesheets/statistics.scss'
 import '../../assets/stylesheets/main.scss'
+import '../../assets/stylesheets/datetime.scss'
 
 /**
  *

@@ -133,4 +133,13 @@ module ApplicationHelper
 
   end
 
+  #
+  #
+  # Format Date to a desired format
+  def format_date(date, old_format, new_format)
+    if (date)
+      Date.strptime(date.to_s, old_format).strftime(new_format)
+    end
+  end
+
 end

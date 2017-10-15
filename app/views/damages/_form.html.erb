@@ -84,10 +84,15 @@
 
     <% end %>
 
-    <div class="form-group row">
+    <div class="form-group row global_date">
       <%= form.label 'Date', class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
-        <%= form.date_field :date, class: 'form-control' %>
+
+        <% if @damage.date %>
+            <%= form.text_field :date, class: 'form-control', value: format_date(@damage.date, "%Y-%m-%d", "%d/%m/%Y") %>
+        <% else %>
+            <%= form.text_field :date, class: 'form-control' %>
+        <% end %>
 
         <% if !@damage.errors.messages[:'date'].empty?  %>
             <ul>

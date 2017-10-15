@@ -150,3 +150,6 @@ en:
   error: "Error"
   month: "Month"
   year: "Year"
+  update: "Update"
+  delete_this_account: "Delete This Account"
+  current_password: "Current Password"

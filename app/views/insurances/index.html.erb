@@ -38,7 +38,7 @@
         <td><%= insurance.expense.attached_file.file ? image_tag(insurance.expense.attached_file, width: 159, height: 220) : 'No Document' %></td>
         <td><%= insurance.start_date %></td>
         <td><%= insurance.expiration_date %></td>
-        <td><b><%= insurance.expense.amount %></b></td>
+        <td><b><%= insurance.expense.amount %> DH</b></td>
         <td>
           <%= link_to insurance, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>
@@ -57,8 +57,8 @@
 
   <tfoot>
     <tr class="table-sum">
-      <td colspan="3"><b>Total</b></td>
-      <td colspan="3">
+      <td colspan="4"><b>Total</b></td>
+      <td colspan="2">
         <b><%= @insurances_sum %> DH</b>
       </td>
     </tr>

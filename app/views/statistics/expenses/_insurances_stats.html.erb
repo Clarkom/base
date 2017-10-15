@@ -3,7 +3,7 @@
     <div class="card-body">
 
       <h4 class="card-title">
-        <%= t 'insurances' %>
+        <%= t :insurances %>
         <b class="badge badge-info">
           <%= number_to_currency(Insurance.insurances_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
         </b>
@@ -13,8 +13,8 @@
       <canvas id="InsurancesExpenses">
         <% Insurance.all.each do |insurance| %>
           <ul>
-            <li id="yep"><%= insurance.start_date.to_s.to_i %>/<%= (insurance.start_date + 1.year).to_s.to_i %></li>
-            <li><%= insurance.expense.amount %></li>
+            <li><%= insurance.start_date.to_s.to_i %>/<%= (insurance.start_date + 1.year).to_s.to_i %></li>
+            <li><b><%= insurance.expense.amount %> DH</b></li>
           </ul>
         <% end %>
       </canvas>

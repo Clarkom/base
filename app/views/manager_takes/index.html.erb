@@ -34,7 +34,7 @@
   <% @manager_takes.each do |manager_take| %>
     <tr>
       <td><%= manager_take.date %></td>
-      <td><%= manager_take.income.amount %></td>
+      <td><b><%= manager_take.income.amount %> DH</b></td>
       <td>
         <%= link_to manager_take, :class => 'btn btn-outline-dark btn-sm' do %>
             <%= fa_icon 'eye' %>
