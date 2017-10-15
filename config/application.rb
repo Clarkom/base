@@ -19,6 +19,7 @@ module MyTaxi
     config.generators.javascript_engine = :js
 
     config.i18n.default_locale = :fr
+    config.i18n.available_locales = [:fr, :en]
 
   end
 end

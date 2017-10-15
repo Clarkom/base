@@ -25,10 +25,10 @@ ready = function() {
   const LABEL = '# of Votes';
 
   const LABELS = [
-    'Insurances',
-    'Breaks',
-    'Damages',
-    'Owner Takes'
+    I18n.t('insurances'),
+    I18n.t('breaks'),
+    I18n.t('damages'),
+    I18n.t('owner_takes')
   ];
 
   chart.drawDoughnutChart('AllExpenses', DATA_SETS, LABEL, LABELS, BACKGROUND_COLORS);

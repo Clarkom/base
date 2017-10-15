@@ -18,6 +18,7 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'carrierwave', '~> 1.1.0'
+gem 'i18n-js'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

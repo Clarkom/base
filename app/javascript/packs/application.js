@@ -53,6 +53,7 @@ import './layout/sidebar'
 //
 //
 // Global
+import './global/i18n'
 import './global/date-picker'
 import './global/data-table'
 

@@ -19,7 +19,7 @@ ready = function() {
   const LABEL = '# of Votes';
 
   const LABELS = [
-    'Manager Take'
+    I18n.t('manager_take')
   ];
 
   chart.drawDoughnutChart('AllIncomes', DATA_SETS, LABEL, LABELS, BACKGROUND_COLORS);

@@ -7,8 +7,19 @@
  */
 class DataTable {
 
-  constructor(){
-    this.options = {}
+  constructor() {
+    this.options = {};
+    this.language_url = '';
+
+  }
+  /**
+   * Set Data Table Language
+   * @param lang
+   */
+  setLanguage(lang) {
+    if (lang === 'fr') {
+      this.language_url = "//cdn.datatables.net/plug-ins/1.10.16/i18n/French.json";
+    }
   }
 
   /**
@@ -28,8 +39,17 @@ class DataTable {
         "targets": targets ? targets : [],
         "orderable": orderable
       } ],
+      "language": {
+        "url": ''
+      },
       "order": [[ order, "desc" ]]
+    };
+
+    if (I18n.currentLocale() === 'fr') {
+      this.setLanguage('fr');
+      this.options.language.url = this.language_url;
     }
+
   }
 
   /**
