@@ -1,11 +1,11 @@
-<h4>Cabs</h4>
+<h4><%= t :vehicles %></h4>
 
 <!-- # -->
 <div class="actions row">
 
   <div class="col-md-4">
     <%= link_to new_cab_path, :class => 'btn btn-info btn-sm' do %>
-        <%= fa_icon 'plus' %> Add a New Cab
+        <%= fa_icon 'plus' %> <%= t :add_a_new_cab %>
     <% end %>
   </div>
 
@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-cab"
-           placeholder="Your Text..." aria-label="Your Text...">
+           placeholder="<%= t :your_text %>..." aria-label="<%= t :your_text %>...">
   </div>
 
 </div>
@@ -22,10 +22,10 @@
 <table id="cab-data" class="table table-bordered">
   <thead>
   <tr>
-    <th>Cab model</th>
-    <th>License plate</th>
-    <th>Agreement number</th>
-    <th>Total mileage</th>
+    <th><%= t :cab_model %></th>
+    <th><%= t :license_plate %></th>
+    <th><%= t :agreement_number %></th>
+    <th><%= t :total_mileage %></th>
     <th class="td-actions">Actions</th>
   </tr>
   </thead>
@@ -44,7 +44,7 @@
         <%= link_to edit_cab_path(cab), :class => 'btn btn-outline-dark btn-sm' do %>
             <%= fa_icon 'pencil' %>
         <% end %>
-        <%= link_to cab, method: :delete, data: { confirm: 'Are Your Sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
+        <%= link_to cab, method: :delete, data: { confirm: "#{t :are_you_sure}" }, class: 'btn btn-outline-dark btn-sm' do %>
             <%= fa_icon 'close' %>
         <% end %>
       </td>

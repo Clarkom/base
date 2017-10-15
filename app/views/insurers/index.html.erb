@@ -1,11 +1,11 @@
-<h4>Insurers</h4>
+<h4><%= t :insurers %></h4>
 
 <!-- # -->
 <div class="actions row">
 
   <div class="col-md-4">
     <%= link_to new_insurer_path, :class => 'btn btn-info btn-sm' do %>
-        <%= fa_icon 'plus' %> Add a new Insurer
+        <%= fa_icon 'plus' %> <%= t :add_a_new_insurer %>
     <% end %>
   </div>
 
@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-insurer"
-           placeholder="Your Text..." aria-label="Your Text...">
+           placeholder="<%= t :your_text %>..." aria-label="<%= t :your_text %>...">
   </div>
 
 </div>
@@ -22,10 +22,10 @@
 <table id="insurer-data" class="table table-bordered">
   <thead>
   <tr>
-    <th>Picture</th>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Phone</th>
+    <th><%= t :picture %></th>
+    <th><%= t :name %></th>
+    <th><%= t :address%></th>
+    <th><%= t :phone %></th>
     <th class="td-actions">Actions</th>
   </tr>
   </thead>
@@ -44,7 +44,7 @@
           <%= link_to edit_insurer_path(insurer), :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'pencil' %>
           <% end %>
-          <%= link_to insurer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-dark btn-sm' do %>
+          <%= link_to insurer, method: :delete, data: { confirm: "#{t :are_you_sure}" }, class: 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'trash' %>
           <% end %>
         </td>

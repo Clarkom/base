@@ -1,7 +1,7 @@
 <%= form_for @damage_type do |form| %>
 
     <div class="form-group row">
-      <%= form.label 'Fuel Type', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :fuel_types}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :name, class: 'form-control' %>
         <% if !@damage_type.errors.messages[:'name'].empty?  %>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit 'Save', :class => 'btn btn-info' %>
+      <%= form.submit "#{t :save}", :class => 'btn btn-info' %>
     </div>
 
 <% end %>

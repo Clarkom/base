@@ -1,13 +1,13 @@
-<h4>Break - Detail</h4>
+<h4><%= "#{t :break} - #{t :detail}" %></h4>
 
 <table class="table table-bordered">
   <thead>
   <tr>
     <th>Cause</th>
-    <th>Starting Date</th>
-    <th>End Date</th>
-    <th>Delay</th>
-    <th>Amount</th>
+    <th><%= t :starting_date %></th>
+    <th><%= t :end_date %></th>
+    <th><%= t :delay %></th>
+    <th><%= t :amount %></th>
   </tr>
   </thead>
   <tbody>
@@ -15,16 +15,16 @@
     <td><%= BreakCause.find(@break.break_cause_id).name %></td>
     <td><%= @break.start_date %></td>
     <td><%= @break.end_date %></td>
-    <td><%= (@break.end_date - @break.start_date).to_i %> days</td>
+    <td><%= (@break.end_date - @break.start_date).to_i %> <%= t :days %></td>
     <td><%= Expense.find(@break.expense.id).amount %> DH</td>
   </tr>
   </tbody>
 </table>
 
 <%= link_to breaks_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to edit_break_path(@break), :class => 'badge badge-dark' do %>
-    <%= fa_icon 'pencil' %> Edit
+    <%= fa_icon 'pencil' %> <%= t :edit %>
 <% end %>

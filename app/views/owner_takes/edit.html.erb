@@ -1,11 +1,11 @@
-<h4>Owner Take - Edit</h4>
+<h4><%= t :owner_take %> - <%= t :edit %></h4>
 
 <%= render 'form', owner_take: @owner_take %>
 
 <%= link_to owner_takes_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to @owner_take, :class => 'badge badge-light' do %>
-    <%= fa_icon 'eye' %> Show Detail
+    <%= fa_icon 'eye' %> <%= t :preview %>
 <% end %>

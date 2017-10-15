@@ -1,7 +1,7 @@
 <%= form_for @damage do |form| %>
 
     <div class="form-group row">
-      <%= form.label 'Type de Dégât', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :damage_types}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.collection_select :damage_type_id, DamageType.group(:name), :id, :name, {
           :multiple => false,
@@ -12,27 +12,27 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Driver', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :driver}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.collection_select :driver_id, Driver.all, :id, :full_name, {
           :multiple => false,
           :include_blank => 'Select a Driver',
         },{ class: 'form-control' }
         %>
-        <small>Driver Responsible of the damage</small>
+        <small><%= t :driver_responsible %></small>
       </div>
     </div>
 
     <%= form.fields_for :expense  do |expense_form| %>
 
         <div class="form-group row">
-          <%= expense_form.label 'Amount', class: 'col-sm-2 col-form-label' %>
+          <%= expense_form.label "#{t :amount}", class: 'col-sm-2 col-form-label' %>
           <div class="col-sm-10">
             <div class="input-group">
               <%= expense_form.number_field :amount, class: 'form-control' %>
               <span class="input-group-addon">DH</span>
             </div>
-            <small>Don't forget to include the labor expense amount.</small>
+            <small><%= t :labor_amount %></small>
 
             <% if !@damage.errors.messages[:'expense.amount'].empty?  %>
                 <ul>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="form-group row">
-          <%= form.label 'Main d\'oeuvre', class: 'col-sm-2 col-form-label' %>
+          <%= form.label "#{t :labor}", class: 'col-sm-2 col-form-label' %>
           <div class="col-sm-10">
             <div class="input-group">
               <%= form.number_field :labor, class: 'form-control' %>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="form-group row">
-          <%= expense_form.label :attached_file, class: 'col-sm-2 col-form-label' %>
+          <%= expense_form.label "#{t :attached_file}", class: 'col-sm-2 col-form-label' %>
           <div class="col-sm-10">
             <%= expense_form.file_field :attached_file, class: 'form-control' %>
           </div>
@@ -85,7 +85,7 @@
     <% end %>
 
     <div class="form-group row">
-      <%= form.label 'Date du dégât', class: 'col-sm-2 col-form-label' %>
+      <%= form.label 'Date', class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.date_field :date, class: 'form-control' %>
 
@@ -103,7 +103,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Kilometrage', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :mileage}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <div class="input-group">
           <%= form.number_field :kilometers, class: 'form-control' %>
@@ -124,7 +124,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit 'Save', :class => 'btn btn-info' %>
+      <%= form.submit "#{t :save}", :class => 'btn btn-info' %>
     </div>
 
 <% end %>

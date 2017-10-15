@@ -1,16 +1,16 @@
-<h4>Damage - Detail</h4>
+<h4><%= "#{t :damage} - #{t :detail}" %></h4>
 
 <table class="table table-bordered">
   <thead>
   <tr>
     <th>Cause</th>
     <% if @damage.driver_id %>
-    <th>Driver</th>
+    <th><%= t :driver %></th>
     <% end %>
     <th>Date</th>
-    <th>Kilometers</th>
-    <th>Labor</th>
-    <th>Amount</th>
+    <th><%= t :mileage %></th>
+    <th><%= t :labor %></th>
+    <th><%= t :amount %></th>
   </tr>
   </thead>
   <tbody>
@@ -28,10 +28,10 @@
 </table>
 
 <%= link_to damages_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to edit_damage_path(@damage), :class => 'badge badge-dark' do %>
-    <%= fa_icon 'pencil' %> Edit
+    <%= fa_icon 'pencil' %> <%= t :edit %>
 <% end %>
 

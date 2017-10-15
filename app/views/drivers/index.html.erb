@@ -1,11 +1,11 @@
-<h4>Drivers</h4>
+<h4><%= t :drivers %></h4>
 
 <!-- # -->
 <div class="actions row">
 
   <div class="col-md-4">
     <%= link_to new_driver_path, :class => 'btn btn-info btn-sm' do %>
-        <%= fa_icon 'plus' %> Add a New Driver
+        <%= fa_icon 'plus' %> <%= t :add_a_new_driver %>
     <% end %>
   </div>
 
@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-driver"
-           placeholder="Your Text..." aria-label="Your Text...">
+           placeholder="<%= t :your_text %>..." aria-label="<%= t :your_text %>...">
   </div>
 
 </div>
@@ -22,11 +22,11 @@
 <table id="driver-data" class="table table-bordered">
   <thead>
   <tr>
-    <th>Full name</th>
-    <th>Birth date</th>
-    <th>Starting Date</th>
-    <th>Mobile phone</th>
-    <th>Driving license number</th>
+    <th><%= t :full_name %></th>
+    <th><%= t :birth_date %></th>
+    <th><%= t :starting_date %></th>
+    <th><%= t :mobile_phone %></th>
+    <th><%= t :driver_license_number %></th>
     <th class="td-actions">Actions</th>
   </tr>
   </thead>
@@ -46,7 +46,7 @@
           <%= link_to edit_driver_path(driver), :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'pencil' %>
           <% end %>
-          <%= link_to driver, method: :delete, data: {confirm: 'Are Your Sur?'}, class: 'btn btn-outline-dark btn-sm' do %>
+          <%= link_to driver, method: :delete, data: {confirm: "#{t :are_you_sure}"}, class: 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'close' %>
           <% end %>
         </td>

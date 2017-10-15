@@ -1,11 +1,11 @@
-<h4>Break Cause - Edit</h4>
+<h4><%= t :break_cause %> - <%= t :edit %></h4>
 
 <%= render 'form', break_cause: @break_cause %>
 
 <%= link_to break_causes_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to @break_cause, :class => 'badge badge-light' do %>
-    <%= fa_icon 'eye' %> More Detail
+    <%= fa_icon 'eye' %> <%= t :preview %>
 <% end %>

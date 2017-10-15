@@ -1,12 +1,12 @@
-<h4>Insurer - Detail</h4>
+<h4><%= "#{t :insurer} - #{t :detail}" %></h4>
 
 <table class="table table-bordered">
   <thead>
   <tr>
-    <th>Picture</th>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Phone</th>
+    <th><%= t :picture %></th>
+    <th><%= t :name %></th>
+    <th><%= t :address %></th>
+    <th><%= t :phone %></th>
   </tr>
   </thead>
   <tbody>
@@ -20,9 +20,9 @@
 </table>
 
 <%= link_to insurers_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to edit_insurer_path(@insurer), :class => 'badge badge-dark' do %>
-    <%= fa_icon 'pencil' %> Edit
+    <%= fa_icon 'pencil' %> <%= t :edit %>
 <% end %>

@@ -3,7 +3,7 @@
 
       <!-- # -->
       <h4 class="card-title">
-        Manager Takes
+        <%= t :manager_takes %>
         <b class="badge badge-info">
           <%= number_to_currency(ManagerTake.includes(:income).pluck(:amount).sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
         </b>
@@ -17,7 +17,7 @@
           <tr>
             <th>Manager</th>
             <th>Date</th>
-            <th>Amount</th>
+            <th><%= t :amount %></th>
           </tr>
         </thead>
 
@@ -40,17 +40,17 @@
           <!-- # -->
           <div class="col-md-12">
             <%= link_to new_manager_take_path, :class => 'btn btn-sm btn-info' do %>
-                <%= fa_icon 'plus' %> Add a Manager Take
+                <%= fa_icon 'plus' %> <%= t :add_a_new_manager_take %>
             <% end %>
             <%= link_to manager_takes_path, :class => 'btn btn-sm btn-secondary' do %>
-                <%= fa_icon 'list' %> Show More
+                <%= fa_icon 'list' %> <%= t 'show_more' %>
             <% end %>
           </div>
 
       <% else %>
-          <h5>No Data</h5>
+          <h5><%= t :no_data %></h5>
           <%= link_to new_manager_take_path, :class => 'btn btn-sm btn-info' do %>
-              <%= fa_icon 'plus' %> Add a Manager Take
+              <%= fa_icon 'plus' %> <%= t :add_a_new_manager_take %>
           <% end %>
       <% end %>
 

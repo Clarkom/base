@@ -4,7 +4,7 @@
 
       <!-- # Title -->
       <h4 class="card-title">
-        Damage
+        <%= t :damage %>
         <b class="badge badge-info">
           <%= number_to_currency(Damage.damages_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
         </b>
@@ -17,7 +17,7 @@
              id="damage-stats-year-tab"
              data-toggle="tab"
              href="#damage-stat-year"
-             role="tab" aria-controls="damage-stat-year" aria-expanded="true">Year</a>
+             role="tab" aria-controls="damage-stat-year" aria-expanded="true"><%= t :year %></a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
@@ -25,7 +25,7 @@
              data-toggle="tab"
              href="#damage-stat-year-and-month"
              role="tab"
-             aria-controls="damage-stat-year-and-month">Month</a>
+             aria-controls="damage-stat-year-and-month"><%= t :month %></a>
         </li>
       </ul>
 

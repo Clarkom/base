@@ -1,11 +1,11 @@
-<h4>Damages</h4>
+<h4><%= t :damages %></h4>
 
 <!-- # -->
 <div class="actions row">
 
   <div class="col-md-4">
     <%= link_to new_damage_path, :class => 'btn btn-info btn-sm' do %>
-        <%= fa_icon 'plus' %> Add a New Damage
+        <%= fa_icon 'plus' %> <%= t :add_a_new_damage %>
     <% end %>
   </div>
 
@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-damage"
-           placeholder="Your Text..." aria-label="Your Text...">
+           placeholder="<%= t :your_text %>..." aria-label="<%= t :your_text %>...">
   </div>
 
 </div>
@@ -23,11 +23,11 @@
   <thead>
     <tr>
       <th>Cause</th>
-      <th>Driver Responsible</th>
+      <th><%= t :driver_responsible %></th>
       <th>Date</th>
-      <th>Kilometrage</th>
-      <th>Main d'oeuvre</th>
-      <th>Amount</th>
+      <th><%= t :mileage %></th>
+      <th><%= t :labor %></th>
+      <th><%= t :amount %></th>
       <th class="td-actions">Actions</th>
     </tr>
   </thead>
@@ -40,7 +40,7 @@
           <% if damage.driver_id %>
             <%= damage.driver.full_name %>
             <% else %>
-              Sans Résponsable
+              <%= t :no_person_charge %>
           <% end %>
         </td>
         <td><%= damage.date %></td>
@@ -54,7 +54,7 @@
           <%= link_to edit_damage_path(damage), :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'pencil' %>
           <% end %>
-          <%= link_to damage, method: :delete, data: { confirm: 'Are Your Sur?' }, class: 'btn btn-outline-dark btn-sm' do %>
+          <%= link_to damage, method: :delete, data: { confirm: "#{t :are_you_sure}" }, class: 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'close' %>
           <% end %>
         </td>

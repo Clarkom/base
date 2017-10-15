@@ -1,7 +1,7 @@
-<h4>Insurer - New</h4>
+<h4><%= "#{t :insurer} - #{t :new}" %></h4>
 
 <%= render 'form', insurer: @insurer %>
 
 <%= link_to insurers_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>

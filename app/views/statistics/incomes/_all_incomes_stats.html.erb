@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">
-      Global Incomes
+      <%= t :global_incomes %>
       <b class="badge badge-info">
         <%= number_to_currency(Income.incomes_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
       </b>

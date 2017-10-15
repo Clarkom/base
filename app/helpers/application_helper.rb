@@ -14,19 +14,19 @@ module ApplicationHelper
   def get_page_title
 
     if current_path('expenses/')
-      render :inline => "#{fa_icon 'bank'} Expenses <b class='exp'>-#{Expense.sum(:amount)} DH</b>"
+      render :inline => "#{fa_icon 'bank'} #{t :expenses} <b class='exp'>-#{Expense.sum(:amount)} DH</b>"
 
     elsif current_path('incomes/')
-      render :inline => "#{fa_icon 'money'} Incomes <b class='inc'>+#{Income.sum(:amount)} DH</b>"
+      render :inline => "#{fa_icon 'money'} #{t :incomes} <b class='inc'>+#{Income.sum(:amount)} DH</b>"
 
     elsif current_path('cabs')
-      render :inline => "#{fa_icon 'taxi'} Cab"
+      render :inline => "#{fa_icon 'taxi'} #{t :cab}"
 
     elsif current_path('statistics')
-      render :inline => "#{fa_icon 'bar-chart'} Statistics"
+      render :inline => "#{fa_icon 'bar-chart'} #{t :statistics}"
 
     elsif current_path('/')
-      render :inline => "#{fa_icon 'home'} Home"
+      render :inline => "#{fa_icon 'home'} #{t :home}"
 
     end
 

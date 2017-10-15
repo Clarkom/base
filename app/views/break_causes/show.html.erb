@@ -1,4 +1,4 @@
-<h4>Break Cause - Detail</h4>
+<h4><%= "#{t :break_cause} - #{t :detail}" %></h4>
 
 <table class="table table-bordered">
   <thead>
@@ -14,9 +14,9 @@
 </table>
 
 <%= link_to break_causes_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Previous
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to edit_break_cause_path(@break_cause), :class => 'badge badge-dark' do %>
-    <%= fa_icon 'pencil' %> Edit
+    <%= fa_icon 'pencil' %> <%= t :edit %>
 <% end %>

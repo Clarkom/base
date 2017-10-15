@@ -1,11 +1,11 @@
-<h4>Owner - Detail</h4>
+<h4><%= "#{t :owner} - #{t :detail}" %></h4>
 
 <table class="table table-bordered">
   <thead>
   <tr>
-    <th>Nom Complet</th>
-    <th>Telephone Fixe</th>
-    <th>Telephone Mobile</th>
+    <th><%= t :full_name %></th>
+    <th><%= t :home_phone %></th>
+    <th><%= t :mobile_phone %></th>
   </tr>
   </thead>
   <tbody>
@@ -18,9 +18,9 @@
 </table>
 
 <%= link_to owners_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to edit_owner_path(@owner), :class => 'badge badge-dark' do %>
-    <%= fa_icon 'pencil' %> Edit
+    <%= fa_icon 'pencil' %> <%= t :edit %>
 <% end %>

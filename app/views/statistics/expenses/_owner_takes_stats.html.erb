@@ -4,7 +4,7 @@
 
       <!-- # Title -->
       <h4 class="card-title">
-        Owner Takes
+        <%= t :owner_takes %>
         <b class="badge badge-info">
           <%= number_to_currency(OwnerTake.owner_takes_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
         </b>
@@ -17,7 +17,7 @@
              id="owner_take-stats-year-tab"
              data-toggle="tab"
              href="#owner_take-stat-year"
-             role="tab" aria-controls="owner_take-stat-year" aria-expanded="true">Year</a>
+             role="tab" aria-controls="owner_take-stat-year" aria-expanded="true"><%= t :year %></a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
@@ -25,7 +25,7 @@
              data-toggle="tab"
              href="#owner_take-stat-year-and-month"
              role="tab"
-             aria-controls="owner_take-stat-year-and-month">Month</a>
+             aria-controls="owner_take-stat-year-and-month"><%= t :month %></a>
         </li>
       </ul>
 

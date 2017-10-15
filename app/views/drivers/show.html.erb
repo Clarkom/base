@@ -1,17 +1,17 @@
-<h4>Driver - Detail</h4>
+<h4><%= "#{t :driver} - #{t :detail}" %></h4>
 
 <table class="table table-bordered">
   <thead>
   <tr>
-    <th>Full name</th>
-    <th>Birth date</th>
-    <th>Mobile phone</th>
-    <th>Home phone</th>
-    <th>Driving license number</th>
-    <th>Home address</th>
+    <th><%= t :full_name %></th>
+    <th><%= t :birth_date %></th>
+    <th><%= t :mobile_phone %></th>
+    <th><%= t :home_phone %></th>
+    <th><%= t :driver_license_number %></th>
+    <th><%= t :home_address %></th>
     <th>CIN</th>
-    <th>Starting Date</th>
-    <th>Ending Date</th>
+    <th><%= t :starting_date %></th>
+    <th><%= t :end_date %></th>
   </tr>
   </thead>
   <tbody>
@@ -30,9 +30,9 @@
 </table>
 
 <%= link_to drivers_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to edit_driver_path(@driver), :class => 'badge badge-dark' do %>
-    <%= fa_icon 'pencil' %> Edit
+    <%= fa_icon 'pencil' %> <%= t :edit %>
 <% end %>

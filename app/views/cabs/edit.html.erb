@@ -1,11 +1,11 @@
-<h4>Cab - Edit</h4>
+<h4><%= t :vehicle %> - <%= t :edit %></h4>
 
 <%= render 'form', cab: @cab %>
 
 <%= link_to cabs_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to @cab, :class => 'badge badge-light' do %>
-    <%= fa_icon 'eye' %> Show Detail
+    <%= fa_icon 'eye' %> <%= t :preview %>
 <% end %>

@@ -1,7 +1,7 @@
-<h4>Damage Type - New</h4>
+<h4><%= t :damage_type %> - <%= t :new %></h4>
 
 <%= render 'form', damage_type: @damage_type %>
 
 <%= link_to damage_types_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>

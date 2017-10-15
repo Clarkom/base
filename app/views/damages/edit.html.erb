@@ -1,12 +1,12 @@
-<h4>Damage - Edit</h4>
+<h4><%= t :damage %> - <%= t :edit %></h4>
 
 <%= render 'form', damage: @damage %>
 
 <%= link_to damages_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to @damage, :class => 'badge badge-light' do %>
-    <%= fa_icon 'eye' %> Show Details
+    <%= fa_icon 'eye' %> <%= t :preview %>
 <% end %>
 

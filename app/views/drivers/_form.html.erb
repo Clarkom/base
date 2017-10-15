@@ -1,7 +1,7 @@
 <%= form_for @driver do |form| %>
 
     <div class="form-group row">
-      <%= form.label 'Full Name', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :full_name}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :full_name, class: 'form-control' %>
         <% if !@driver.errors.messages[:'full_name'].empty?  %>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Birth Date', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :birth_date}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :birth_date, class: 'form-control' %>
         <% if !@driver.errors.messages[:'birth_date'].empty?  %>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Mobile Phone', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :mobile_phone}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :mobile_phone, class: 'form-control' %>
         <% if !@driver.errors.messages[:'mobile_phone'].empty?  %>
@@ -49,7 +49,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Home Phone', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :home_phone}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :home_phone, class: 'form-control' %>
         <% if !@driver.errors.messages[:'home_phone'].empty?  %>
@@ -65,7 +65,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Driver License Number', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :driver_license_number}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :driving_license_number, class: 'form-control' %>
         <% if !@driver.errors.messages[:'driving_license_number'].empty?  %>
@@ -97,7 +97,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Starting Date', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :starting_date}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.date_field :start_date, class: 'form-control' %>
         <% if !@driver.errors.messages[:'start_date'].empty?  %>
@@ -113,7 +113,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'End Date', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :end_date}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.date_field :end_date, class: 'form-control' %>
         <% if !@driver.errors.messages[:'end_date'].empty?  %>
@@ -129,7 +129,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Cab', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :cab}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.collection_select :cab_id, Cab.group(:license_plate), :id, :license_plate, {
           :multiple => false,
@@ -149,7 +149,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit 'Save', :class => 'btn btn-info' %>
+      <%= form.submit "#{t :save}", :class => 'btn btn-info' %>
     </div>
 
 <% end %>

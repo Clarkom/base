@@ -1,11 +1,11 @@
 <%= form_for @cab do |form| %>
 
     <div class="form-group row">
-      <%= form.label 'Marque', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :model}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.collection_select :cab_model_id, CabModel.group(:name), :id, :name, {
           :multiple => false,
-          :include_blank => 'Select a Model',
+          :include_blank => "#{t :select_a_model}",
         },{ class: 'form-control' }
         %>
         <% if !@cab.errors.messages[:'cab_model'].empty?  %>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'License Plate', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :license_plate}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :license_plate, class: 'form-control' %>
         <% if !@cab.errors.messages[:'license_plate'].empty?  %>
@@ -37,7 +37,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Agreement Number', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :agreement_number}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :agreement_number, class: 'form-control' %>
         <% if !@cab.errors.messages[:'agreement_number'].empty?  %>
@@ -53,7 +53,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Kilometrage', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :mileage}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :total_mileage, class: 'form-control' %>
       </div>
@@ -64,7 +64,7 @@
       <div class="col-sm-10">
         <%= form.collection_select :manager_id, Manager.group(:email), :id, :email, {
           :multiple => false,
-          :include_blank => 'Select a Manager',
+          :include_blank => "#{t :select_a_manager}",
         }, {class: 'form-control'} %>
         <% if !@cab.errors.messages[:'manager'].empty?  %>
             <ul>
@@ -79,7 +79,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit 'Save', :class => 'btn btn-info' %>
+      <%= form.submit "#{t :save}", :class => 'btn btn-info' %>
     </div>
 
 <% end %>

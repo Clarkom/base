@@ -5,7 +5,7 @@
 
 			<% if @expense.errors.any? %>
 					<div id="error_explanation">
-						<h2><%= pluralize(expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+						<h2><%= pluralize(expense.errors.count, "#{t :error}") %> prohibited this expense from being saved:</h2>
 
 						<ul>
 							<% @expense.errors.full_messages.each do |message| %>
@@ -17,12 +17,12 @@
 
 
 			<div class="field">
-				<%= form.label :amount %>
+				<%= form.label "#{t :amount}" %>
 				<%= form.number_field :amount, id: :expense_amount %>
 			</div>
 
 			<div class="field">
-				<%= form.label :attached_file %>
+				<%= form.label "#{t :attached_file}" %>
 				<%= form.text_field :attached_file, id: :expense_attached_file %>
 			</div>
 
@@ -33,28 +33,28 @@
 
 
 			<div class="field">
-				<h3>Break Fields</h3>
+				<h3><%= t :break %></h3>
 
 				<%= form.fields_for :break do |break_form| %>
             
-            <%= break_form.label :break_cause_id %>
+            <%= break_form.label "#{t :break_cause}" %>
             <%= break_form.collection_select :break_cause_id, BreakCause.group(:name), :id, :name, {
                   :multiple => false,
-                  :include_blank => 'Select a cause of Break',
+                  :include_blank => "#{t :select_a_break_cause}",
                 } %>
 
             <div id="damages-list">
               <%= break_form.label :damage_id %>
               <%= break_form.collection_select :damage_id, Damage.group(:date), :id, :damage_type_id, {
                 :multiple => false,
-                :include_blank => 'Select a Damage',
+                :include_blank => "#{t :select_a_damage}",
               } %>
             </div>
 
-						<%= break_form.label :start_date %>
+						<%= break_form.label "#{t :starting_date}" %>
 						<%= break_form.date_field :start_date %>
 
-            <%= break_form.label :end_date %>
+            <%= break_form.label "#{t :end_date}" %>
 						<%= break_form.date_field :end_date %>
 
         <% end %>

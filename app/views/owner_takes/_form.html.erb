@@ -1,7 +1,7 @@
 <%= form_for @owner_take do |form| %>
 
     <div class="form-group row">
-      <%= form.label 'Propriétaire', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :owner}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.collection_select :owner_id, Owner.all, :id, :full_name, {
           :multiple => false,
@@ -41,7 +41,7 @@
     <%= form.fields_for :expense  do |expense_form| %>
 
         <div class="form-group row">
-          <%= expense_form.label 'Amount', class: 'col-sm-2 col-form-label' %>
+          <%= expense_form.label "#{t :amount}", class: 'col-sm-2 col-form-label' %>
           <div class="col-sm-10">
             <div class="input-group">
               <%= expense_form.number_field :amount, class: 'form-control' %>
@@ -71,7 +71,7 @@
     <% end %>
 
     <div class="actions">
-      <%= form.submit 'Save', :class => 'btn btn-info' %>
+      <%= form.submit "#{t :save}", :class => 'btn btn-info' %>
     </div>
 
 <% end %>

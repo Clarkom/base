@@ -3,7 +3,7 @@
 
       <!-- # -->
       <h4 class="card-title">
-        Damages
+        <%= t 'damages' %>
         <b class="badge badge-info">
           <%= number_to_currency(Damage.includes(:expense).pluck(:amount).sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
         </b>
@@ -16,9 +16,9 @@
           <thead>
           <tr>
             <th>Cause</th>
-            <th>Driver</th>
+            <th><%= t :driver %></th>
             <th>Date</th>
-            <th>Amount</th>
+            <th><%= t :amount %></th>
           </tr>
           </thead>
 
@@ -34,7 +34,7 @@
                   <% if damage.driver_id %>
                       <%= damage.driver.full_name %>
                   <% else %>
-                      No One
+                      <%= t :no_one %>
                   <% end %>
                 </td>
                 <td><%= damage.date %></td>
@@ -48,17 +48,17 @@
         <!-- # -->
         <div class="col-md-12">
           <%= link_to new_damage_path, :class => 'btn btn-sm btn-info' do %>
-              <%= fa_icon 'plus' %> Add a Damage
+              <%= fa_icon 'plus' %> <%= t :add_a_new_damage %>
           <% end %>
           <%= link_to damages_path, :class => 'btn btn-sm btn-secondary' do %>
-              <%= fa_icon 'list' %> Show More
+              <%= fa_icon 'list' %> <%= t 'show_more' %>
           <% end %>
         </div>
 
       <% else %>
-        <h5>No Data</h5>
+        <h5><%= t :no_data %></h5>
         <%= link_to new_damage_path, :class => 'btn btn-sm btn-info' do %>
-            <%= fa_icon 'plus' %> Add a Damage
+            <%= fa_icon 'plus' %> <%= t :add_a_new_damage %>
         <% end %>
       <% end %>
 

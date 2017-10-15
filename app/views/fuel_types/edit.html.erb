@@ -1,11 +1,11 @@
-<h4>Fuel Type - Edit</h4>
+<h4><%= t :fuel_types %> - <%= t :edit %></h4>
 
 <%= render 'form', fuel_type: @fuel_type %>
 
 <%= link_to fuel_types_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to @fuel_type, :class => 'badge badge-light' do %>
-    <%= fa_icon 'eye' %> Show Detail
+    <%= fa_icon 'eye' %> <%= t :preview %>
 <% end %>

@@ -1,11 +1,11 @@
-<h4>Damage Types</h4>
+<h4><%= t :damage_types %></h4>
 
 <!-- # -->
 <div class="actions row">
 
   <div class="col-md-4">
     <%= link_to new_damage_type_path, :class => 'btn btn-info btn-sm' do %>
-        <%= fa_icon 'plus' %> Add a New Owner
+        <%= fa_icon 'plus' %> <%= t :add_a_new_owner %>
     <% end %>
   </div>
 
@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-damage-type"
-           placeholder="Your Text..." aria-label="Your Text...">
+           placeholder="<%= t :your_text %>..." aria-label="<%= t :your_text %>...">
   </div>
 
 </div>
@@ -38,7 +38,7 @@
           <%= link_to edit_damage_type_path(damage_type), :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'pencil' %>
           <% end %>
-          <%= link_to damage_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-dark btn-sm' do %>
+          <%= link_to damage_type, method: :delete, data: { confirm: "#{t :are_you_sure}" }, class: 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'trash' %>
           <% end %>
         </td>

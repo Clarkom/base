@@ -1,4 +1,4 @@
-<h4>Fuel Type - Detail</h4>
+<h4><%= "#{t :fuel_types} - #{t :detail}" %></h4>
 
 <table class="table table-bordered">
   <thead>
@@ -14,9 +14,9 @@
 </table>
 
 <%= link_to fuel_types_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to edit_fuel_type_path(@fuel_type), :class => 'badge badge-dark' do %>
-    <%= fa_icon 'pencil' %> Edit
+    <%= fa_icon 'pencil' %> <%= t :edit %>
 <% end %>

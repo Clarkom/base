@@ -17,12 +17,12 @@
 			
 			
 			<div class="field">
-				<%= form.label :amount %>
+				<%= form.label "#{t :amount}" %>
 				<%= form.number_field :amount, id: :expense_amount %>
 			</div>
 			
 			<div class="field">
-				<%= form.label :attached_file %>
+				<%= form.label "#{t :attached_file}" %>
 				<%= form.text_field :attached_file, id: :expense_attached_file %>
 			</div>
 			
@@ -33,7 +33,7 @@
 			
 			
 			<div class="field">
-				<h3>Insurance Field</h3>
+				<h3><%= t :insurance %></h3>
 				<%= form.fields_for :insurance do |insurance_form| %>
 
             <%= insurance_form.collection_select :insurer_id, Insurer.all, :id, :name, {

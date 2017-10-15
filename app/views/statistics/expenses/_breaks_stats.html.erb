@@ -4,7 +4,7 @@
 
       <!-- # Title -->
       <h4 class="card-title">
-        Break
+        <%= t :break %>
         <b class="badge badge-info">
           <%= number_to_currency(Break.breaks_sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
         </b>
@@ -17,7 +17,7 @@
              id="filter-by-year-tab"
              data-toggle="tab"
              href="#filter-by-year"
-             role="tab" aria-controls="filter-by-year" aria-expanded="true">Year</a>
+             role="tab" aria-controls="filter-by-year" aria-expanded="true"><%= t :year %></a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
@@ -25,7 +25,7 @@
              data-toggle="tab"
              href="#filter-by-year-and-month"
              role="tab"
-             aria-controls="filter-by-year-and-month">Month</a>
+             aria-controls="filter-by-year-and-month"><%= t :month %></a>
         </li>
       </ul>
 

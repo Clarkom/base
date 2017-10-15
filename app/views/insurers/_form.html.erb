@@ -1,7 +1,7 @@
 <%= form_for @insurer do |form| %>
 
     <div class="form-group row">
-      <%= form.label 'Name', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :name}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :name, class: 'form-control' %>
         <% if !@insurer.errors.messages[:'name'].empty?  %>
@@ -25,7 +25,7 @@
 
 
     <div class="form-group row">
-      <%= form.label 'Address', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :address}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :address, class: 'form-control' %>
         <% if !@insurer.errors.messages[:'address'].empty?  %>
@@ -41,7 +41,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Phone', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :phone}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :phone, class: 'form-control' %>
         <% if !@insurer.errors.messages[:'phone'].empty?  %>
@@ -57,7 +57,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit 'Save', :class => 'btn btn-info' %>
+      <%= form.submit "#{t :save}", :class => 'btn btn-info' %>
     </div>
 
 <% end %>

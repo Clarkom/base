@@ -5,7 +5,7 @@
   <div class="card-box">
 
     <div class="text-center">
-      <h3>Sign up</h3>
+      <h3><%= t :sign_up %></h3>
     </div>
 
     <div class="panel-body">
@@ -18,16 +18,16 @@
 
           <div class="form-group">
             <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <em>(<%= @minimum_password_length %> <%= t :characters_minimum %>)</em>
             <% end %>
-            <%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'password' %>
+            <%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: "#{t :password}" %>
           </div>
 
           <div class="form-group">
-            <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: 'password confirmation' %>
+            <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: "#{t :password_confirmation}" %>
           </div>
 
-          <%= f.submit 'Sign up', class: 'btn btn-info' %>
+          <%= f.submit "#{t :sign_up}", class: 'btn btn-info' %>
 
       <% end %>
 
@@ -36,8 +36,8 @@
   </div>
 
   <div class="sublink">
-    Already have an account?
-    <%= link_to 'Log in', new_session_path(resource_name) %>
+    <%= t :already_have_an_account %>?
+    <%= link_to "#{t :login}", new_session_path(resource_name) %>
   </div>
 
 </div>

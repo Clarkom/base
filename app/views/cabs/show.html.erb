@@ -1,11 +1,11 @@
-<h4>Cab - Detail</h4>
+<h4><%= t :vehicle %> - <%= t :detail %></h4>
 
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>License Plate</th>
-      <th>Agreement Number</th>
-      <th>Kilometrage</th>
+      <th><%= t :license_plate %></th>
+      <th><%= t :agreement_number %></th>
+      <th><%= t :mileage %></th>
       <th>Manager</th>
     </tr>
   </thead>
@@ -21,9 +21,9 @@
 
 
 <%= link_to cabs_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to edit_cab_path(@cab), :class => 'badge badge-dark' do %>
-    <%= fa_icon 'pencil' %> Edit
+    <%= fa_icon 'pencil' %> <%= t :edit %>
 <% end %>

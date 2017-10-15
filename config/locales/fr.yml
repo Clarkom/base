@@ -19,7 +19,6 @@ fr:
       - :day
       - :month
       - :year
-
   time:
     formats:
       default: "%d %B %Y %H:%M:%S"
@@ -27,7 +26,6 @@ fr:
       long: "%A %d %B %Y %H:%M"
     am: 'am'
     pm: 'pm'
-
   datetime:
     distance_in_words:
       half_a_minute: "une demi-minute"
@@ -73,7 +71,6 @@ fr:
       hour:   "Heure"
       minute: "Minute"
       second: "Seconde"
-
   number:
     format:
       separator: ","
@@ -121,7 +118,6 @@ fr:
           billion: "milliard"
           trillion: "billion"
           quadrillion: "million de milliards"
-
   support:
     array:
       words_connector: ", "
@@ -129,7 +125,6 @@ fr:
       last_word_connector: " et "
     select:
       prompt: "Veuillez sélectionner"
-
   helpers:
     select:
       prompt: "Veuillez sélectionner"
@@ -137,11 +132,9 @@ fr:
       create: "Créer un %{model}"
       update: "Modifier ce %{model}"
       submit: "Enregistrer ce %{model}"
-
   attributes:
     created_at: "Créé le"
     updated_at: "Modifié le"
-
   errors:
     format: "Le %{attribute} %{message}"
     messages: &errors_messages
@@ -169,7 +162,6 @@ fr:
         one:   "Impossible d'enregistrer ce %{model} : 1 erreur"
         other: "Impossible d'enregistrer ce %{model} : %{count} erreurs"
       body: "Veuillez vérifier les champs suivants : "
-
   activerecord:
     errors:
       messages:
@@ -180,3 +172,123 @@ fr:
         <<: *errors_template
       full_messages:
         format: "%{attribute} %{message}"
+
+  ### Content
+  home: "Accueil"
+  dashboard: "Accueil"
+  categories: "Catégories"
+  expenses: "Dépenses"
+  incomes: "Revenus"
+  all_incomes: "Tous les revenus"
+  all_expenses: "Tous les dépenses"
+  statistics: "Statistiques"
+  driver: "Chaufeur"
+  insurances: "Assurances"
+  insurance: "Assurance"
+  insurer: "Assureur"
+  breaks: "Arrêts"
+  break: "Arrêt"
+  damages: "Dégâts"
+  damages: "Dégât"
+  owner_takes: "Recettes"
+  owner_take: "Recette"
+  manager_takes: "Vos Parts"
+  manager_take: "Votre Part"
+  owners: "Propriétaires"
+  owner: "Propriétaire"
+  drivers: "Chauffeurs"
+  damage_types: "Dégâts"
+  damage_type: "Dégât"
+  fuel_types: "Carburants"
+  break_causes: "Causes d'arrêts"
+  break_cause: "Cause d'arrêts"
+  insurers: "Assureurs"
+  vehicle: "Véhicule"
+  vehicles: "Véhicules"
+  go_back: "Retour"
+  add_a_new_break: "Ajouter un Arrêt"
+  add_a_new_break_cause: "Ajouter une cause d'arrêt"
+  add_a_new_insurance: "Ajouter une Assurance"
+  add_a_new_damage: "Ajouter un Dégat"
+  add_a_new_model: "Ajouter un Modèle"
+  add_a_new_driver: "Ajouter un Chauffeur"
+  add_a_new_cab: "Ajouter une Véhicule"
+  add_a_new_fuel_type: "Ajouter un type de Carburant"
+  add_a_new_owner_take: "Ajouter une Recette"
+  add_a_new_manager_take: "Ajouter un Revenu"
+  add_a_new_owner: "Ajouter un Propriétaire"
+  add_a_new_insurer: "Ajouter un Assureur"
+  preview: "Aperçu"
+  show_more: "Voir Plus"
+  global_expenses: "Total des Dépenses"
+  global_incomes: "Total des Revenus"
+  starting_date: "Date Début"
+  end_date: "Date Fin"
+  delay: "Retard"
+  amount: "Montant"
+  days: "Jours"
+  birth_date: "Date de Naissance"
+  full_name: "Nom Complet"
+  mobile_phone: "Téléphone Mobile"
+  home_phone: "Téléphone Fixe"
+  driver_license_number: "Numéro de Permis de Conduire"
+  save: "Sauvegarder"
+  attached_file: "Fichier Attaché"
+  name: "Nom"
+  address: "Adresse"
+  phone: "Téléphone"
+  insurer_name: "Nom de l'assureur"
+  expiration_date: "Date d'expiration"
+  cab: "Taxi"
+  labor: "Main d'oeuvre"
+  mileage: "Kilometrage"
+  driver_responsible: "Chauffeur Résponsable"
+  new: "Nouveau"
+  edit: "Editer"
+  delete: "Supprimer"
+  detail: "Détail"
+  home_address: "Adresse du Domicile"
+  cab_model: "Model du Taxi"
+  model_name: "Nom de la Marque"
+  manufacturer_year: "Date de Sortie"
+  sheet_metal: "Carrosserie"
+  power_hp: "Nombre de chevaux"
+  number_of_places: "Nombre de Places"
+  picture: "Image"
+  resend_unlock_instructions: "Reenvoyer l'email de confirmation"
+  resend_confirmation_instructions: "Reenvoyer les instructions de confirmation"
+  sign_up: "S'inscrire"
+  already_have_an_account: "Vous avez déjà un compte"
+  login: "S'identifier"
+  characters_minimum: "Caractères Minimum"
+  password_confirmation: "Mot de Passe Confirmation"
+  password: "Mot de Passe"
+  forgot_password: "Mot de passe Oublié"
+  remember_me: "Se souvenir de moi"
+  dont_have_an_account: "Vous n'avez pas de compte"
+  enter_your_email_msg: "Entrez votre adresse e-mail et nous vous enverrons un e-mail avec les instructions pour réinitialiser votre mot de passe."
+  send_me_reset_instructions: "Envoyez moi les instructions de Réinitialisation"
+  your_text: "Votre Text"
+  are_you_sure: "Êtes-vous sûr"
+  signed_as: "Authentifié en tant que"
+  no_data: "Pas de données disponibles"
+  license_plate: "Immatriculation"
+  total_mileage: "Kilométrage"
+  agreement_number: "Numéro d'agrément"
+  cab_model: "Model du Véhicule"
+  cab_models: "Modèles"
+  damage: "Cause"
+  damage_cause: "Cause de Dégât"
+  select_a_model: "Selectionner un Modéle"
+  select_a_manager: "Selectionner un Manager"
+  select_an_owner: "Selectionner un Propriétaire"
+  select_a_break_cause: "Selectionner une cause d'arrêt"
+  select_a_damage: "Selectionner un Dommage"
+  no_person_charge: "Sans Résponsable"
+  labor_amount: "N'oubliez pas d'inclure la tarife de main d'oeuvre"
+  no_one: "Personne"
+  your_profile: "Votre Profile"
+  sign_out: "Déconnexion"
+  error: "Erreur"
+  month: "Mois"
+  year: "Année"

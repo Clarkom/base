@@ -94,7 +94,7 @@
 
     <!-- # -->
     <div class="form-group row">
-      <%= f.label 'Full Name', class: 'col-sm-2 col-form-label'%>
+      <%= f.label "#{t :full_name}", class: 'col-sm-2 col-form-label'%>
       <div class="col-sm-10">
         <div class="input-group">
           <%= f.text_field :full_name, class: 'form-control' %>
@@ -160,7 +160,7 @@
     <%=
       button_to 'Delete this account',
                 registration_path(resource_name),
-                data: { confirm: 'Are Your Sur?' },
+                data: { confirm: "#{t :are_you_sure}" },
                 method: :delete ,
                 class: 'btn btn-outline-danger'
     %>
@@ -168,5 +168,5 @@
 </div>
 
 <%= link_to :back, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>

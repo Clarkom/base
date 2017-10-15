@@ -1,11 +1,11 @@
-<h4>Manager Takes</h4>
+<h4><%= t :manager_takes %></h4>
 
 <!-- # -->
 <div class="actions row">
 
   <div class="col-md-4">
     <%= link_to new_manager_take_path, :class => 'btn btn-info btn-sm' do %>
-        <%= fa_icon 'plus' %> Add a New Manager Take
+        <%= fa_icon 'plus' %> <%= t :add_a_new_manager_take %>
     <% end %>
   </div>
 
@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-manager-take"
-           placeholder="Your Text..." aria-label="Your Text...">
+           placeholder="<%= t :your_text %>..." aria-label="<%= t :your_text %>...">
   </div>
 
 </div>
@@ -25,7 +25,7 @@
   <thead>
     <tr>
       <th>Date</th>
-      <th>Amount</th>
+      <th><%= t :amount %></th>
       <th class="td-actions">Actions</th>
     </tr>
   </thead>
@@ -42,7 +42,7 @@
         <%= link_to edit_manager_take_path(manager_take), :class => 'btn btn-outline-dark btn-sm' do %>
             <%= fa_icon 'pencil' %>
         <% end %>
-        <%= link_to manager_take, method: :delete, data: {confirm: 'Are Your Sur?'}, class: 'btn btn-outline-dark btn-sm' do %>
+        <%= link_to manager_take, method: :delete, data: {confirm: "#{t :are_you_sure}"}, class: 'btn btn-outline-dark btn-sm' do %>
             <%= fa_icon 'close' %>
         <% end %>
       </td>

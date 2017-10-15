@@ -1,7 +1,7 @@
-<h4>Manager Take - New</h4>
+<h4><%= "#{t :manager_take} - #{t :new}" %></h4>
 
 <%= render 'form', manager_take: @manager_take %>
 
 <%= link_to manager_takes_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>

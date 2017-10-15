@@ -1,11 +1,11 @@
-<h4>Manager Take - Detail</h4>
+<h4><%= "#{t :manager_take} - #{t :detail}" %></h4>
 
 <table class="table table-bordered">
   <thead>
   <tr>
     <th>Manager</th>
     <th>Date</th>
-    <th>Amount</th>
+    <th><%= t :amount %></th>
   </tr>
   </thead>
   <tbody>
@@ -18,10 +18,10 @@
 </table>
 
 <%= link_to manager_takes_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go Back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to edit_manager_take_path(@manager_take), :class => 'badge badge-dark' do %>
-    <%= fa_icon 'pencil' %> Edit
+    <%= fa_icon 'pencil' %> <%= t :edit %>
 <% end %>
 

@@ -1,7 +1,7 @@
 <%= form_for @cab_model do |form| %>
 
     <div class="form-group row">
-      <%= form.label 'Name', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :name}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :name, class: 'form-control' %>
         <% if !@cab_model.errors.messages[:'name'].empty?  %>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Manufacturer Year', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :manufacturer_year}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.date_field :manufacture_year, class: 'form-control' %>
         <% if !@cab_model.errors.messages[:'manufacture_year'].empty?  %>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Fuel Type', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :fuel_types}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.collection_select :fuel_type_id, FuelType.group(:name), :id, :name, {
           :multiple => false,
@@ -53,7 +53,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Sheet Metal', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :sheet_metal}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.text_field :sheet_metal, class: 'form-control' %>
         <% if !@cab_model.errors.messages[:'sheet_metal'].empty?  %>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Number of Power HP', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :power_hp}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.number_field :power_hp, class: 'form-control' %>
         <% if !@cab_model.errors.messages[:'power_hp'].empty?  %>
@@ -85,7 +85,7 @@
     </div>
 
     <div class="form-group row">
-      <%= form.label 'Number of Places', class: 'col-sm-2 col-form-label' %>
+      <%= form.label "#{t :number_of_places}", class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
         <%= form.number_field :number_places, class: 'form-control' %>
         <% if !@cab_model.errors.messages[:'number_places'].empty?  %>
@@ -117,7 +117,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit 'Save', :class => 'btn btn-info' %>
+      <%= form.submit "#{t :save}", :class => 'btn btn-info' %>
     </div>
 
 <% end %>

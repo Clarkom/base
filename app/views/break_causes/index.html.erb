@@ -1,11 +1,11 @@
-<h4>Break Causes</h4>
+<h4><%= t :break_causes %></h4>
 
 <!-- # -->
 <div class="actions row">
 
   <div class="col-md-4">
     <%= link_to new_break_cause_path, :class => 'btn btn-info btn-sm' do %>
-        <%= fa_icon 'plus' %> Add a New Break Cause
+        <%= fa_icon 'plus' %> <%= t :add_a_new_break_cause %>
     <% end %>
   </div>
 
@@ -13,7 +13,7 @@
     <input type="search"
            class="form-control"
            id="search-break-cause"
-           placeholder="Your Text..." aria-label="Your Text...">
+           placeholder="<%= t :your_text %>..." aria-label="<%= t :your_text %>...">
   </div>
 
 </div>
@@ -22,7 +22,7 @@
 <table id="break-cause-data" class="table table-bordered">
   <thead>
   <tr>
-    <th>Name</th>
+    <th><%= t :name %></th>
     <th class="td-actions">Actions</th>
   </tr>
   </thead>
@@ -38,7 +38,7 @@
           <%= link_to edit_break_cause_path(break_cause), :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'pencil' %>
           <% end %>
-          <%= link_to break_cause, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-dark btn-sm' do %>
+          <%= link_to break_cause, method: :delete, data: { confirm: "#{t :are_you_sure}" }, class: 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'trash' %>
           <% end %>
         </td>

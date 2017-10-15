@@ -1,15 +1,15 @@
-<h4>Cab Model - Detail</h4>
+<h4><%= "#{t :cab_model} - #{t :detail}" %></h4>
 
 <table class="table table-bordered">
   <thead>
   <tr>
-    <th>Nom de La Marque</th>
+    <th><%= t :model_name %></th>
     <th>Description</th>
-    <th>Manufacturer Year</th>
-    <th>Fuel Type</th>
-    <th>Sheet Metal</th>
-    <th>Power HP</th>
-    <th>Number Places</th>
+    <th><%= t :manufacturer_year %></th>
+    <th><%= t :fuel_types %></th>
+    <th><%= t :sheet_metal %></th>
+    <th><%= t :power_hp %></th>
+    <th><%= t :number_of_places %></th>
   </tr>
   </thead>
   <tbody>
@@ -26,9 +26,9 @@
 </table>
 
 <%= link_to cab_models_path, :class => 'badge badge-light' do %>
-    <%= fa_icon 'arrow-left' %> Go back
+    <%= fa_icon 'arrow-left' %> <%= t :go_back %>
 <% end %>
 
 <%= link_to edit_cab_model_path(@cab_model), :class => 'badge badge-dark' do %>
-    <%= fa_icon 'pencil' %> Edit
+    <%= fa_icon 'pencil' %> <%= t :edit %>
 <% end %>
