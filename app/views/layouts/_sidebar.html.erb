@@ -1,182 +1,207 @@
 <div class="col-sm-2 col-md-2 sidebar">
 
   <!-- # Logo-->
-  <div class="logo">
+  <div class="top-sidebar">
     <%= link_to root_path, :class => 'logo' do %>
       <%= fa_icon 'cube' %> smartcab
     <% end %>
+
+    <button class="navbar-toggler d-lg-none collapsed"
+            type="button"
+            data-toggle="collapse"
+            data-target="#sidebarNav"
+            aria-controls="sidebarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+
   </div>
 
-  <!-- Dashboard -->
-  <ul class="nav flex-column">
+  <!-- # -->
+  <div class="navbar-collapse collapse" id="sidebarNav">
 
-    <!-- # Title -->
-    <li class="list-header">
-      <h4>Navigation</h4>
-    </li>
+    <!-- Dashboard -->
+    <ul class="nav flex-column">
 
-    <!-- # -->
-    <li class="nav-item">
-      <%= link_to root_path do %>
-          <%= fa_icon 'home' %>
-          <%= t 'dashboard' %>
+      <!-- # Title -->
+      <li class="list-header">
+        <h4>Navigation</h4>
+      </li>
+
+      <!-- # -->
+      <li class="nav-item">
+        <%= link_to root_path do %>
+            <%= fa_icon 'home' %>
+            <%= t 'dashboard' %>
+        <% end %>
+      </li>
+
+    </ul>
+
+    <!-- # Navigation -->
+    <ul class="nav flex-column">
+
+      <!-- # Title -->
+      <li class="list-header">
+        <h4><%= t 'categories' %></h4>
+      </li>
+
+      <!-- # Expenses -->
+      <li class="<%= current_path('expenses/') ? 'active-list' : '' %> nav-item">
+        <a data-toggle="collapse"
+           href="#expensesCollapse"
+           aria-expanded="false"
+           aria-controls="expensesCollapse">
+          <%= fa_icon 'bank' %>
+          <%= t 'expenses' %>
+          <%= fa_icon 'angle-right' %>
+          <%= fa_icon 'angle-down' %>
+        </a>
+        <ul class="<%= current_path('expenses/') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="expensesCollapse">
+          <li>
+            <%= link_to all_expenses_path, class: "#{ current_path('expenses/all') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'all_expenses' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to insurances_path, class: "#{ current_path('insurances') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'insurances' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to breaks_path, class: "#{ current_path('breaks') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'breaks' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to damages_path, class: "#{ current_path('damages') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'damages' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to owner_takes_path , class: "#{ current_path('owner_takes') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'owner_takes' %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+
+      <!-- # Incomes -->
+      <li class="<%= current_path('incomes/') ? 'active-list' : '' %> nav-item">
+        <a data-toggle="collapse"
+           href="#incomesCollapse"
+           aria-expanded="false"
+           aria-controls="incomesCollapse">
+          <%= fa_icon 'money' %>
+          <%= t 'incomes' %>
+          <%= fa_icon 'angle-right' %>
+          <%= fa_icon 'angle-down' %>
+        </a>
+        <ul class="<%= current_path('incomes/') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="incomesCollapse">
+          <li>
+            <%= link_to all_incomes_path, class: "#{ current_path('incomes/all') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %><%= t 'all_incomes' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to manager_takes_path, class: "#{ current_path('manager_takes') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'manager_take' %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+
+      <!-- # Cabs -->
+      <li class="<%= current_path('cabs') ? 'active-list' : '' %> nav-item">
+        <a data-toggle="collapse"
+           href="#cabCollapse"
+           aria-expanded="false"
+           aria-controls="cabCollapse">
+          <%= fa_icon 'taxi' %>
+          Taxi
+          <%= fa_icon 'angle-right' %>
+          <%= fa_icon 'angle-down' %>
+        </a>
+        <ul class="<%= current_path('cabs') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="cabCollapse">
+          <li>
+            <%= link_to all_cabs_path, class: "#{ current_path('cabs/all') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'vehicle' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to drivers_path, class: "#{ current_path('drivers') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'drivers' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to cab_models_path, class: "#{ current_path('cab_models') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'models' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to fuel_types_path, class: "#{ current_path('fuel_types') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'fuel_types' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to damage_types_path, class: "#{ current_path('damage_types') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'damage_types' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to break_causes_path, class: "#{ current_path('break_causes') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'break_causes' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to insurers_path, class: "#{ current_path('insurers') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'insurers' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to owners_path, class: "#{ current_path('owners') ? 'active' : '' }" do %>
+                <%= fa_icon 'caret-right' %> <%= t 'owners' %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+
+      <!-- # Statistics -->
+      <li class="<%= current_path('statistics') ? 'active-list' : '' %> nav-item">
+        <a data-toggle="collapse"
+           href="#cabStatistics"
+           aria-expanded="false"
+           aria-controls="cabStatistics">
+          <%= fa_icon 'bar-chart' %>
+          <%= t 'statistics' %>
+          <%= fa_icon 'angle-right' %>
+          <%= fa_icon 'angle-down' %>
+        </a>
+        <ul class="<%= current_path('statistics') ? 'collapse show' : 'collapse' %> multi-collapse" id="cabStatistics">
+          <li>
+            <%= link_to "#{fa_icon 'caret-right'} #{t 'expenses'}".html_safe, :get_stats_expenses,
+                        class: "#{ params[:action] === 'expenses' ? 'active' : '' }" %>
+          </li>
+          <li>
+            <%= link_to "#{fa_icon 'caret-right'} #{t 'incomes'}".html_safe, :get_stats_incomes,
+                        class: "#{ params[:action] === 'incomes' ? 'active' : '' }" %>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+
+    <!-- # Responsive User Dashboard Links -->
+    <div class="dashboard-links">
+      <%= link_to edit_manager_registration_path(current_manager), class: 'btn' do %>
+          <%= fa_icon 'user' %> <%= t :your_profile %>
       <% end %>
-    </li>
+      <%= link_to destroy_manager_session_path, method: :delete, class: 'btn' do %>
+          <%= fa_icon 'close' %> <%= t :sign_out %>
+      <% end %>
+    </div>
 
-  </ul>
-
-  <!-- # Navigation -->
-  <ul class="nav flex-column">
-
-    <!-- # Title -->
-    <li class="list-header">
-      <h4><%= t 'categories' %></h4>
-    </li>
-
-    <!-- # Expenses -->
-    <li class="<%= current_path('expenses/') ? 'active-list' : '' %> nav-item">
-      <a data-toggle="collapse"
-         href="#expensesCollapse"
-         aria-expanded="false"
-         aria-controls="expensesCollapse">
-        <%= fa_icon 'bank' %>
-        <%= t 'expenses' %>
-        <%= fa_icon 'angle-right' %>
-        <%= fa_icon 'angle-down' %>
-      </a>
-      <ul class="<%= current_path('expenses/') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="expensesCollapse">
-        <li>
-          <%= link_to all_expenses_path, class: "#{ current_path('expenses/all') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'all_expenses' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to insurances_path, class: "#{ current_path('insurances') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'insurances' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to breaks_path, class: "#{ current_path('breaks') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'breaks' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to damages_path, class: "#{ current_path('damages') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'damages' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to owner_takes_path , class: "#{ current_path('owner_takes') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'owner_takes' %>
-          <% end %>
-        </li>
-      </ul>
-    </li>
-
-    <!-- # Incomes -->
-    <li class="<%= current_path('incomes/') ? 'active-list' : '' %> nav-item">
-      <a data-toggle="collapse"
-         href="#incomesCollapse"
-         aria-expanded="false"
-         aria-controls="incomesCollapse">
-        <%= fa_icon 'money' %>
-        <%= t 'incomes' %>
-        <%= fa_icon 'angle-right' %>
-        <%= fa_icon 'angle-down' %>
-      </a>
-      <ul class="<%= current_path('incomes/') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="incomesCollapse">
-        <li>
-          <%= link_to all_incomes_path, class: "#{ current_path('incomes/all') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %><%= t 'all_incomes' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to manager_takes_path, class: "#{ current_path('manager_takes') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'manager_take' %>
-          <% end %>
-        </li>
-      </ul>
-    </li>
-
-    <!-- # Cabs -->
-    <li class="<%= current_path('cabs') ? 'active-list' : '' %> nav-item">
-      <a data-toggle="collapse"
-         href="#cabCollapse"
-         aria-expanded="false"
-         aria-controls="cabCollapse">
-        <%= fa_icon 'taxi' %>
-        Taxi
-        <%= fa_icon 'angle-right' %>
-        <%= fa_icon 'angle-down' %>
-      </a>
-      <ul class="<%= current_path('cabs') ? 'collapse show' : 'collapse hide' %> multi-collapse" id="cabCollapse">
-        <li>
-          <%= link_to all_cabs_path, class: "#{ current_path('cabs/all') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'vehicle' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to drivers_path, class: "#{ current_path('drivers') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'drivers' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to cab_models_path, class: "#{ current_path('cab_models') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'models' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to fuel_types_path, class: "#{ current_path('fuel_types') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'fuel_types' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to damage_types_path, class: "#{ current_path('damage_types') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'damage_types' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to break_causes_path, class: "#{ current_path('break_causes') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'break_causes' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to insurers_path, class: "#{ current_path('insurers') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'insurers' %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to owners_path, class: "#{ current_path('owners') ? 'active' : '' }" do %>
-              <%= fa_icon 'caret-right' %> <%= t 'owners' %>
-          <% end %>
-        </li>
-      </ul>
-    </li>
-
-    <!-- # Statistics -->
-    <li class="<%= current_path('statistics') ? 'active-list' : '' %> nav-item">
-      <a data-toggle="collapse"
-         href="#cabStatistics"
-         aria-expanded="false"
-         aria-controls="cabStatistics">
-        <%= fa_icon 'bar-chart' %>
-        <%= t 'statistics' %>
-        <%= fa_icon 'angle-right' %>
-        <%= fa_icon 'angle-down' %>
-      </a>
-      <ul class="<%= current_path('statistics') ? 'collapse show' : 'collapse' %> multi-collapse" id="cabStatistics">
-        <li>
-          <%= link_to "#{fa_icon 'caret-right'} #{t 'expenses'}".html_safe, :get_stats_expenses,
-                      class: "#{ params[:action] === 'expenses' ? 'active' : '' }" %>
-        </li>
-        <li>
-          <%= link_to "#{fa_icon 'caret-right'} #{t 'incomes'}".html_safe, :get_stats_incomes,
-                      class: "#{ params[:action] === 'incomes' ? 'active' : '' }" %>
-        </li>
-      </ul>
-    </li>
-
-  </ul>
+  </div>
 
 </div>
 

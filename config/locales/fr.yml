@@ -173,6 +173,16 @@ fr:
       full_messages:
         format: "%{attribute} %{message}"
 
+  ### Devise
+  devise:
+    failure:
+      manager:
+        unauthenticated: "Veuillez vous Authentifiez"
+        not_found_in_database: "Email ou Mot de passe invalide"
+    sessions:
+      manager:
+        signed_in: "Authentifié avec succée"
+
   ### Content
   home: "Accueil"
   dashboard: "Accueil"

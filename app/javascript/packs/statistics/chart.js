@@ -266,8 +266,10 @@ class BarChart {
         dataSets.push($(this).text())
       });
       $(`#${canvas_id} ul > li:last-child`).each(function(){
-        data.push($(this).text())
+        data.push($(this).text().replace('DH', ''))
       });
+
+      console.log(data)
 
       //
       // Draw Chart
