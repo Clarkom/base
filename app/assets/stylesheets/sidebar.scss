@@ -12,11 +12,14 @@
   border-right: 1px solid #3e495f;
   font-weight: 100;
   font-size: 14px;
-  .logo {
+  .top-sidebar {
     color: #acbad8;
     padding: 10px 0 20px 11px;
     .fa {
       color: #6b7fa7;
+    }
+    a {
+      color: #acbad8;
     }
   }
   h4 {
@@ -96,6 +99,14 @@
     float: right;
   }
   &.hidden {
+    display: none;
+  }
+  #sidebarNav {
+    &.collapse {
+      display: block;
+    }
+  }
+  .dashboard-links {
     display: none;
   }
 }

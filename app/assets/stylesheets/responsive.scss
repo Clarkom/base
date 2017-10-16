@@ -1,0 +1,88 @@
+@media only screen and (max-width: 800px) {
+
+  //
+  //
+  // Header
+  header {
+    display: none;
+  }
+
+  //
+  //
+  // Sidebar
+  .sidebar {
+    position: inherit;
+    float: left;
+    flex: inherit;
+    max-width: 100%;
+    #sidebarNav {
+
+      &.collapse {
+        display: none;
+        &.show {
+          display: block;
+        }
+      }
+
+    }
+    .logo {
+      display: inline-block;
+      font-size: 24px;
+      width: auto;
+      padding: 0 0 4px 0;
+    }
+    .top-sidebar {
+      padding: 10px 20px;
+      background: #2e3646;
+      .navbar-toggler {
+        float: right;
+        border: 1px solid #7c91b9;
+        margin-top: 4px;
+      }
+
+    }
+    .navbar-collapse {
+      margin-top: 16px;
+      font-size: 15px;
+    }
+    .fa-angle-right, .fa-angle-down {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .dashboard-links {
+      display: block;
+      padding: 20px;
+      text-align: center;
+      background: #2f3746;
+      a {
+        display: initial;
+        width: auto;
+        background: #455169;
+        margin-right: 13px;
+        font-size: 13px;
+        &:last-child {
+          background: #6f4242;
+        }
+      }
+    }
+  }
+
+  //
+  //
+  // Main
+  .main {
+    margin-top: 0;
+    max-width: 100%;
+    flex: inherit;
+    .title-header h3 {
+      padding: 20px 0 10px 14px;
+    }
+    .stats-col {
+      > div {
+        margin-top: 15px;
+        padding: 0;
+      }
+    }
+  }
+
+}
