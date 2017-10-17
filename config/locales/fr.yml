@@ -280,7 +280,7 @@ fr:
   send_me_reset_instructions: "Envoyez moi les instructions de Réinitialisation"
   your_text: "Votre Text"
   are_you_sure: "Êtes-vous sûr"
-  signed_as: "Authentifié en tant que"
+  signed_as: "Authentifié - "
   no_data: "Pas de données disponibles"
   license_plate: "Immatriculation"
   total_mileage: "Kilométrage"
