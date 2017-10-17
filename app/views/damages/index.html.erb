@@ -19,34 +19,34 @@
 </div>
 
 <!-- # -->
-<table id="damage-data" class="table table-bordered table-responsive">
+<table id="damage-data" class="responsive-table">
   <thead>
     <tr>
-      <th>Cause</th>
-      <th><%= t :driver_responsible %></th>
-      <th>Date</th>
-      <th><%= t :mileage %></th>
-      <th><%= t :labor %></th>
-      <th><%= t :amount %></th>
-      <th class="td-actions">Actions</th>
+      <th scope="col">Cause</th>
+      <th scope="col"><%= t :driver_responsible %></th>
+      <th scope="col">Date</th>
+      <th scope="col"><%= t :mileage %></th>
+      <th scope="col"><%= t :labor %></th>
+      <th scope="col"><%= t :amount %></th>
+      <th scope="col" class="td-actions">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @damages.each do |damage| %>
       <tr>
-        <td><%= damage.damage_type.name %></td>
-        <td>
+        <th scope="row"><%= damage.damage_type.name %></th>
+        <td data-title="<%= t :driver_responsible %>">
           <% if damage.driver_id %>
             <%= damage.driver.full_name %>
             <% else %>
               <%= t :no_person_charge %>
           <% end %>
         </td>
-        <td><%= damage.date %></td>
-        <td><%= damage.kilometers %></td>
-        <td><%= damage.labor %></td>
-        <td><b><%= damage.expense.amount %> DH</b></td>
+        <td data-title="Date"><%= damage.date %></td>
+        <td data-title="<%= t :mileage %>"><%= damage.kilometers %></td>
+        <td data-title="<%= t :labor %>"><%= damage.labor %></td>
+        <td data-title="<%= t :amount %>"><b><%= damage.expense.amount %> DH</b></td>
         <td>
           <%= link_to damage, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>

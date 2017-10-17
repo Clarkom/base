@@ -19,24 +19,26 @@
 </div>
 
 <!-- # -->
-<table id="insurer-data" class="table table-bordered table-responsive">
+<table id="insurer-data" class="responsive-table">
   <thead>
   <tr>
-    <th><%= t :picture %></th>
-    <th><%= t :name %></th>
-    <th><%= t :address%></th>
-    <th><%= t :phone %></th>
-    <th class="td-actions">Actions</th>
+    <th scope="col"><%= t :name %></th>
+    <th scope="col"><%= t :picture %></th>
+    <th scope="col"><%= t :address%></th>
+    <th scope="col"><%= t :phone %></th>
+    <th scope="col" class="td-actions">Actions</th>
   </tr>
   </thead>
 
   <tbody>
   <% @insurers.each do |insurer| %>
       <tr>
-        <td><%= insurer.picture.file ? image_tag(insurer.picture, width: 100, height: 100) : 'No Picture' %></td>
-        <td><%= insurer.name %></td>
-        <td><%= insurer.address %></td>
-        <td>0<%= insurer.phone %></td>
+        <th scope="row"><%= insurer.name %></th>
+        <td data-title="<%= t :picture %>">
+          <%= insurer.picture.file ? image_tag(insurer.picture, width: 100, height: 100) : 'No Picture' %>
+        </td>
+        <td data-title="<%= t :address %>"><%= insurer.address %></td>
+        <td data-title="<%= t :phone %>">0<%= insurer.phone %></td>
         <td>
           <%= link_to insurer, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>

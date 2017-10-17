@@ -84,8 +84,16 @@
       }
     }
     .responsive-table {
+      tr {
+        border: 1px solid #d2d2d2;
+      }
+      tbody th[scope="row"] a {
+        color: #fff;
+      }
       td {
         padding: 12px;
+        line-height: 2.1em;
+        min-height: 2em;
         border-bottom: 1px solid #e0e0e0;
         &:last-child {
           background: #e8e8e8;
@@ -101,6 +109,16 @@
         display: block;
         margin-top: 12px;
         font-size: 15px;
+      }
+    }
+    .dataTables_info {
+      font-size: 12px;
+    }
+    .paginate_button {
+      &.disabled,
+      &.next, &.previous,
+      &.first, &.last {
+        display: none;
       }
     }
   }

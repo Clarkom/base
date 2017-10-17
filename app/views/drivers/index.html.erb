@@ -19,26 +19,26 @@
 </div>
 
 <!-- # -->
-<table id="driver-data" class="table table-bordered table-responsive">
+<table id="driver-data" class="responsive-table">
   <thead>
   <tr>
-    <th><%= t :full_name %></th>
-    <th><%= t :birth_date %></th>
-    <th><%= t :starting_date %></th>
-    <th><%= t :mobile_phone %></th>
-    <th><%= t :driver_license_number %></th>
-    <th class="td-actions">Actions</th>
+    <th scope="col"><%= t :full_name %></th>
+    <th scope="col"><%= t :birth_date %></th>
+    <th scope="col"><%= t :starting_date %></th>
+    <th scope="col"><%= t :mobile_phone %></th>
+    <th scope="col"><%= t :driver_license_number %></th>
+    <th scope="col" class="td-actions">Actions</th>
   </tr>
   </thead>
 
   <tbody>
   <% @drivers.each do |driver| %>
       <tr>
-        <td><%= driver.full_name %></td>
-        <td><%= driver.birth_date %></td>
-        <td><%= driver.start_date %></td>
-        <td><%= driver.mobile_phone %></td>
-        <td><%= driver.driving_license_number %></td>
+        <th scope="row"><%= driver.full_name %></th>
+        <td data-title="<%= t :birth_date %>"><%= driver.birth_date %></td>
+        <td data-title="<%= t :starting_date %>"><%= driver.start_date %></td>
+        <td data-title="<%= t :mobile_phone %>"><%= driver.mobile_phone %></td>
+        <td data-title="<%= t :driver_license_number %>"><%= driver.driving_license_number %></td>
         <td>
           <%= link_to driver, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>

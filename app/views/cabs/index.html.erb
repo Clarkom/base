@@ -19,24 +19,24 @@
 </div>
 
 <!-- # -->
-<table id="cab-data" class="table table-bordered table-responsive">
+<table id="cab-data" class="responsive-table">
   <thead>
   <tr>
-    <th><%= t :cab_model %></th>
-    <th><%= t :license_plate %></th>
-    <th><%= t :agreement_number %></th>
-    <th><%= t :total_mileage %></th>
-    <th class="td-actions">Actions</th>
+    <th scope="col"><%= t :cab_model %></th>
+    <th scope="col"><%= t :license_plate %></th>
+    <th scope="col"><%= t :agreement_number %></th>
+    <th scope="col"><%= t :total_mileage %></th>
+    <th scope="col" class="td-actions">Actions</th>
   </tr>
   </thead>
 
   <tbody>
   <% @cabs.each do |cab| %>
     <tr>
-      <td><%= cab.cab_model.name %></td>
-      <td><%= cab.license_plate %></td>
-      <td><%= cab.agreement_number %></td>
-      <td><%= number_with_delimiter(cab.total_mileage) %> km(s)</td>
+      <th scope="row"><%= cab.cab_model.name %></th>
+      <td data-title="<%= t :license_plate %>"><%= cab.license_plate %></td>
+      <td data-title="<%= t :agreement_number %>"><%= cab.agreement_number %></td>
+      <td data-title="<%= t :total_mileage %>"><%= number_with_delimiter(cab.total_mileage) %> km(s)</td>
       <td>
         <%= link_to cab, :class => 'btn btn-outline-dark btn-sm' do %>
             <%= fa_icon 'eye' %>

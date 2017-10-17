@@ -7,15 +7,12 @@ $bp-homer: 75em;
 .responsive-table {
   width: 100%;
   margin-bottom: 1.5em;
-
   @media (min-width: $bp-bart) {
     font-size: .9em;
   }
-
   @media (min-width: $bp-marge) {
     font-size: 1em;
   }
-
   thead {
     // Accessibly hide <thead> on narrow viewports
     position: absolute;
@@ -37,8 +34,8 @@ $bp-homer: 75em;
     }
 
     th {
-      background-color: #3f4a60;
-      border: 1px solid #6b7fa6;
+      background-color: #566175;
+      border: 1px solid #647088;
       font-weight: normal;
       text-align: center;
       color: white;
@@ -48,7 +45,6 @@ $bp-homer: 75em;
       }
     }
   }
-
   // Set these items to display: block for narrow viewports
   tbody,
   tr,
@@ -59,14 +55,12 @@ $bp-homer: 75em;
     text-align: left;
     white-space: normal;
   }
-
   tr {
     @media (min-width: $bp-bart) {
       // Undo display: block
       display: table-row;
     }
   }
-
   th,
   td {
     padding: .5em;
@@ -90,7 +84,6 @@ $bp-homer: 75em;
       padding: .75em;
     }
   }
-
   caption {
     margin-bottom: 1em;
     font-size: 1em;
@@ -101,7 +94,6 @@ $bp-homer: 75em;
       font-size: 1.5em;
     }
   }
-
   tfoot {
     font-size: .8em;
     font-style: italic;
@@ -110,16 +102,13 @@ $bp-homer: 75em;
       font-size: .9em;
     }
   }
-
   tbody {
     @media (min-width: $bp-bart) {
       // Undo display: block
       display: table-row-group;
     }
-
     tr {
       margin-bottom: 1em;
-      border: 1px solid #c5c5c5;
 
       @media (min-width: $bp-bart) {
         // Undo display: block
@@ -137,10 +126,10 @@ $bp-homer: 75em;
         }
       }
     }
-
     th[scope="row"] {
-      background-color: rgba(29,150,178,1);
+      background-color: #576175;
       color: white;
+      text-align: center;
 
       @media (min-width: $bp-bart) {
         background-color: transparent;
@@ -152,9 +141,6 @@ $bp-homer: 75em;
     td {
       text-align: right;
 
-      @media (min-width: $bp-lisa) {
-        border-bottom: 1px solid #c5c5c5;
-      }
 
       @media (min-width: $bp-bart) {
         text-align: center;

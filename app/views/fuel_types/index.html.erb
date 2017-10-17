@@ -19,18 +19,18 @@
 </div>
 
 <!-- # -->
-<table id="fuel-type-data" class="table table-bordered table-responsive">
+<table id="fuel-type-data" class="responsive-table">
   <thead>
   <tr>
-    <th><%= t :name %></th>
-    <th class="td-actions">Actions</th>
+    <th scope="col"><%= t :name %></th>
+    <th scope="col" class="td-actions">Actions</th>
   </tr>
   </thead>
 
   <tbody>
   <% @fuel_types.each do |fuel_type| %>
       <tr>
-        <td><%= fuel_type.name %></td>
+        <th scope="row"><%= fuel_type.name %></th>
         <td>
           <%= link_to fuel_type, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>

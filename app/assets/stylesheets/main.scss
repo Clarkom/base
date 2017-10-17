@@ -104,9 +104,12 @@ h4 {
     color: red !important;
   }
   .table-sum {
-    background-color: #f1f1f1;
-    color: #383838;
+    background-color: #576175;
+    color: #fff;
     font-size: 18px;
+    td {
+      background: #576175 !important;
+    }
     td:last-child {
       text-align: left;
     }

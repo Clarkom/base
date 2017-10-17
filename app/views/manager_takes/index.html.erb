@@ -20,21 +20,21 @@
 
 
 <!-- # -->
-<table id="manager-take-data" class="table table-bordered table-responsive">
+<table id="manager-take-data" class="responsive-table">
 
   <thead>
     <tr>
-      <th>Date</th>
-      <th><%= t :amount %></th>
-      <th class="td-actions">Actions</th>
+      <th scope="col">Date</th>
+      <th scope="col"><%= t :amount %></th>
+      <th scope="col" class="td-actions">Actions</th>
     </tr>
   </thead>
 
   <tbody>
   <% @manager_takes.each do |manager_take| %>
     <tr>
-      <td><%= manager_take.date %></td>
-      <td><b><%= manager_take.income.amount %> DH</b></td>
+      <th scope="row"><%= manager_take.date %></th>
+      <td data-title="<%= t :amount %>"><b><%= manager_take.income.amount %> DH</b></td>
       <td>
         <%= link_to manager_take, :class => 'btn btn-outline-dark btn-sm' do %>
             <%= fa_icon 'eye' %>

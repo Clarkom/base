@@ -1,59 +1,60 @@
 <div class="card">
-    <div class="card-body">
+  <div class="card-body">
 
-      <!-- # -->
-      <h4 class="card-title">
-        <%= t :manager_takes %>
-        <b class="badge badge-info">
-          <%= number_to_currency(ManagerTake.includes(:income).pluck(:amount).sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
-        </b>
-      </h4>
+    <!-- # -->
+    <h4 class="card-title">
+      <%= t :manager_takes %>
+      <b class="badge badge-info">
+        <%= number_to_currency(ManagerTake.includes(:income).pluck(:amount).sum, unit: '', separator: ',', delimiter: '', precision: 1) %>
+        DH
+      </b>
+    </h4>
 
-      <!-- # -->
-      <% if !ManagerTake.all.empty? %>
-          <table class="table table-bordered table-responsive">
+    <!-- # -->
+    <% if !ManagerTake.all.empty? %>
+        <table class="responsive-table">
 
-        <thead>
+          <thead>
           <tr>
-            <th>Manager</th>
-            <th>Date</th>
-            <th><%= t :amount %></th>
+            <th scope="col">Manager</th>
+            <th scope="col">Date</th>
+            <th scope="col"><%= t :amount %></th>
           </tr>
-        </thead>
+          </thead>
 
-        <tbody>
+          <tbody>
           <% ManagerTake.all.limit(3).each do |manager_take| %>
               <tr>
-                <td>
+                <th scope="row">
                   <%= link_to manager_take do %>
                       <%= manager_take.manager.full_name %>
                   <% end %>
-                </td>
-                <td><%= manager_take.date %></td>
-                <td><b><%= manager_take.income.amount %> DH</b></td>
+                </th>
+                <td data-title="Manager"><%= manager_take.date %></td>
+                <td data-title="<%= t :amount %>"><b><%= manager_take.income.amount %> DH</b></td>
               </tr>
           <% end %>
-        </tbody>
+          </tbody>
 
-      </table>
+        </table>
 
-          <!-- # -->
-          <div class="col-md-12">
-            <%= link_to new_manager_take_path, :class => 'btn btn-sm btn-info' do %>
-                <%= fa_icon 'plus' %> <%= t :add_a_new_manager_take %>
-            <% end %>
-            <%= link_to manager_takes_path, :class => 'btn btn-sm btn-secondary' do %>
-                <%= fa_icon 'list' %> <%= t 'show_more' %>
-            <% end %>
-          </div>
-
-      <% else %>
-          <h5><%= t :no_data %></h5>
+        <!-- # -->
+        <div class="col-md-12">
           <%= link_to new_manager_take_path, :class => 'btn btn-sm btn-info' do %>
               <%= fa_icon 'plus' %> <%= t :add_a_new_manager_take %>
           <% end %>
-      <% end %>
+          <%= link_to manager_takes_path, :class => 'btn btn-sm btn-secondary' do %>
+              <%= fa_icon 'list' %> <%= t 'show_more' %>
+          <% end %>
+        </div>
+
+    <% else %>
+        <h5><%= t :no_data %></h5>
+        <%= link_to new_manager_take_path, :class => 'btn btn-sm btn-info' do %>
+            <%= fa_icon 'plus' %> <%= t :add_a_new_manager_take %>
+        <% end %>
+    <% end %>
 
 
-    </div>
   </div>
+</div>

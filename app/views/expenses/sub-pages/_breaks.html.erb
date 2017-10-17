@@ -12,25 +12,25 @@
       <!-- # -->
       <% if !Break.all.empty? %>
 
-        <table class="table table-bordered table-responsive">
+        <table class="responsive-table">
           <thead>
           <tr>
-            <th>Cause</th>
-            <th><%= t :delay %></th>
-            <th><%= t :amount %></th>
+            <th scope="col">Cause</th>
+            <th scope="col"><%= t :delay %></th>
+            <th scope="col"><%= t :amount %></th>
           </tr>
           </thead>
 
           <tbody>
           <% Break.all.limit(3).each do |b| %>
               <tr>
-                <td>
+                <th scope="row">
                   <%= link_to b do %>
                       <%= b.break_cause.name %>
                   <% end %>
-                </td>
-                <td><%= (b.end_date - b.start_date).to_i %> <%= t :days %></td>
-                <td><b><%= b.expense.amount %> DH</b></td>
+                </th>
+                <td data-title="<%= t :delay %>"><%= (b.end_date - b.start_date).to_i %> <%= t :days %></td>
+                <td data-title="<%= t :amount %>"><b><%= b.expense.amount %> DH</b></td>
               </tr>
           <% end %>
           </tbody>

@@ -12,27 +12,27 @@
       <!-- # -->
       <% if !Insurance.all.empty? %>
 
-        <table class="table table-bordered table-responsive">
+        <table class="responsive-table">
           <thead>
           <tr>
-            <th><%= t :insurer %></th>
-            <th><%= t :starting_date %></th>
-            <th><%= t :end_date %></th>
-            <th><%= t :amount %></th>
+            <th scope="col"><%= t :insurer %></th>
+            <th scope="col"><%= t :starting_date %></th>
+            <th scope="col"><%= t :end_date %></th>
+            <th scope="col"><%= t :amount %></th>
           </tr>
           </thead>
 
           <tbody>
           <% Insurance.all.limit(3).each do |insurance| %>
               <tr>
-                <td>
+                <th scope="row">
                   <%= link_to insurance do %>
                       <%= insurance.insurer.name %>
                   <% end %>
-                </td>
-                <td><%= insurance.start_date %></td>
-                <td><%= insurance.expiration_date %></td>
-                <td><b><%= insurance.expense.amount %> DH</b></td>
+                </th>
+                <td data-title="<%= t :starting_date %>"><%= insurance.start_date %></td>
+                <td data-title="<%= t :end_date %>"><%= insurance.expiration_date %></td>
+                <td data-title="<%= t :amount %>"><b><%= insurance.expense.amount %> DH</b></td>
               </tr>
           <% end %>
 

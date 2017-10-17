@@ -12,33 +12,33 @@
       <!-- # -->
       <% if !Damage.all.empty? %>
 
-        <table class="table table-bordered table-responsive">
+        <table class="responsive-table">
           <thead>
           <tr>
-            <th>Cause</th>
-            <th><%= t :driver %></th>
-            <th>Date</th>
-            <th><%= t :amount %></th>
+            <th scope="col">Cause</th>
+            <th scope="col"><%= t :driver %></th>
+            <th scope="col">Date</th>
+            <th scope="col"><%= t :amount %></th>
           </tr>
           </thead>
 
           <tbody>
           <% Damage.all.limit(3).each do |damage| %>
               <tr>
-                <td>
+                <th scope="row">
                   <%= link_to damage do %>
                       <%= damage.damage_type.name %>
                   <% end %>
-                </td>
-                <td>
+                </th>
+                <td data-title="<%= t :driver %>">
                   <% if damage.driver_id %>
                       <%= damage.driver.full_name %>
                   <% else %>
                       <%= t :no_one %>
                   <% end %>
                 </td>
-                <td><%= damage.date %></td>
-                <td><b><%= damage.expense.amount %> DH</b></td>
+                <td data-title="Date"><%= damage.date %></td>
+                <td data-title="<%= t :amount %>"><b><%= damage.expense.amount %> DH</b></td>
               </tr>
           <% end %>
           </tbody>

@@ -19,22 +19,22 @@
 </div>
 
 <!-- # -->
-<table id="owner-data" class="table table-bordered table-responsive">
+<table id="owner-data" class="responsive-table">
   <thead>
     <tr>
-      <th><%= t :full_name %></th>
-      <th><%= t :home_phone %></th>
-      <th><%= t :mobile_phone %></th>
-      <th class="td-actions">Actions</th>
+      <th scope="col"><%= t :full_name %></th>
+      <th scope="col"><%= t :home_phone %></th>
+      <th scope="col"><%= t :mobile_phone %></th>
+      <th scope="col" class="td-actions">Actions</th>
     </tr>
   </thead>
 
   <tbody>
   <% @owners.each do |owner| %>
       <tr>
-        <td><%= owner.full_name %></td>
-        <td><%= owner.home_phone %></td>
-        <td><%= owner.mobile_phone %></td>
+        <th scope="row"><%= owner.full_name %></th>
+        <td data-title="<%= t :home_phone %>"><%= owner.home_phone %></td>
+        <td data-title="<%= t :mobile_phone %>"><%= owner.mobile_phone %></td>
         <td>
           <%= link_to owner, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>

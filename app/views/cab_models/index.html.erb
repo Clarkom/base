@@ -19,30 +19,30 @@
 </div>
 
 <!-- # -->
-<table id="cab-model-data" class="table table-bordered table-responsive">
+<table id="cab-model-data" class="responsive-table">
   <thead>
   <tr>
-    <th><%= t :model_name %></th>
-    <th>Description</th>
-    <th><%= t :manufacturer_year %></th>
-    <th><%= t :fuel_types %></th>
-    <th><%= t :sheet_metal%></th>
-    <th><%= t :power_hp %></th>
-    <th><%= t :number_of_places %></th>
-    <th class="td-actions">Actions</th>
+    <th scope="col"><%= t :model_name %></th>
+    <th scope="col">Description</th>
+    <th scope="col"><%= t :manufacturer_year %></th>
+    <th scope="col"><%= t :fuel_types %></th>
+    <th scope="col"><%= t :sheet_metal%></th>
+    <th scope="col"><%= t :power_hp %></th>
+    <th scope="col"><%= t :number_of_places %></th>
+    <th scope="col" class="td-actions">Actions</th>
   </tr>
   </thead>
 
   <tbody>
   <% @cab_models.each do |cab_model| %>
       <tr>
-        <td><%= cab_model.name %></td>
-        <td><%= cab_model.description %></td>
-        <td><%= cab_model.manufacture_year %></td>
-        <td><%= cab_model.fuel_type.name %></td>
-        <td><%= cab_model.sheet_metal %></td>
-        <td><%= cab_model.power_hp %></td>
-        <td><%= cab_model.number_places %></td>
+        <th scope="row"><%= cab_model.name %></th>
+        <td data-title="Description"><%= cab_model.description %></td>
+        <td data-title="<%= t :manufacturer_year %>"><%= cab_model.manufacture_year %></td>
+        <td data-title="<%= t :fuel_types %>"><%= cab_model.fuel_type.name %></td>
+        <td data-title="<%= t :sheet_metal %>"><%= cab_model.sheet_metal %></td>
+        <td data-title="<%= t :power_hp %>"><%= cab_model.power_hp %></td>
+        <td data-title="<%= t :number_of_places %>"><%= cab_model.number_places %></td>
         <td>
           <%= link_to cab_model, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>

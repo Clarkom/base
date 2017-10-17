@@ -20,23 +20,23 @@
 </div>
 
 <!-- # -->
-<table id="owner-take-data" class="table table-bordered table-responsive">
+<table id="owner-take-data" class="responsive-table">
 
   <thead>
     <tr>
-      <th><%= t :owner %></th>
-      <th>Date</th>
-      <th><%= t :amount %></th>
-      <th class="td-actions">Actions</th>
+      <th scope="col"><%= t :owner %></th>
+      <th scope="col">Date</th>
+      <th scope="col"><%= t :amount %></th>
+      <th scope="col" class="td-actions">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @owner_takes.each do |owner_take| %>
       <tr>
-        <td><%= owner_take.owner.full_name %></td>
-        <td><%= owner_take.date %></td>
-        <td><b><%= owner_take.expense.amount %> DH</b></td>
+        <th scope="row"><%= owner_take.owner.full_name %></th>
+        <td data-title="Date"><%= owner_take.date %></td>
+        <td data-title="<%= t :amount %>"><b><%= owner_take.expense.amount %> DH</b></td>
         <td>
           <%= link_to owner_take, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>
