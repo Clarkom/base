@@ -16,6 +16,7 @@ class DatePicker {
       $(class_name).datetimepicker({
         viewMode: 'years',
         format: date_type,
+        ignoreReadonly: true,
         allowInputToggle: true,
         icons: {
           previous: 'fa fa-chevron-left',

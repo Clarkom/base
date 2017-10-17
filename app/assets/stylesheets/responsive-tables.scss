@@ -34,11 +34,10 @@ $bp-homer: 75em;
     }
 
     th {
-      background-color: #566175;
-      border: 1px solid #647088;
-      font-weight: normal;
-      text-align: center;
-      color: white;
+      border-bottom: 2px solid #dedede;
+      font-weight: bold;
+      color: #292929;
+      padding-left: 8px;
 
       &:first-of-type {
         text-align: left;
@@ -109,27 +108,25 @@ $bp-homer: 75em;
     }
     tr {
       margin-bottom: 1em;
-
       @media (min-width: $bp-bart) {
         // Undo display: block
         display: table-row;
         border-width: 1px;
       }
-
       &:last-of-type {
         margin-bottom: 0;
       }
-
-      &:nth-of-type(even) {
+      &:nth-of-type(odd) {
         @media (min-width: $bp-bart) {
-          background-color: rgba(94,93,82,.1);
+          background-color: rgb(241, 243, 247);
         }
       }
+
     }
     th[scope="row"] {
-      background-color: #576175;
       color: white;
       text-align: center;
+      font-weight: inherit;
 
       @media (min-width: $bp-bart) {
         background-color: transparent;
@@ -137,25 +134,19 @@ $bp-homer: 75em;
         text-align: left;
       }
     }
-
     td {
-      text-align: right;
-
-
       @media (min-width: $bp-bart) {
-        text-align: center;
+        text-align: left;
       }
     }
-
     td[data-type=currency] {
       text-align: right;
     }
-
     td[data-title]:before {
       content: attr(data-title);
       float: left;
       font-size: .8em;
-      color: rgba(94,93,82,.75);
+      //color: rgba(94,93,82,.75);
 
       @media (min-width: $bp-lisa) {
         font-size: .9em;
@@ -166,6 +157,11 @@ $bp-homer: 75em;
         content: none;
       }
     }
-
+  }
+  &.dataTable {
+    td {
+      padding: 15px 13px;
+      text-align: left;
+    }
   }
 }

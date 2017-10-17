@@ -1,4 +1,4 @@
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
 
   //
   //
@@ -87,16 +87,27 @@
       tr {
         border: 1px solid #d2d2d2;
       }
-      tbody th[scope="row"] a {
-        color: #fff;
+      th[scope="row"] {
+        background: #ececec;
+        color: #444;
+        font-weight: bold;
+        border-bottom: 2px solid #dadada;
       }
       td {
         padding: 12px;
         line-height: 2.1em;
         min-height: 2em;
         border-bottom: 1px solid #e0e0e0;
+        text-align: right;
+      }
+      tbody td {
         &:last-child {
           background: #e8e8e8;
+        }
+      }
+      &.dataTable {
+        td {
+          text-align: right;
         }
       }
     }
@@ -121,8 +132,50 @@
         display: none;
       }
     }
+    .stats {
+      font-size: 12px;
+      .btn-sm {
+        display: block;
+        margin-bottom: 7px;
+      }
+      .col-md-12 {
+        padding: 0;
+      }
+      .card-title {
+        font-size: 13px;
+      }
+      .badge-info {
+        font-size: 12px;
+      }
+      .row {
+        padding: 0;
+        > div {
+          padding: 3px 8px;
+        }
+      }
+      .card-body {
+        padding: 13px;
+      }
+      .date-filter {
+        .btn-dark {
+          display: block;
+          width: 100%;
+          margin-top: 8px;
+          font-size: 14px;
+          padding: 6px 0px;
+        }
+      }
+    }
+    .actions {
+      .btn-sm {
+        display: block;
+        margin-bottom: 12px;
+      }
+    }
+    .main-content {
+      padding: 0 10px 20px 11px;
+    }
   }
-
 
 
 }
