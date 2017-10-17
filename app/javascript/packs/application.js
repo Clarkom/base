@@ -26,6 +26,7 @@ import '../../assets/stylesheets/sidebar.scss'
 import '../../assets/stylesheets/statistics.scss'
 import '../../assets/stylesheets/main.scss'
 import '../../assets/stylesheets/datetime.scss'
+import '../../assets/stylesheets/responsive-tables.scss'
 import '../../assets/stylesheets/responsive.scss'
 
 /**
