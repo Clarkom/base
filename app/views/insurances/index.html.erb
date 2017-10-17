@@ -22,10 +22,10 @@
 <table id="insurance-data" class="responsive-table">
   <thead>
     <tr>
-      <th scope="col"><%= t :insurer %></th>
-      <th scope="col"><%= t :attached_file %></th>
       <th scope="col"><%= t :starting_date %></th>
       <th scope="col"><%= t :expiration_date %></th>
+      <th scope="col"><%= t :insurer %></th>
+      <th scope="col"><%= t :attached_file %></th>
       <th scope="col"><%= t :amount %></th>
       <th scope="col" class="td-actions">Actions</th>
     </tr>
@@ -34,12 +34,12 @@
   <tbody>
     <% @insurances.each do |insurance| %>
       <tr>
-        <th scope="row"><%= insurance.insurer.name %></th>
-        <td data-title="<%= t :attached_file %>"><%= insurance.expense.attached_file.file ? image_tag(insurance.expense.attached_file, width: 159, height: 220) : 'No Document' %></td>
-        <td data-title="<%= t :starting_date %>"><%= insurance.start_date %></td>
+        <th scope="row"><%= insurance.start_date %></th>
         <td data-title="<%= t :expiration_date %>"><%= insurance.expiration_date %></td>
+        <td data-title="<%= t :insurer %>"><%= insurance.insurer.name %></td>
+        <td data-title="<%= t :attached_file %>"><%= insurance.expense.attached_file.file ? image_tag(insurance.expense.attached_file, width: 159, height: 220) : 'No Document' %></td>
         <td data-title="<%= t :amount %>"><b><%= insurance.expense.amount %> DH</b></td>
-        <td>
+        <td class="btn-actions">
           <%= link_to insurance, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>
           <% end %>

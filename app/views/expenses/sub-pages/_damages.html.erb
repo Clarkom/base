@@ -1,23 +1,24 @@
 <div class="card">
-    <div class="card-body">
+  <div class="card-body">
 
-      <!-- # -->
-      <h4 class="card-title">
-        <%= t 'damages' %>
-        <b class="badge badge-info">
-          <%= number_to_currency(Damage.includes(:expense).pluck(:amount).sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
-        </b>
-      </h4>
+    <!-- # -->
+    <h4 class="card-title">
+      <%= t 'damages' %>
+      <b class="badge badge-info">
+        <%= number_to_currency(Damage.includes(:expense).pluck(:amount).sum, unit: '', separator: ',', delimiter: '', precision: 1) %>
+        DH
+      </b>
+    </h4>
 
-      <!-- # -->
-      <% if !Damage.all.empty? %>
+    <!-- # -->
+    <% if !Damage.all.empty? %>
 
         <table class="responsive-table">
           <thead>
           <tr>
+            <th scope="col">Date</th>
             <th scope="col">Cause</th>
             <th scope="col"><%= t :driver %></th>
-            <th scope="col">Date</th>
             <th scope="col"><%= t :amount %></th>
           </tr>
           </thead>
@@ -27,9 +28,12 @@
               <tr>
                 <th scope="row">
                   <%= link_to damage do %>
-                      <%= damage.damage_type.name %>
+                      <%= damage.date %>
                   <% end %>
                 </th>
+                <td data-title="Cause">
+                  <%= damage.damage_type.name %>
+                </td>
                 <td data-title="<%= t :driver %>">
                   <% if damage.driver_id %>
                       <%= damage.driver.full_name %>
@@ -37,7 +41,6 @@
                       <%= t :no_one %>
                   <% end %>
                 </td>
-                <td data-title="Date"><%= damage.date %></td>
                 <td data-title="<%= t :amount %>"><b><%= damage.expense.amount %> DH</b></td>
               </tr>
           <% end %>
@@ -55,12 +58,12 @@
           <% end %>
         </div>
 
-      <% else %>
+    <% else %>
         <h5><%= t :no_data %></h5>
         <%= link_to new_damage_path, :class => 'btn btn-sm btn-info' do %>
             <%= fa_icon 'plus' %> <%= t :add_a_new_damage %>
         <% end %>
-      <% end %>
+    <% end %>
 
-    </div>
   </div>
+</div>

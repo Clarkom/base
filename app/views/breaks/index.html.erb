@@ -1,15 +1,15 @@
 <h4><%= t :breaks %></h4>
 
 <!-- # -->
-<div class="actions form-inline">
+<div class="actions row">
 
-  <div class="col">
-    <%= link_to new_break_path, :class => 'btn btn-info btn-sm form-control' do %>
+  <div class="col-md-4">
+    <%= link_to new_break_path, :class => 'btn btn-info btn-sm' do %>
         <%= fa_icon 'plus' %> <%= t :add_a_new_break %>
     <% end %>
   </div>
 
-  <div class="col">
+  <div class="col-md-4 ml-auto">
     <input type="search"
            class="form-control"
            id="search-break"
@@ -22,9 +22,9 @@
 <table id="break-data" class="responsive-table">
   <thead>
     <tr>
-      <th scope="col">Cause</th>
       <th scope="col"><%= t :starting_date %></th>
       <th scope="col"><%= t :end_date %></th>
+      <th scope="col">Cause</th>
       <th scope="col"><%= t :delay %></th>
       <th scope="col"><%= t :amount %></th>
       <th scope="col" class="td-actions">Actions</th>
@@ -34,12 +34,12 @@
   <tbody>
     <% @breaks.each do |b| %>
       <tr>
-        <th scope="row"><%= b.break_cause.name %></th>
-        <td data-title="<%= t :starting_date %>"><%= b.start_date %></td>
+        <th scope="row"><%= b.start_date %></th>
         <td data-title="<%= t :end_date %>"><%= b.end_date %></td>
+        <td data-title="Cause"><%= b.break_cause.name %></td>
         <td data-title="<%= t :delay %>"><%= (b.end_date - b.start_date).to_i %> <%= t :days %></td>
         <td data-title="<%= t :amount %>"><b><%= b.expense.amount %> DH</b></td>
-        <td>
+        <td class="btn-actions">
           <%= link_to b, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>
           <% end %>

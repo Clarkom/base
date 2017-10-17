@@ -16,8 +16,8 @@
 
           <thead>
           <tr>
-            <th scope="col">Manager</th>
             <th scope="col">Date</th>
+            <th scope="col">Manager</th>
             <th scope="col"><%= t :amount %></th>
           </tr>
           </thead>
@@ -27,10 +27,10 @@
               <tr>
                 <th scope="row">
                   <%= link_to manager_take do %>
-                      <%= manager_take.manager.full_name %>
+                      <%= manager_take.date %>
                   <% end %>
                 </th>
-                <td data-title="Manager"><%= manager_take.date %></td>
+                <td data-title="Manager"><%= manager_take.manager.full_name %></td>
                 <td data-title="<%= t :amount %>"><b><%= manager_take.income.amount %> DH</b></td>
               </tr>
           <% end %>

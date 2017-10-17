@@ -22,9 +22,9 @@
 <table id="damage-data" class="responsive-table">
   <thead>
     <tr>
+      <th scope="col">Date</th>
       <th scope="col">Cause</th>
       <th scope="col"><%= t :driver_responsible %></th>
-      <th scope="col">Date</th>
       <th scope="col"><%= t :mileage %></th>
       <th scope="col"><%= t :labor %></th>
       <th scope="col"><%= t :amount %></th>
@@ -35,7 +35,8 @@
   <tbody>
     <% @damages.each do |damage| %>
       <tr>
-        <th scope="row"><%= damage.damage_type.name %></th>
+        <th scope="row"><%= damage.date %></th>
+        <td data-title="Cause"><%= damage.damage_type.name %></td>
         <td data-title="<%= t :driver_responsible %>">
           <% if damage.driver_id %>
             <%= damage.driver.full_name %>
@@ -43,11 +44,10 @@
               <%= t :no_person_charge %>
           <% end %>
         </td>
-        <td data-title="Date"><%= damage.date %></td>
         <td data-title="<%= t :mileage %>"><%= damage.kilometers %></td>
         <td data-title="<%= t :labor %>"><%= damage.labor %></td>
         <td data-title="<%= t :amount %>"><b><%= damage.expense.amount %> DH</b></td>
-        <td>
+        <td class="btn-actions">
           <%= link_to damage, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>
           <% end %>

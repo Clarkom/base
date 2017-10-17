@@ -1,23 +1,24 @@
 <div class="card">
-    <div class="card-body">
+  <div class="card-body">
 
-      <!-- # -->
-      <h4 class="card-title">
-        <%= t :insurances %>
-        <b class="badge badge-info">
-          <%= number_to_currency(Insurance.includes(:expense).pluck(:amount).sum, unit: '', separator: ',', delimiter: '', precision: 1) %> DH
-        </b>
-      </h4>
+    <!-- # -->
+    <h4 class="card-title">
+      <%= t :insurances %>
+      <b class="badge badge-info">
+        <%= number_to_currency(Insurance.includes(:expense).pluck(:amount).sum, unit: '', separator: ',', delimiter: '', precision: 1) %>
+        DH
+      </b>
+    </h4>
 
-      <!-- # -->
-      <% if !Insurance.all.empty? %>
+    <!-- # -->
+    <% if !Insurance.all.empty? %>
 
         <table class="responsive-table">
           <thead>
           <tr>
-            <th scope="col"><%= t :insurer %></th>
             <th scope="col"><%= t :starting_date %></th>
             <th scope="col"><%= t :end_date %></th>
+            <th scope="col"><%= t :insurer %></th>
             <th scope="col"><%= t :amount %></th>
           </tr>
           </thead>
@@ -27,11 +28,13 @@
               <tr>
                 <th scope="row">
                   <%= link_to insurance do %>
-                      <%= insurance.insurer.name %>
+                      <%= insurance.start_date %>
                   <% end %>
                 </th>
-                <td data-title="<%= t :starting_date %>"><%= insurance.start_date %></td>
                 <td data-title="<%= t :end_date %>"><%= insurance.expiration_date %></td>
+                <td data-title="<%= t :insurer %>">
+                  <%= insurance.insurer.name %>
+                </td>
                 <td data-title="<%= t :amount %>"><b><%= insurance.expense.amount %> DH</b></td>
               </tr>
           <% end %>
@@ -50,13 +53,13 @@
           <% end %>
         </div>
 
-        <% else %>
-          <h5><%= t :no_data %></h5>
-          <%= link_to new_insurance_path, :class => 'btn btn-sm btn-info' do %>
-              <%= fa_icon 'plus' %> <%= t :add_a_new_insurance %>
-          <% end %>
-      <% end %>
+    <% else %>
+        <h5><%= t :no_data %></h5>
+        <%= link_to new_insurance_path, :class => 'btn btn-sm btn-info' do %>
+            <%= fa_icon 'plus' %> <%= t :add_a_new_insurance %>
+        <% end %>
+    <% end %>
 
 
-    </div>
   </div>
+</div>
