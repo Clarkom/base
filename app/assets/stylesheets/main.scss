@@ -46,6 +46,7 @@ h4 {
       text-overflow: ellipsis;
       white-space: nowrap;
       border-bottom: 1px solid #dedede;
+      width: 100%;
     }
     th {
       font-size: 14px;
@@ -79,7 +80,7 @@ h4 {
       width: 120px;
     }
     td {
-      padding: 20px !important;
+      padding: 20px;
     }
   }
   .input-group {
