@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :managers
+  devise_for :managers, controllers: { registrations: 'registrations'}
   root to: 'home#index'
 
   #

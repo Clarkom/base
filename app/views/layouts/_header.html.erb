@@ -47,11 +47,6 @@
               </li>
 
               <li class="dropdown-item">
-                <%= link_to edit_manager_registration_path(current_manager) do %>
-                    <%= fa_icon 'user' %> <%= t :your_profile %>
-                <% end %>
-              </li>
-              <li class="dropdown-item">
                 <%= link_to destroy_manager_session_path, method: :delete do %>
                     <%= fa_icon 'close' %> <%= t :sign_out %>
                 <% end %>
