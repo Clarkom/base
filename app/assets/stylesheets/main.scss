@@ -79,8 +79,15 @@ h4 {
       text-align: center;
       width: 120px;
     }
+    .btn-actions {
+      a {
+        padding: 3px 5px;
+        font-size: 12px;
+        display: inline-flex;
+      }
+    }
     td {
-      padding: 20px;
+      padding: 17px 0;
     }
   }
   .input-group {
@@ -104,14 +111,15 @@ h4 {
     color: red !important;
   }
   .table-sum {
-    background-color: #576175;
-    color: #fff;
+    color: #2e7282;
     font-size: 18px;
+    background: rgba(65, 162, 184, 0.19);
+    font-style: initial;
     td {
-      background: #576175 !important;
+      //background: #576175 !important;
     }
     td:last-child {
-      text-align: left;
+      text-align: right;
     }
   }
   &:before {

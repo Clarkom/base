@@ -35,7 +35,7 @@
     <tr>
       <th scope="row"><%= manager_take.date %></th>
       <td data-title="<%= t :amount %>"><b><%= manager_take.income.amount %> DH</b></td>
-      <td>
+      <td class="btn-actions">
         <%= link_to manager_take, :class => 'btn btn-outline-dark btn-sm' do %>
             <%= fa_icon 'eye' %>
         <% end %>

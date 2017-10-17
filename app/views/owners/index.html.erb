@@ -35,7 +35,7 @@
         <th scope="row"><%= owner.full_name %></th>
         <td data-title="<%= t :home_phone %>"><%= owner.home_phone %></td>
         <td data-title="<%= t :mobile_phone %>"><%= owner.mobile_phone %></td>
-        <td>
+        <td class="btn-actions">
           <%= link_to owner, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>
           <% end %>

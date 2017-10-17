@@ -24,8 +24,8 @@
 
   <thead>
     <tr>
-      <th scope="col"><%= t :owner %></th>
       <th scope="col">Date</th>
+      <th scope="col"><%= t :owner %></th>
       <th scope="col"><%= t :amount %></th>
       <th scope="col" class="td-actions">Actions</th>
     </tr>
@@ -34,10 +34,10 @@
   <tbody>
     <% @owner_takes.each do |owner_take| %>
       <tr>
-        <th scope="row"><%= owner_take.owner.full_name %></th>
-        <td data-title="Date"><%= owner_take.date %></td>
+        <th scope="row"><%= owner_take.date %></th>
+        <td data-title="<%= t :owner %>"><%= owner_take.owner.full_name %></td>
         <td data-title="<%= t :amount %>"><b><%= owner_take.expense.amount %> DH</b></td>
-        <td>
+        <td class="btn-actions">
           <%= link_to owner_take, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>
           <% end %>

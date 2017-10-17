@@ -31,7 +31,7 @@
   <% @fuel_types.each do |fuel_type| %>
       <tr>
         <th scope="row"><%= fuel_type.name %></th>
-        <td>
+        <td class="btn-actions">
           <%= link_to fuel_type, :class => 'btn btn-outline-dark btn-sm' do %>
               <%= fa_icon 'eye' %>
           <% end %>
